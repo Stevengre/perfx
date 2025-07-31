@@ -66,6 +66,8 @@ clean:
 	find . -type d -name ".pytest_cache" -exec rm -rf {} +
 	find . -type f -name ".coverage" -delete
 	find . -type d -name "htmlcov" -exec rm -rf {} +
+	rm -rf results/
+	rm -rf repositories/
 
 clean-all: clean
 	rm -rf .venv/

@@ -149,6 +149,35 @@ def sample_config() -> Dict[str, Any]:
 
 
 @pytest.fixture
+def mock_pytest_output():
+    """Mock pytest output for testing"""
+    return """test_example.py::test_function1 PASSED                           [ 25%]
+test_example.py::test_function2 PASSED                           [ 50%]
+test_example.py::test_function3 PASSED                           [ 75%]
+test_example.py::test_function4 FAILED                           [100%]
+
+============================== 4 passed, 1 failed in 1.23s =============================="""
+
+
+@pytest.fixture
+def mock_json_output():
+    """Mock JSON output for testing"""
+    return '''{
+        "results": {
+            "total_tests": 4,
+            "passed_tests": 3,
+            "failed_tests": 1
+        },
+        "details": [
+            {"name": "test1", "status": "passed", "duration": 0.1},
+            {"name": "test2", "status": "passed", "duration": 0.2},
+            {"name": "test3", "status": "passed", "duration": 0.15},
+            {"name": "test4", "status": "failed", "duration": 0.3}
+        ]
+    }'''
+
+
+@pytest.fixture
 def sample_config_file(temp_dir, sample_config):
     """Create a sample config file for testing"""
     import yaml

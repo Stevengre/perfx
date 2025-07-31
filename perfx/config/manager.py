@@ -27,7 +27,8 @@ class ConfigManager:
             "parsers": dict,
             "visualizations": list,
             "reporting": dict,
-            "conditions": dict,  # 新增：条件配置
+            "conditions": dict,
+        "dependency_cache": str,  # 新增：条件配置
         }
 
     def load_config(self, config_path: str) -> Dict[str, Any]:

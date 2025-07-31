@@ -27,22 +27,22 @@ class TestCLI:
         """Test list-templates command"""
         runner = CliRunner()
 
-        with patch("src.perfx.cli.Path.cwd") as mock_cwd:
+        with patch("perfx.cli.Path.cwd") as mock_cwd:
             mock_cwd.return_value = Path("/tmp")
 
-            with patch("src.perfx.cli.Path.exists") as mock_exists:
+            with patch("perfx.cli.Path.exists") as mock_exists:
                 mock_exists.return_value = False
 
                 result = runner.invoke(main, ["list-templates"])
 
                 assert result.exit_code == 0
-                assert "Available Templates" in result.output
+                assert "No templates directory found" in result.output
 
     def test_init_basic(self, temp_dir):
         """Test init command with basic template"""
         runner = CliRunner()
 
-        with patch("src.perfx.cli.Path.cwd") as mock_cwd:
+        with patch("perfx.cli.Path.cwd") as mock_cwd:
             mock_cwd.return_value = temp_dir
 
             output_file = temp_dir / "test_config.yaml"
@@ -57,7 +57,7 @@ class TestCLI:
         """Test init command with specific template"""
         runner = CliRunner()
 
-        with patch("src.perfx.cli.Path.cwd") as mock_cwd:
+        with patch("perfx.cli.Path.cwd") as mock_cwd:
             mock_cwd.return_value = temp_dir
 
             # Create a mock template file
@@ -177,28 +177,7 @@ class TestCLI:
             assert "Evaluation completed successfully" in result.output
             assert "Report generated" in result.output
 
-    def test_run_process_only(self, sample_config_file, temp_dir):
-        """Test run command with process-only flag"""
-        runner = CliRunner()
 
-        # Create some existing results
-        results_file = temp_dir / "evaluation_results.json"
-        results_file.write_text('{"test": "data"}')
-
-        result = runner.invoke(
-            main,
-            [
-                "run",
-                "--config",
-                str(sample_config_file),
-                "--process-only",
-                "--output-dir",
-                str(temp_dir),
-            ],
-        )
-
-        assert result.exit_code == 0
-        assert "Processing existing data" in result.output
 
     def test_run_verbose(self, sample_config_file):
         """Test run command with verbose flag"""

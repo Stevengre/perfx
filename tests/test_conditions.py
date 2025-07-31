@@ -197,11 +197,14 @@ class TestConditionExecution:
         # Test condition that uses environment variables
         env_condition = "os.environ.get('TEST_VAR', '') == 'test_value'"
         
-        # Without the environment variable
-        assert executor._evaluate_condition(env_condition) is False
+        # Without the environment variable (or with different value)
+        # The test might be running in an environment where TEST_VAR is already set
+        # So we need to be more specific about the test condition
+        with patch.dict('os.environ', {}, clear=True):
+            assert executor._evaluate_condition(env_condition) is False
         
         # With the environment variable
-        with patch.dict('os.environ', {'TEST_VAR': 'test_value'}):
+        with patch.dict('os.environ', {'TEST_VAR': 'test_value'}, clear=True):
             assert executor._evaluate_condition(env_condition) is True
 
     def test_complex_condition_evaluation(self, condition_config, temp_dir):

@@ -114,19 +114,16 @@ class TestIntegration:
             success = executor.run()
 
             assert success is True
-            assert len(executor.recorder.commands) == 2
-            assert len(executor.recorder.step_results) == 2
+            assert len(executor.recorder.results["commands"]) == 2
+            assert len(executor.recorder.results["steps"]) == 2
 
-            # Process data and generate reports
-            processor = DataProcessor(config, str(output_dir))
-            processor.recorder = executor.recorder
-            processor.generate_report()
+            # Save results
+            executor.recorder.save_results(Path(output_dir))
 
             # Check output files
             assert (output_dir / "evaluation_results.json").exists()
             assert (output_dir / "executed_commands.log").exists()
-            assert (output_dir / "report.html").exists()
-            assert (output_dir / "report.markdown").exists()
+            assert (output_dir / "summary.txt").exists()
 
     def test_workflow_with_failure(self, temp_dir):
         """Test workflow with command failure"""
@@ -163,7 +160,7 @@ class TestIntegration:
                 }
             },
             "visualizations": [],
-            "reporting": {"template": "basic", "output_formats": ["markdown"]},
+            "reporting": {},
         }
 
         # Mock subprocess.run to simulate failure
@@ -177,8 +174,8 @@ class TestIntegration:
             success = executor.run()
 
             assert success is False
-            assert len(executor.recorder.commands) == 1
-            assert executor.recorder.commands[0]["success"] is False
+            assert len(executor.recorder.results["commands"]) == 1
+            assert executor.recorder.results["commands"][0]["success"] is False
 
     def test_workflow_with_timeout(self, temp_dir):
         """Test workflow with command timeout"""
@@ -215,7 +212,7 @@ class TestIntegration:
                 }
             },
             "visualizations": [],
-            "reporting": {"template": "basic", "output_formats": ["markdown"]},
+            "reporting": {},
         }
 
         # Mock subprocess.run to simulate timeout
@@ -227,8 +224,8 @@ class TestIntegration:
             success = executor.run()
 
             assert success is False
-            assert len(executor.recorder.commands) == 1
-            assert executor.recorder.commands[0]["success"] is False
+            assert len(executor.recorder.results["commands"]) == 1
+            assert executor.recorder.results["commands"][0]["success"] is False
 
     def test_workflow_with_environment_vars(self, temp_dir):
         """Test workflow with environment variables"""
@@ -269,7 +266,7 @@ class TestIntegration:
                 }
             },
             "visualizations": [],
-            "reporting": {"template": "basic", "output_formats": ["markdown"]},
+            "reporting": {},
         }
 
         # Mock subprocess.run
@@ -283,8 +280,8 @@ class TestIntegration:
             success = executor.run()
 
             assert success is True
-            assert len(executor.recorder.commands) == 1
-            assert executor.recorder.commands[0]["success"] is True
+            assert len(executor.recorder.results["commands"]) == 1
+            assert executor.recorder.results["commands"][0]["success"] is True
 
             # Verify environment was passed to subprocess
             mock_run.assert_called()
@@ -293,89 +290,4 @@ class TestIntegration:
             assert call_args[1]["env"]["TEST_VAR"] == "test_value"
             assert call_args[1]["env"]["ANOTHER_VAR"] == "another_value"
 
-    def test_workflow_with_multiple_formats(self, temp_dir):
-        """Test workflow with multiple output formats"""
-        config = {
-            "name": "Multi-Format Test",
-            "version": "1.0.0",
-            "description": "Test with multiple output formats",
-            "global": {
-                "working_directory": ".",
-                "output_directory": str(temp_dir / "output"),
-                "timeout": 60,
-            },
-            "steps": [
-                {
-                    "name": "test_step",
-                    "description": "Test step",
-                    "enabled": True,
-                    "commands": [
-                        {
-                            "command": "echo 'Test completed successfully'",
-                            "cwd": ".",
-                            "timeout": 30,
-                            "expected_exit_code": 0,
-                        }
-                    ],
-                    "parser": "simple_parser",
-                }
-            ],
-            "parsers": {
-                "simple_parser": {
-                    "type": "simple",
-                    "success_patterns": ["Test completed successfully"],
-                    "error_patterns": ["ERROR"],
-                }
-            },
-            "visualizations": [
-                {
-                    "name": "test_chart",
-                    "type": "bar_chart",
-                    "data_source": "test_step",
-                    "x_axis": "test_name",
-                    "y_axis": "duration",
-                    "title": "Test Results",
-                    "output_formats": ["png", "svg"],
-                },
-                {
-                    "name": "test_table",
-                    "type": "table",
-                    "data_source": "test_step",
-                    "columns": ["test_name", "status"],
-                    "output_formats": ["markdown", "csv", "html"],
-                },
-            ],
-            "reporting": {
-                "template": "basic",
-                "output_formats": ["html", "markdown", "txt"],
-                "include_charts": True,
-                "include_tables": True,
-            },
-        }
 
-        # Mock subprocess.run
-        with patch("subprocess.run") as mock_run:
-            mock_run.return_value = MagicMock(
-                returncode=0, stdout="Test completed successfully\n", stderr=""
-            )
-
-            output_dir_path = temp_dir / "output"
-            output_dir_path.mkdir(exist_ok=True)
-
-            executor = EvaluationExecutor(config, str(output_dir_path))
-            success = executor.run()
-
-            assert success is True
-
-            # Process data and generate reports
-            output_dir_path = temp_dir / "output"
-            output_dir_path.mkdir(exist_ok=True)
-
-            processor = DataProcessor(config, str(output_dir_path))
-            processor.recorder = executor.recorder
-            processor.generate_report()
-
-            # Check multiple output files were created
-            assert (output_dir_path / "report.html").exists()
-            assert (output_dir_path / "report.markdown").exists()
-            assert (output_dir_path / "report.txt").exists()

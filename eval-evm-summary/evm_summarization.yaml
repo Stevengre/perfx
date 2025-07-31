@@ -25,7 +25,6 @@ global:
   # 环境变量设置
   environment:
     K_FRAMEWORK: "llvm"
-    K_OPTS: "--enable-llvm-backend"
     PYTHONPATH: "${PYTHONPATH}:./repositories/evm-semantics/kevm-pyk"
 
 # 仓库依赖
@@ -67,7 +66,6 @@ steps:
         cwd: "."
         timeout: 30
         expected_exit_code: 0
-    parser: "setup_parser"
 
   # 步骤 2: 构建 KEVM 语义
   - name: "build_kevm"
@@ -83,11 +81,6 @@ steps:
       # 安装依赖 (使用 uv)
       - command: "uv sync"
         cwd: "repositories/evm-semantics/kevm-pyk"
-        timeout: 300
-        expected_exit_code: 0
-      # 清理构建
-      - command: "uv --project kevm-pyk run -- kdist clean"
-        cwd: "repositories/evm-semantics"
         timeout: 300
         expected_exit_code: 0
       # MacBook 构建 plugin (Apple Silicon)
@@ -122,7 +115,23 @@ steps:
           max_attempts: 2
           delay: 120
           on_failure: "build_recovery"
-    parser: "build_parser"
+        environment:
+          CC: "/opt/homebrew/opt/llvm@14/bin/clang"
+          CXX: "/opt/homebrew/opt/llvm@14/bin/clang++"
+        condition: "platform.macbook"
+      # 通用平台构建所有 semantics
+      - command: "uv --project kevm-pyk run -- kdist --verbose build -j6"
+        cwd: "repositories/evm-semantics"
+        timeout: 3600  # 1 hour
+        expected_exit_code: 0
+        retry:
+          max_attempts: 2
+          delay: 120
+          on_failure: "build_recovery"
+        condition: "platform.other"
+    dependencies:
+      - path: "repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics"
+        type: "directory"
 
   # 步骤 2.5: 构建失败恢复
   - name: "build_recovery"
@@ -146,7 +155,6 @@ steps:
         cwd: "."
         timeout: 7200  # 2 hours
         expected_exit_code: 0
-    parser: "recovery_parser"
 
   # 步骤 3: 摘要化评估
   - name: "summarize_evaluation"
@@ -154,39 +162,15 @@ steps:
     enabled: true
     depends_on: ["build_kevm"]
     commands:
-      # 获取 opcode 列表
-      - command: "uv --project kevm-pyk run -- python -c \"from kevm_pyk.summarizer import OPCODES; print('Total opcodes:', len(OPCODES)); print('Available opcodes:', ' '.join(sorted(OPCODES)))\""
-        cwd: "repositories/evm-semantics"
-        timeout: 60
+      # 执行完整的摘要化有效性评估
+      - command: "uv run python ../../../eval-evm-summary/summarize_evaluator.py --verbose --timeout 1800 --workers 4 --output ../../../results/data/summarize_evaluation_results.json"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 1800  # 30 minutes
         expected_exit_code: 0
-        output_file: "results/data/opcode_list.txt"
-      # 执行摘要化评估
-      - command: "uv --project kevm-pyk run -- python -c \"from kevm_pyk.summarizer import summarize, get_summary_status; import json; results = {}; opcodes = ['ADD', 'MUL', 'SUB', 'DIV', 'JUMP', 'JUMPI', 'CALL', 'CREATE']; [results.update({op: {'summarized': summarize(op), 'status': get_summary_status(op)}}) for op in opcodes]; print(json.dumps(results, indent=2))\""
-        cwd: "repositories/evm-semantics"
-        timeout: 300
-        expected_exit_code: 0
-        output_file: "results/data/summarization_results.json"
-    parser: "summarize_parser"
-    output_format: "json"
-
-  # 步骤 4: 分类分析
-  - name: "category_analysis"
-    description: "Opcode 分类分析"
-    enabled: true
-    depends_on: ["summarize_evaluation"]
-    commands:
-      # 执行分类分析
-      - command: "uv --project kevm-pyk run -- python -c \"import json; from kevm_pyk.summarizer import summarize, get_summary_status; categories = {'ARITHMETIC': ['ADD', 'MUL', 'SUB', 'DIV'], 'FLOW_CONTROL': ['JUMP', 'JUMPI'], 'SYSTEM': ['CALL', 'CREATE']}; results = {}; [results.update({cat: {op: {'summarized': summarize(op), 'status': get_summary_status(op)} for op in ops}}) for cat, ops in categories.items()]; print(json.dumps(results, indent=2))\""
-        cwd: "repositories/evm-semantics"
-        timeout: 600
-        expected_exit_code: 0
-        output_file: "results/data/category_analysis.json"
-    parser: "category_parser"
-    output_format: "json"
 
   # 步骤 5: 证明摘要化测试
-  - name: "prove_summaries_test"
-    description: "摘要化语义正确性测试"
+  - name: "prove_summaries"
+    description: "摘要化语义正确性验证"
     enabled: true
     depends_on: ["build_kevm"]
     commands:
@@ -211,8 +195,6 @@ steps:
         cwd: "."
         timeout: 30
         expected_exit_code: 0
-    parser: "pytest_parser"
-    output_format: "text"
 
   # 步骤 6: 性能比较
   - name: "performance_comparison"
@@ -251,108 +233,4 @@ steps:
       - command: "cp results/backups/interpreter.py.performance repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
         cwd: "."
         timeout: 30
-        expected_exit_code: 0
-    parser: "performance_parser"
-    output_format: "json"
-
-# 解析器配置
-parsers:
-  setup_parser:
-    type: "simple"
-    patterns:
-      - pattern: ".*Environment setup completed.*"
-        capture: "setup_success"
-      - pattern: ".*"
-        capture: "setup_log"
-  
-  build_parser:
-    type: "simple"
-    patterns:
-      - pattern: ".*BUILD.*SUCCESS.*"
-        capture: "build_success"
-      - pattern: ".*ERROR.*"
-        capture: "build_error"
-      - pattern: ".*"
-        capture: "build_log"
-  
-  recovery_parser:
-    type: "simple"
-    patterns:
-      - pattern: ".*recovery.*success.*"
-        capture: "recovery_success"
-      - pattern: ".*ERROR.*"
-        capture: "recovery_error"
-      - pattern: ".*"
-        capture: "recovery_log"
-  
-  summarize_parser:
-    type: "simple"
-    patterns:
-      - pattern: ".*"
-        capture: "summarize_data"
-  
-  category_parser:
-    type: "simple"
-    patterns:
-      - pattern: ".*"
-        capture: "category_data"
-  
-  pytest_parser:
-    type: "simple"
-    patterns:
-      - pattern: ".*PASSED.*"
-        capture: "test_passed"
-      - pattern: ".*FAILED.*"
-        capture: "test_failed"
-      - pattern: ".*ERROR.*"
-        capture: "test_error"
-      - pattern: ".*"
-        capture: "test_log"
-  
-  performance_parser:
-    type: "simple"
-    patterns:
-      - pattern: ".*benchmark.*"
-        capture: "benchmark_time"
-      - pattern: ".*duration.*"
-        capture: "duration"
-      - pattern: ".*"
-        capture: "performance_log"
-
-# 可视化配置
-visualizations:
-  - name: "summarization_summary"
-    type: "table"
-    title: "EVM Opcode Summarization Summary"
-    data_source: "results/data/summarization_results.json"
-    columns:
-      - "opcode"
-      - "summarized"
-      - "status"
-  
-  - name: "category_analysis_chart"
-    type: "bar"
-    title: "Opcode Category Analysis"
-    data_source: "results/data/category_analysis.json"
-    x_axis: "category"
-    y_axis: "summarized_count"
-  
-  - name: "performance_comparison"
-    type: "line"
-    title: "Performance Comparison: Pure vs Summary"
-    data_source: "results/data/concrete_execution_performance.json"
-    x_axis: "test_name"
-    y_axis: "execution_time"
-    series:
-      - name: "Pure Semantics"
-        data_source: "results/data/concrete_execution_performance.json"
-      - name: "Summary Semantics"
-        data_source: "results/data/concrete_execution_summary_performance.json"
-
-# 报告配置
-reporting:
-  format: "html"
-  title: "EVM Summarization Evaluation Report"
-  output_file: "results/evaluation_report.html"
-  include_charts: true
-  include_tables: true 
+        expected_exit_code: 0 

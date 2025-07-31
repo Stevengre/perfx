@@ -16,6 +16,7 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 from ..parsers.base import ParserFactory
 from .recorder import EvaluationRecorder
 from .repository_manager import RepositoryManager
+from .dependency_manager import DependencyManager
 
 console = Console()
 
@@ -63,6 +64,10 @@ class EvaluationExecutor:
 
         # Load conditions from config
         self.conditions = config.get("conditions", {})
+        
+        # Initialize dependency manager
+        cache_file = config.get("global", {}).get("dependency_cache", "results/.dependency_cache.json")
+        self.dependency_manager = DependencyManager(cache_file)
 
     def _evaluate_condition(self, condition_expr: str) -> bool:
         """Evaluate a condition expression"""
@@ -125,8 +130,21 @@ class EvaluationExecutor:
                 console.print(f"[red]Failed to set up repositories: {e}[/red]")
                 return False
 
-        # Track dependencies
+        # First, check all steps to determine which ones are already completed
+        # due to unchanged dependencies
+        all_steps = self.config.get("steps", [])
+        all_steps = [step for step in all_steps if step.get("enabled", True)]
+        
         completed_steps = set()
+        for step in all_steps:
+            step_name = step.get("name", "unknown")
+            
+            # If step exists in cache, consider it completed
+            if step_name in self.dependency_manager.dependency_cache:
+                completed_steps.add(step_name)
+                console.print(f"[dim]Step '{step_name}' already completed (found in cache)[/dim]")
+
+        # Track dependencies for current run
         failed_steps = set()
 
         for step in steps:
@@ -170,10 +188,26 @@ class EvaluationExecutor:
         step_name = step.get("name", "unknown")
         description = step.get("description", step_name)
         commands = step.get("commands", [])
+        dependencies = step.get("dependencies", [])
 
         console.print(f"\n[bold blue]Running step: {step_name}[/bold blue]")
         if description != step_name:
             console.print(f"[dim]{description}[/dim]")
+
+        # Check file dependencies
+        step_skipped = False
+        if dependencies:
+            console.print(f"[dim]Checking dependencies for step: {step_name}[/dim]")
+            dependencies_changed = self.dependency_manager.check_dependencies_changed(step_name, dependencies)
+            
+            if not dependencies_changed:
+                console.print(f"[green]✓ Step '{step_name}' skipped - no dependencies changed[/green]")
+                step_skipped = True
+                # Mark dependencies as up-to-date even when skipped
+                self.dependency_manager.mark_step_completed(step_name)
+                return True
+            else:
+                console.print(f"[yellow]Dependencies changed, running step: {step_name}[/yellow]")
 
         if not commands:
             console.print("[yellow]No commands configured for this step[/yellow]")
@@ -208,6 +242,15 @@ class EvaluationExecutor:
                 self.recorder.add_step_results(step_name, parsed_results)
             except Exception as e:
                 console.print(f"[red]Error parsing step results: {e}[/red]")
+
+        # Mark dependencies as up-to-date if step was successful
+        if step_success and not step_skipped:
+            if dependencies:
+                self.dependency_manager.mark_step_completed(step_name)
+            else:
+                # For steps without file dependencies, mark them as completed in cache
+                self.dependency_manager.dependency_cache[step_name] = {}
+                self.dependency_manager._save_cache()
 
         return step_success
 

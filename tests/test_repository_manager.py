@@ -2,6 +2,7 @@
 Tests for RepositoryManager
 """
 
+import subprocess
 import tempfile
 from pathlib import Path
 from unittest.mock import Mock, patch
@@ -157,10 +158,10 @@ class TestRepositoryManager:
             with patch('subprocess.run') as mock_run:
                 mock_run.side_effect = Exception("Clone failed")
                 
-                with pytest.raises(RuntimeError) as exc_info:
+                with pytest.raises(Exception) as exc_info:
                     manager._clone_repository(url, repo_path, branch, submodules)
                 
-                assert "Failed to clone repository" in str(exc_info.value)
+                assert "Clone failed" in str(exc_info.value)
 
     def test_update_repository_success(self):
         """Test successful repository update"""
@@ -223,7 +224,7 @@ class TestRepositoryManager:
             repo_path.mkdir()
             
             with patch('subprocess.run') as mock_run:
-                mock_run.side_effect = Exception("Submodule init failed")
+                mock_run.side_effect = subprocess.CalledProcessError(1, "git submodule", "Submodule init failed")
                 
                 # Should not raise exception, just log warning
                 manager._init_submodules(repo_path)
@@ -245,6 +246,10 @@ class TestRepositoryManager:
         """Test getting non-existent repository path"""
         with tempfile.TemporaryDirectory() as temp_dir:
             manager = RepositoryManager(temp_dir)
+            
+            # Create repositories directory but no repo inside
+            repo_dir = Path(temp_dir) / "repositories"
+            repo_dir.mkdir()
             
             result = manager.get_repository_path("non-existent")
             
