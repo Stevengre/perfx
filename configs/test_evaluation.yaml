@@ -1,0 +1,87 @@
+name: "Test Evaluation"
+version: "1.0.0"
+description: "Test evaluation configuration for demonstration"
+
+metadata:
+  author: "Jianhong Zhao"
+  date: "2024-01-01"
+  tags: ["test", "demo"]
+
+global:
+  working_directory: "."
+  output_directory: "test_results"
+  timeout: 3600
+  parallel: false
+  environment: {}
+
+steps:
+  - name: "build"
+    description: "Build step simulation"
+    enabled: true
+    commands:
+      - command: "echo 'Building project...' && sleep 1 && echo 'Build completed successfully'"
+        cwd: "."
+        timeout: 60
+        expected_exit_code: 0
+    parser: "build_parser"
+    
+  - name: "conformance_test"
+    description: "Conformance test simulation"
+    enabled: true
+    depends_on: ["build"]
+    commands:
+      - command: "echo 'Running conformance tests...' && echo 'test_conformance::test1 PASSED in 0.5s' && echo 'test_conformance::test2 PASSED in 1.2s' && echo 'test_conformance::test3 FAILED' && echo 'test_conformance::test4 PASSED in 0.8s'"
+        cwd: "."
+        timeout: 60
+        expected_exit_code: 0
+    parser: "pytest_parser"
+    
+  - name: "performance_test"
+    description: "Performance test simulation"
+    enabled: true
+    depends_on: ["build"]
+    commands:
+      - command: "echo 'Running performance tests...' && echo 'test_performance::bench1 PASSED in 2.1s' && echo 'test_performance::bench2 PASSED in 1.8s' && echo 'test_performance::bench3 PASSED in 3.2s'"
+        cwd: "."
+        timeout: 60
+        expected_exit_code: 0
+    parser: "pytest_parser"
+
+parsers:
+  build_parser:
+    type: "simple"
+    success_patterns: ["Build completed successfully"]
+    error_patterns: ["ERROR", "FAILED"]
+    
+  pytest_parser:
+    type: "pytest"
+
+visualizations:
+  - name: "conformance_performance"
+    type: "line_chart"
+    data_source: "conformance_test"
+    x_axis: "test_name"
+    y_axis: "duration"
+    title: "Conformance Test Performance"
+    output_formats: ["png"]
+    
+  - name: "performance_chart"
+    type: "bar_chart"
+    data_source: "performance_test"
+    x_axis: "test_name"
+    y_axis: "duration"
+    title: "Performance Test Results"
+    output_formats: ["png"]
+    
+  - name: "summary_table"
+    type: "table"
+    data_source: "all"
+    columns: ["step", "status", "duration", "details"]
+    output_formats: ["markdown", "csv"]
+
+reporting:
+  template: "basic"
+  output_formats: ["html", "markdown"]
+  include_charts: true
+  include_tables: true
+  include_raw_data: false 

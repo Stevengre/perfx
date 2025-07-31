@@ -1,0 +1,301 @@
+name: "EVM Summarization Evaluation"
+version: "1.0.0"
+description: "EVM 语义摘要化评估配置"
+
+metadata:
+  author: "Perfx Team"
+  date: "2024-12-19"
+  tags: ["evm", "semantics", "summarization", "evaluation"]
+
+global:
+  working_directory: "."
+  output_directory: "results"
+  timeout: 7200  # 2 hours
+  parallel: false
+  verbose: true
+  
+  # 环境变量设置
+  environment:
+    K_FRAMEWORK: "llvm"
+    K_OPTS: "--enable-llvm-backend"
+    PYTHONPATH: "${PYTHONPATH}:./evm-semantics/kevm-pyk"
+    # MacBook 特殊环境变量
+    APPLE_SILICON: "true"
+    CC: "/opt/homebrew/opt/llvm@14/bin/clang"
+    CXX: "/opt/homebrew/opt/llvm@14/bin/clang++"
+
+# 仓库依赖
+repositories:
+  - name: "evm-semantics"
+    url: "https://github.com/runtimeverification/evm-semantics.git"
+    branch: "jh/evaluate-summarize"
+    path: "evm-semantics"
+    submodules: true
+
+# 评估步骤
+steps:
+  # 步骤 1: 环境准备
+  - name: "setup_environment"
+    description: "设置评估环境"
+    enabled: true
+    commands:
+      # 创建必要的目录
+      - command: "mkdir -p results/backups results/logs results/data"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+      # MacBook 编译器环境设置
+      - command: "python eval-evm-summary/setup_macos_env.py"
+        cwd: "."
+        timeout: 60
+        expected_exit_code: 0
+        environment:
+          APPLE_SILICON: "true"
+      # 记录环境设置完成
+      - command: "echo 'Environment setup completed at $(date)' > results/logs/setup.log"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+    parser: "setup_parser"
+
+  # 步骤 2: 构建 KEVM 语义
+  - name: "build_kevm"
+    description: "构建 KEVM 语义"
+    enabled: true
+    depends_on: ["setup_environment"]
+    commands:
+      # 更新子模块
+      - command: "git submodule update --init --recursive"
+        cwd: "evm-semantics"
+        timeout: 600
+        expected_exit_code: 0
+      # 安装 poetry
+      - command: "make poetry"
+        cwd: "evm-semantics"
+        timeout: 300
+        expected_exit_code: 0
+      # 清理构建
+      - command: "poetry run kdist clean"
+        cwd: "evm-semantics/kevm-pyk"
+        timeout: 300
+        expected_exit_code: 0
+      # Apple Silicon 特殊处理 - 构建 plugin
+      - command: "export APPLE_SILICON=true && poetry run kdist --verbose build evm-semantics.plugin"
+        cwd: "evm-semantics"
+        timeout: 1800  # 30 minutes
+        expected_exit_code: 0
+        retry:
+          max_attempts: 3
+          delay: 60
+        environment:
+          APPLE_SILICON: "true"
+      # Apple Silicon 特殊处理 - 构建所有 semantics
+      - command: "export APPLE_SILICON=true && poetry run kdist --verbose build -j6"
+        cwd: "evm-semantics"
+        timeout: 3600  # 1 hour
+        expected_exit_code: 0
+        retry:
+          max_attempts: 2
+          delay: 120
+        environment:
+          APPLE_SILICON: "true"
+    parser: "build_parser"
+
+  # 步骤 3: 摘要化评估
+  - name: "summarize_evaluation"
+    description: "EVM opcode 摘要化评估"
+    enabled: true
+    depends_on: ["build_kevm"]
+    commands:
+      # 获取 opcode 列表
+      - command: "python -c \"from kevm_pyk.summarizer import OPCODES; print('Total opcodes:', len(OPCODES)); print('Available opcodes:', ' '.join(sorted(OPCODES)))\""
+        cwd: "evm-semantics/kevm-pyk"
+        timeout: 60
+        expected_exit_code: 0
+        output_file: "results/data/opcode_list.txt"
+      # 执行摘要化评估
+      - command: "python -c \"from kevm_pyk.summarizer import summarize, get_summary_status; import json; results = {}; opcodes = ['ADD', 'MUL', 'SUB', 'DIV', 'JUMP', 'JUMPI', 'CALL', 'CREATE']; [results.update({op: {'summarized': summarize(op), 'status': get_summary_status(op)}}) for op in opcodes]; print(json.dumps(results, indent=2))\""
+        cwd: "evm-semantics/kevm-pyk"
+        timeout: 300
+        expected_exit_code: 0
+        output_file: "results/data/summarization_results.json"
+    parser: "summarize_parser"
+    output_format: "json"
+
+  # 步骤 4: 分类分析
+  - name: "category_analysis"
+    description: "Opcode 分类分析"
+    enabled: true
+    depends_on: ["summarize_evaluation"]
+    commands:
+      # 执行分类分析
+      - command: "python -c \"import json; from kevm_pyk.summarizer import summarize, get_summary_status; categories = {'ARITHMETIC': ['ADD', 'MUL', 'SUB', 'DIV'], 'FLOW_CONTROL': ['JUMP', 'JUMPI'], 'SYSTEM': ['CALL', 'CREATE']}; results = {}; [results.update({cat: {op: {'summarized': summarize(op), 'status': get_summary_status(op)} for op in ops}}) for cat, ops in categories.items()]; print(json.dumps(results, indent=2))\""
+        cwd: "evm-semantics/kevm-pyk"
+        timeout: 600
+        expected_exit_code: 0
+        output_file: "results/data/category_analysis.json"
+    parser: "category_parser"
+    output_format: "json"
+
+  # 步骤 5: 证明摘要化测试
+  - name: "prove_summaries_test"
+    description: "摘要化语义正确性测试"
+    enabled: true
+    depends_on: ["build_kevm"]
+    commands:
+      # 备份原始 interpreter.py 文件
+      - command: "cp evm-semantics/kevm-pyk/kevm_pyk/interpreter.py results/backups/interpreter.py.original"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+      # 修改 interpreter.py 以使用摘要化语义
+      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm\"/semantics = \"evm-semantics.llvm-summary\"/' evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+      # 运行证明摘要化测试
+      - command: "poetry run python -m pytest tests/prove-summaries/ -v"
+        cwd: "evm-semantics/kevm-pyk"
+        timeout: 1800
+        expected_exit_code: 0
+        output_file: "results/data/prove_summaries_test_results.txt"
+      # 恢复原始 interpreter.py 文件
+      - command: "cp results/backups/interpreter.py.original evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+    parser: "pytest_parser"
+    output_format: "text"
+
+  # 步骤 6: 性能比较
+  - name: "performance_comparison"
+    description: "具体执行性能比较"
+    enabled: true
+    depends_on: ["build_kevm"]
+    commands:
+      # 备份原始 interpreter.py 文件
+      - command: "cp evm-semantics/kevm-pyk/kevm_pyk/interpreter.py results/backups/interpreter.py.performance"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+      # 修改为纯语义模式
+      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm-summary\"/semantics = \"evm-semantics.llvm\"/' evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+      # 运行具体执行性能测试
+      - command: "poetry run python -m pytest tests/concrete-execution/ -v --benchmark-only"
+        cwd: "evm-semantics/kevm-pyk"
+        timeout: 1800
+        expected_exit_code: 0
+        output_file: "results/data/concrete_execution_performance.txt"
+      # 修改为摘要化语义模式
+      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm\"/semantics = \"evm-semantics.llvm-summary\"/' evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+      # 运行摘要化具体执行性能测试
+      - command: "poetry run python -m pytest tests/concrete-execution/ -v --benchmark-only"
+        cwd: "evm-semantics/kevm-pyk"
+        timeout: 1800
+        expected_exit_code: 0
+        output_file: "results/data/concrete_execution_summary_performance.txt"
+      # 恢复原始文件
+      - command: "cp results/backups/interpreter.py.performance evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+    parser: "performance_parser"
+    output_format: "json"
+
+# 解析器配置
+parsers:
+  setup_parser:
+    type: "simple"
+    patterns:
+      - pattern: ".*Environment setup completed.*"
+        capture: "setup_success"
+      - pattern: ".*"
+        capture: "setup_log"
+  
+  build_parser:
+    type: "simple"
+    patterns:
+      - pattern: ".*BUILD.*SUCCESS.*"
+        capture: "build_success"
+      - pattern: ".*ERROR.*"
+        capture: "build_error"
+      - pattern: ".*"
+        capture: "build_log"
+  
+  summarize_parser:
+    type: "simple"
+    patterns:
+      - pattern: ".*"
+        capture: "summarize_data"
+  
+  category_parser:
+    type: "simple"
+    patterns:
+      - pattern: ".*"
+        capture: "category_data"
+  
+  pytest_parser:
+    type: "simple"
+    patterns:
+      - pattern: ".*PASSED.*"
+        capture: "test_passed"
+      - pattern: ".*FAILED.*"
+        capture: "test_failed"
+      - pattern: ".*ERROR.*"
+        capture: "test_error"
+      - pattern: ".*"
+        capture: "test_log"
+  
+  performance_parser:
+    type: "simple"
+    patterns:
+      - pattern: ".*benchmark.*"
+        capture: "benchmark_time"
+      - pattern: ".*duration.*"
+        capture: "duration"
+      - pattern: ".*"
+        capture: "performance_log"
+
+# 可视化配置
+visualizations:
+  - name: "summarization_summary"
+    type: "table"
+    title: "EVM Opcode Summarization Summary"
+    data_source: "results/data/summarization_results.json"
+    columns:
+      - "opcode"
+      - "summarized"
+      - "status"
+  
+  - name: "category_analysis_chart"
+    type: "bar"
+    title: "Opcode Category Analysis"
+    data_source: "results/data/category_analysis.json"
+    x_axis: "category"
+    y_axis: "summarized_count"
+  
+  - name: "performance_comparison"
+    type: "line"
+    title: "Performance Comparison: Pure vs Summary"
+    data_source: "results/data/concrete_execution_performance.json"
+    x_axis: "test_name"
+    y_axis: "execution_time"
+    series:
+      - name: "Pure Semantics"
+        data_source: "results/data/concrete_execution_performance.json"
+      - name: "Summary Semantics"
+        data_source: "results/data/concrete_execution_summary_performance.json"
+
+# 报告配置
+reporting:
+  format: "html"
+  title: "EVM Summarization Evaluation Report"
+  output_file: "results/evaluation_report.html"
+  include_charts: true
+  include_tables: true 

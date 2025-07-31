@@ -205,3 +205,147 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# =============================================================================
+# Perfx Project Specific Ignores
+# =============================================================================
+
+# Test results and outputs
+results/
+repositories/
+*.log
+*.json
+*.html
+*.csv
+*.txt
+!README.md
+!LICENSE
+!requirements.txt
+!pyproject.toml
+!uv.lock
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Local configuration files
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Documentation build
+docs/_build/
+docs/build/
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+
+# Performance profiling
+*.prof
+*.profile
+
+# Jupyter notebooks (if any)
+*.ipynb
+.ipynb_checkpoints/
+
+# Local development
+local_config.yaml
+debug_config.yaml
+
+# Project specific
+eval/  # Original evaluation code (keep this if needed)
+*.pyc
+*.pyo
+*.pyd
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+test_output/
+
+# Documentation builds
+docs/_build/
+docs/build/
+site/
+
+# Jupyter
+*.ipynb
+.ipynb_checkpoints/
+
+# Profiling
+*.prof
+*.profile
+
+# Local config overrides
+local_*.yaml
+debug_*.yaml
+test_*.yaml
+!test_evaluation.yaml

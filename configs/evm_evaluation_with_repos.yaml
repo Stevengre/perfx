@@ -1,0 +1,118 @@
+name: "EVM Semantics Evaluation"
+version: "1.0.0"
+description: "Performance evaluation of EVM semantics using real repositories"
+metadata:
+  author: "Jianhong Zhao"
+  date: "2024-01-01"
+  tags: ["evm", "semantics", "performance", "repositories"]
+
+global:
+  working_directory: "."
+  output_directory: "results"
+  timeout: 7200  # 2 hours
+  parallel: false
+  environment:
+    PYTHONPATH: "${PYTHONPATH}:./repositories/evm-semantics/kevm-pyk"
+
+# Repository dependencies
+repositories:
+  - name: "evm-semantics"
+    url: "https://github.com/runtimeverification/evm-semantics.git"
+    branch: "jh/evaluate-summarize"
+    path: "evm-semantics"
+    submodules: true
+
+steps:
+  - name: "setup_environment"
+    description: "Set up the evaluation environment"
+    enabled: true
+    commands:
+      - command: "pwd"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+      - command: "ls -la"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+
+  - name: "build_evm_semantics"
+    description: "Build EVM semantics"
+    enabled: true
+    depends_on: ["setup_environment"]
+    commands:
+      - command: "make"
+        repository: "evm-semantics"
+        timeout: 1800  # 30 minutes
+        expected_exit_code: 0
+      - command: "uv --project kevm-pyk run -- kdist --verbose build evm-semantics.plugin"
+        repository: "evm-semantics"
+        timeout: 1800
+        expected_exit_code: 0
+      - command: "uv --project kevm-pyk run -- kdist --verbose build -j6"
+        repository: "evm-semantics"
+        timeout: 3600  # 1 hour
+        expected_exit_code: 0
+
+  - name: "run_ethereum_tests"
+    description: "Run Ethereum test suite"
+    enabled: true
+    depends_on: ["build_evm_semantics"]
+    commands:
+      - command: "git submodule update --init --recursive -- tests/ethereum-tests"
+        repository: "evm-semantics"
+        timeout: 600  # 10 minutes
+        expected_exit_code: 0
+      - command: "make test-vm PYTEST_ARGS+=-v"
+        repository: "evm-semantics"
+        timeout: 3600
+        expected_exit_code: 0
+    parser: "pytest_parser"
+
+  - name: "run_performance_benchmarks"
+    description: "Run performance benchmarks"
+    enabled: true
+    depends_on: ["build_evm_semantics"]
+    commands:
+      - command: "uv --project kevm-pyk run -- kevm-pyk run tests/ethereum-tests/BlockchainTests/GeneralStateTests/VMTests/vmArithmeticTest/add0.json --schedule DEFAULT --mode VMTESTS"
+        repository: "evm-semantics"
+        timeout: 300
+        expected_exit_code: 0
+      - command: "uv --project kevm-pyk run -- kevm-pyk run tests/ethereum-tests/BlockchainTests/GeneralStateTests/stExample/add11.json --target llvm --mode NORMAL --schedule CANCUN --chainid 1"
+        repository: "evm-semantics"
+        timeout: 300
+        expected_exit_code: 0
+
+parsers:
+  pytest_parser:
+    type: "pytest"
+  simple_parser:
+    type: "simple"
+    success_patterns: ["PASSED", "SUCCESS"]
+    error_patterns: ["FAILED", "ERROR"]
+
+visualizations:
+  - name: "test_performance_chart"
+    type: "line_chart"
+    data_source: "run_ethereum_tests"
+    x_axis: "test_name"
+    y_axis: "duration"
+    title: "Ethereum Test Performance"
+  - name: "build_time_chart"
+    type: "bar_chart"
+    data_source: "build_evm_semantics"
+    x_axis: "command"
+    y_axis: "duration"
+    title: "Build Time Analysis"
+
+reporting:
+  template: "comprehensive"
+  output_formats: ["html", "markdown", "json"]
+  include_charts: true
+  include_tables: true
+  sections:
+    - "summary"
+    - "repository_setup"
+    - "build_performance"
+    - "test_results"
+    - "benchmarks" 

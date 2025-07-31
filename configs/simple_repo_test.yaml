@@ -1,0 +1,51 @@
+name: "Simple Repository Test"
+version: "1.0.0"
+description: "Simple test for repository management functionality"
+metadata:
+  author: "Jianhong Zhao"
+  date: "2024-01-01"
+  tags: ["test", "repository"]
+
+global:
+  working_directory: "."
+  output_directory: "results"
+  timeout: 300
+  parallel: false
+
+# Repository dependencies
+repositories:
+  - name: "test-repo"
+    url: "https://github.com/octocat/Hello-World.git"
+    branch: "master"
+    path: "hello-world"
+    submodules: false
+
+steps:
+  - name: "test_repository"
+    description: "Test repository functionality"
+    enabled: true
+    commands:
+      - command: "pwd"
+        repository: "test-repo"
+        timeout: 30
+        expected_exit_code: 0
+      - command: "ls -la"
+        repository: "test-repo"
+        timeout: 30
+        expected_exit_code: 0
+      - command: "cat README"
+        repository: "test-repo"
+        timeout: 30
+        expected_exit_code: 0
+
+parsers:
+  simple_parser:
+    type: "simple"
+    success_patterns: ["Hello World"]
+    error_patterns: ["ERROR", "FAILED"]
+
+reporting:
+  template: "basic"
+  output_formats: ["markdown"]
+  include_charts: false
+  include_tables: true 

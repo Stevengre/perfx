@@ -1,0 +1,50 @@
+description: A basic evaluation configuration template
+global:
+  environment: {}
+  output_directory: results
+  parallel: false
+  timeout: 3600
+  working_directory: .
+metadata:
+  author: Jianhong Zhao
+  date: '2024-01-01'
+  tags:
+  - basic
+  - evaluation
+name: Basic Evaluation
+parsers:
+  simple_parser:
+    error_patterns:
+    - ERROR
+    - FAILED
+    success_patterns:
+    - Hello, World!
+    type: simple
+reporting:
+  include_charts: true
+  include_raw_data: false
+  include_tables: true
+  output_formats:
+  - html
+  - markdown
+  template: basic
+steps:
+- commands:
+  - command: echo 'Hello, World!'
+    cwd: .
+    expected_exit_code: 0
+    timeout: 60
+  description: An example step
+  enabled: true
+  name: example_step
+  parser: simple_parser
+version: 1.0.0
+visualizations:
+- data_source: example_step
+  name: example_chart
+  output_formats:
+  - png
+  title: Example Performance Chart
+  type: line_chart
+  x_axis: test_name
+  y_axis: duration

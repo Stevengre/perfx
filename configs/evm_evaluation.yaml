@@ -1,0 +1,94 @@
+name: "EVM Semantics Evaluation"
+version: "1.0.0"
+description: "评估EVM语义的性能和正确性"
+
+metadata:
+  author: "Jianhong Zhao"
+  date: "2024-01-01"
+  tags: ["evm", "semantics", "performance"]
+
+global:
+  working_directory: "."
+  output_directory: "results"
+  timeout: 3600
+  parallel: false
+  environment:
+    K_FRAMEWORK: "llvm"
+    K_OPTS: "--enable-llvm-backend"
+
+steps:
+  - name: "build"
+    description: "构建KEVM语义"
+    enabled: true
+    commands:
+      - command: "make build-llvm"
+        cwd: "."
+        timeout: 1800
+        expected_exit_code: 0
+        retry:
+          max_attempts: 3
+          delay: 60
+    parser: "build_parser"
+    
+  - name: "conformance_test"
+    description: "一致性测试"
+    enabled: true
+    depends_on: ["build"]
+    commands:
+      - command: "pytest tests/conformance/ -v --json-report"
+        cwd: "."
+        timeout: 600
+        expected_exit_code: 0
+    parser: "pytest_parser"
+    output_format: "json"
+    
+  - name: "performance_test"
+    description: "性能测试"
+    enabled: true
+    depends_on: ["build"]
+    commands:
+      - command: "time pytest tests/performance/"
+        cwd: "."
+        timeout: 1200
+    parser: "performance_parser"
+
+parsers:
+  build_parser:
+    type: "simple"
+    success_patterns: ["Build completed", "SUCCESS"]
+    error_patterns: ["ERROR", "FAILED"]
+    
+  pytest_parser:
+    type: "pytest"
+    patterns:
+      - pattern: "::.*passed.*in (\\d+\\.\\d+)s"
+        capture_groups: ["test_name", "duration"]
+      - pattern: "FAILED.*::(.*)"
+        capture_groups: ["test_name"]
+    
+  performance_parser:
+    type: "simple"
+    success_patterns: ["passed", "SUCCESS"]
+    error_patterns: ["FAILED", "ERROR"]
+
+visualizations:
+  - name: "performance_chart"
+    type: "line_chart"
+    data_source: "conformance_test"
+    x_axis: "test_name"
+    y_axis: "duration"
+    title: "Test Performance Comparison"
+    output_formats: ["png", "svg"]
+    
+  - name: "summary_table"
+    type: "table"
+    data_source: "all"
+    columns: ["step", "status", "duration", "details"]
+    output_formats: ["latex", "markdown", "csv"]
+
+reporting:
+  template: "academic"
+  output_formats: ["html", "pdf", "markdown"]
+  include_charts: true
+  include_tables: true
+  include_raw_data: false 

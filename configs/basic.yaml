@@ -1,0 +1,48 @@
+name: "Basic Evaluation"
+version: "1.0.0"
+description: "A basic evaluation configuration template"
+
+metadata:
+  author: "Jianhong Zhao"
+  date: "2024-01-01"
+  tags: ["basic", "evaluation"]
+
+global:
+  working_directory: "."
+  output_directory: "results"
+  timeout: 3600
+  parallel: false
+  environment: {}
+
+steps:
+  - name: "example_step"
+    description: "An example step"
+    enabled: true
+    commands:
+      - command: "echo 'Hello, World!'"
+        cwd: "."
+        timeout: 60
+        expected_exit_code: 0
+    parser: "simple_parser"
+
+parsers:
+  simple_parser:
+    type: "simple"
+    success_patterns: ["Hello, World!"]
+    error_patterns: ["ERROR", "FAILED"]
+
+visualizations:
+  - name: "example_chart"
+    type: "line_chart"
+    data_source: "example_step"
+    x_axis: "test_name"
+    y_axis: "duration"
+    title: "Example Performance Chart"
+    output_formats: ["png"]
+
+reporting:
+  template: "basic"
+  output_formats: ["html", "markdown"]
+  include_charts: true
+  include_tables: true
+  include_raw_data: false 
