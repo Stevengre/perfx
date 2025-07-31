@@ -4,6 +4,7 @@ Evaluation executor for running configured commands
 """
 
 import os
+import platform
 import subprocess
 import time
 from pathlib import Path
@@ -59,6 +60,39 @@ class EvaluationExecutor:
         # Initialize repository manager
         self.repo_manager = RepositoryManager(str(self.working_dir))
         self.repo_paths = {}
+
+        # Load conditions from config
+        self.conditions = config.get("conditions", {})
+
+    def _evaluate_condition(self, condition_expr: str) -> bool:
+        """Evaluate a condition expression"""
+        try:
+            # Create a safe evaluation environment
+            eval_env = {
+                'platform': platform,
+                'os': os,
+            }
+            
+            # Evaluate the condition
+            result = eval(condition_expr, {"__builtins__": {}}, eval_env)
+            return bool(result)
+        except Exception as e:
+            console.print(f"[red]Error evaluating condition '{condition_expr}': {e}[/red]")
+            return False
+
+    def _should_run_command(self, command_config: Dict[str, Any]) -> bool:
+        """Check if a command should be run based on its condition"""
+        condition = command_config.get("condition")
+        if not condition:
+            return True  # No condition means always run
+        
+        # Check if condition is defined in config
+        if condition in self.conditions:
+            condition_expr = self.conditions[condition]
+            return self._evaluate_condition(condition_expr)
+        else:
+            console.print(f"[yellow]Warning: Condition '{condition}' not found in config[/yellow]")
+            return True
 
     def run(self, steps_to_run: Optional[List[str]] = None) -> bool:
         """Run evaluation steps"""
@@ -149,6 +183,12 @@ class EvaluationExecutor:
         step_results = []
 
         for i, command_config in enumerate(commands):
+            # Check if the command should be run
+            if not self._should_run_command(command_config):
+                console.print(f"[yellow]Skipping command '{command_config.get('command', 'unknown')}' due to condition[/yellow]")
+                step_results.append(True)  # Indicate skipped command as successful
+                continue
+
             command_success = self._run_command(command_config, step_name, i)
             step_results.append(command_success)
 

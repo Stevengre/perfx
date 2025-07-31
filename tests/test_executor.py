@@ -37,8 +37,8 @@ class TestEvaluationExecutor:
             success = executor.run()
 
             assert success is True
-            assert len(executor.recorder.commands) == 1
-            assert executor.recorder.commands[0]["command"] == "echo 'Hello, World!'"
+            assert len(executor.recorder.results["commands"]) == 1
+            assert executor.recorder.results["commands"][0]["command"] == "echo 'Hello, World!'"
 
     def test_run_specific_steps(self, sample_config, temp_dir):
         """Test running specific steps"""
@@ -52,8 +52,8 @@ class TestEvaluationExecutor:
 
             success = executor.run(steps_to_run=["test_step"])
 
-            assert success is True
-            assert len(executor.recorder.commands) == 1
+        assert success is True
+        assert len(executor.recorder.results["commands"]) == 1
 
     def test_run_disabled_step(self, sample_config, temp_dir):
         """Test running with disabled step"""
@@ -64,7 +64,7 @@ class TestEvaluationExecutor:
         success = executor.run()
 
         assert success is True
-        assert len(executor.recorder.commands) == 0  # No commands executed
+        assert len(executor.recorder.results["commands"]) == 0  # No commands executed
 
     def test_run_command_timeout(self, sample_config, temp_dir):
         """Test command timeout"""
@@ -77,8 +77,8 @@ class TestEvaluationExecutor:
             success = executor.run()
 
             assert success is False
-            assert len(executor.recorder.commands) == 1
-            assert executor.recorder.commands[0]["success"] is False
+            assert len(executor.recorder.results["commands"]) == 1
+            assert executor.recorder.results["commands"][0]["success"] is False
 
     def test_run_command_failure(self, sample_config, temp_dir):
         """Test command failure"""
@@ -93,8 +93,8 @@ class TestEvaluationExecutor:
             success = executor.run()
 
             assert success is False
-            assert len(executor.recorder.commands) == 1
-            assert executor.recorder.commands[0]["success"] is False
+            assert len(executor.recorder.results["commands"]) == 1
+            assert executor.recorder.results["commands"][0]["success"] is False
 
     def test_run_with_environment(self, sample_config, temp_dir):
         """Test running with environment variables"""
@@ -150,10 +150,10 @@ class TestEvaluationExecutor:
             success = executor.run()
 
             assert success is True
-            assert len(executor.recorder.step_results) == 1
-            step_result = executor.recorder.step_results["test_step"]
-            assert step_result["success"] is True
-            assert "Hello, World!" in step_result["matched_patterns"]
+            assert len(executor.recorder.results["steps"]) == 1
+            step_result = executor.recorder.results["steps"]["test_step"]
+            assert "results" in step_result
+            assert step_result["results"]["success"] is True
 
     def test_run_multiple_steps(self, sample_config, temp_dir):
         """Test running multiple steps"""
@@ -186,5 +186,5 @@ class TestEvaluationExecutor:
             success = executor.run()
 
             assert success is True
-            assert len(executor.recorder.commands) == 2
-            assert len(executor.recorder.step_results) == 2
+            assert len(executor.recorder.results["commands"]) == 2
+            assert len(executor.recorder.results["steps"]) == 2

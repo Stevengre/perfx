@@ -212,6 +212,7 @@ __marimo__/
 
 # Test results and outputs
 results/
+evaluation_results/
 repositories/
 *.log
 *.json

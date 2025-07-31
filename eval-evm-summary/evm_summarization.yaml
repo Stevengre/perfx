@@ -7,6 +7,14 @@ metadata:
   date: "2024-12-19"
   tags: ["evm", "semantics", "summarization", "evaluation"]
 
+# 平台条件定义
+# 这些条件用于根据平台自动选择正确的构建命令
+# - platform.macbook: Apple Silicon Mac (需要特殊的编译器设置)
+# - platform.other: 其他平台 (使用默认设置)
+conditions:
+  platform.macbook: "platform.system() == 'Darwin' and platform.machine() == 'arm64'"
+  platform.other: "platform.system() != 'Darwin' or platform.machine() != 'arm64'"
+
 global:
   working_directory: "."
   output_directory: "results"
@@ -18,11 +26,7 @@ global:
   environment:
     K_FRAMEWORK: "llvm"
     K_OPTS: "--enable-llvm-backend"
-    PYTHONPATH: "${PYTHONPATH}:./evm-semantics/kevm-pyk"
-    # MacBook 特殊环境变量
-    APPLE_SILICON: "true"
-    CC: "/opt/homebrew/opt/llvm@14/bin/clang"
-    CXX: "/opt/homebrew/opt/llvm@14/bin/clang++"
+    PYTHONPATH: "${PYTHONPATH}:./repositories/evm-semantics/kevm-pyk"
 
 # 仓库依赖
 repositories:
@@ -51,8 +55,15 @@ steps:
         expected_exit_code: 0
         environment:
           APPLE_SILICON: "true"
+        condition: "platform.macbook"
+      # 非 MacBook 平台跳过特殊设置
+      - command: "echo 'Non-MacBook platform, skipping MacBook-specific setup'"
+        cwd: "."
+        timeout: 10
+        expected_exit_code: 0
+        condition: "platform.other"
       # 记录环境设置完成
-      - command: "echo 'Environment setup completed at $(date)' > results/logs/setup.log"
+      - command: "echo \"Environment setup completed at $(date)\" > results/logs/setup.log"
         cwd: "."
         timeout: 30
         expected_exit_code: 0
@@ -66,40 +77,76 @@ steps:
     commands:
       # 更新子模块
       - command: "git submodule update --init --recursive"
-        cwd: "evm-semantics"
+        cwd: "repositories/evm-semantics"
         timeout: 600
         expected_exit_code: 0
-      # 安装 poetry
-      - command: "make poetry"
-        cwd: "evm-semantics"
+      # 安装依赖 (使用 uv)
+      - command: "uv sync"
+        cwd: "repositories/evm-semantics/kevm-pyk"
         timeout: 300
         expected_exit_code: 0
       # 清理构建
-      - command: "poetry run kdist clean"
-        cwd: "evm-semantics/kevm-pyk"
+      - command: "uv --project kevm-pyk run -- kdist clean"
+        cwd: "repositories/evm-semantics"
         timeout: 300
         expected_exit_code: 0
-      # Apple Silicon 特殊处理 - 构建 plugin
-      - command: "export APPLE_SILICON=true && poetry run kdist --verbose build evm-semantics.plugin"
-        cwd: "evm-semantics"
+      # MacBook 构建 plugin (Apple Silicon)
+      - command: "APPLE_SILICON=true uv --project kevm-pyk run -- kdist --verbose build evm-semantics.plugin"
+        cwd: "repositories/evm-semantics"
         timeout: 1800  # 30 minutes
         expected_exit_code: 0
         retry:
-          max_attempts: 3
+          max_attempts: 2
           delay: 60
+          on_failure: "build_recovery"
         environment:
-          APPLE_SILICON: "true"
-      # Apple Silicon 特殊处理 - 构建所有 semantics
-      - command: "export APPLE_SILICON=true && poetry run kdist --verbose build -j6"
-        cwd: "evm-semantics"
+          CC: "/opt/homebrew/opt/llvm@14/bin/clang"
+          CXX: "/opt/homebrew/opt/llvm@14/bin/clang++"
+        condition: "platform.macbook"
+      # 通用平台构建 plugin
+      - command: "uv --project kevm-pyk run -- kdist --verbose build evm-semantics.plugin"
+        cwd: "repositories/evm-semantics"
+        timeout: 1800  # 30 minutes
+        expected_exit_code: 0
+        retry:
+          max_attempts: 2
+          delay: 60
+          on_failure: "build_recovery"
+        condition: "platform.other"
+      # MacBook 构建所有 semantics (Apple Silicon)
+      - command: "APPLE_SILICON=true uv --project kevm-pyk run -- kdist --verbose build -j6"
+        cwd: "repositories/evm-semantics"
         timeout: 3600  # 1 hour
         expected_exit_code: 0
         retry:
           max_attempts: 2
           delay: 120
-        environment:
-          APPLE_SILICON: "true"
+          on_failure: "build_recovery"
     parser: "build_parser"
+
+  # 步骤 2.5: 构建失败恢复
+  - name: "build_recovery"
+    description: "构建失败后的恢复处理"
+    enabled: true
+    depends_on: ["build_kevm"]
+    condition: "on_failure"
+    commands:
+      # 删除失败的构建目录
+      - command: "rm -rf repositories/evm-semantics"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+      # 重新执行环境准备
+      - command: "uv run perfx run -c eval-evm-summary/evm_summarization.yaml -s setup_environment"
+        cwd: "."
+        timeout: 1800  # 30 minutes
+        expected_exit_code: 0
+      # 重新执行构建
+      - command: "uv run perfx run -c eval-evm-summary/evm_summarization.yaml -s build_kevm"
+        cwd: "."
+        timeout: 7200  # 2 hours
+        expected_exit_code: 0
+    parser: "recovery_parser"
 
   # 步骤 3: 摘要化评估
   - name: "summarize_evaluation"
@@ -108,14 +155,14 @@ steps:
     depends_on: ["build_kevm"]
     commands:
       # 获取 opcode 列表
-      - command: "python -c \"from kevm_pyk.summarizer import OPCODES; print('Total opcodes:', len(OPCODES)); print('Available opcodes:', ' '.join(sorted(OPCODES)))\""
-        cwd: "evm-semantics/kevm-pyk"
+      - command: "uv --project kevm-pyk run -- python -c \"from kevm_pyk.summarizer import OPCODES; print('Total opcodes:', len(OPCODES)); print('Available opcodes:', ' '.join(sorted(OPCODES)))\""
+        cwd: "repositories/evm-semantics"
         timeout: 60
         expected_exit_code: 0
         output_file: "results/data/opcode_list.txt"
       # 执行摘要化评估
-      - command: "python -c \"from kevm_pyk.summarizer import summarize, get_summary_status; import json; results = {}; opcodes = ['ADD', 'MUL', 'SUB', 'DIV', 'JUMP', 'JUMPI', 'CALL', 'CREATE']; [results.update({op: {'summarized': summarize(op), 'status': get_summary_status(op)}}) for op in opcodes]; print(json.dumps(results, indent=2))\""
-        cwd: "evm-semantics/kevm-pyk"
+      - command: "uv --project kevm-pyk run -- python -c \"from kevm_pyk.summarizer import summarize, get_summary_status; import json; results = {}; opcodes = ['ADD', 'MUL', 'SUB', 'DIV', 'JUMP', 'JUMPI', 'CALL', 'CREATE']; [results.update({op: {'summarized': summarize(op), 'status': get_summary_status(op)}}) for op in opcodes]; print(json.dumps(results, indent=2))\""
+        cwd: "repositories/evm-semantics"
         timeout: 300
         expected_exit_code: 0
         output_file: "results/data/summarization_results.json"
@@ -129,8 +176,8 @@ steps:
     depends_on: ["summarize_evaluation"]
     commands:
       # 执行分类分析
-      - command: "python -c \"import json; from kevm_pyk.summarizer import summarize, get_summary_status; categories = {'ARITHMETIC': ['ADD', 'MUL', 'SUB', 'DIV'], 'FLOW_CONTROL': ['JUMP', 'JUMPI'], 'SYSTEM': ['CALL', 'CREATE']}; results = {}; [results.update({cat: {op: {'summarized': summarize(op), 'status': get_summary_status(op)} for op in ops}}) for cat, ops in categories.items()]; print(json.dumps(results, indent=2))\""
-        cwd: "evm-semantics/kevm-pyk"
+      - command: "uv --project kevm-pyk run -- python -c \"import json; from kevm_pyk.summarizer import summarize, get_summary_status; categories = {'ARITHMETIC': ['ADD', 'MUL', 'SUB', 'DIV'], 'FLOW_CONTROL': ['JUMP', 'JUMPI'], 'SYSTEM': ['CALL', 'CREATE']}; results = {}; [results.update({cat: {op: {'summarized': summarize(op), 'status': get_summary_status(op)} for op in ops}}) for cat, ops in categories.items()]; print(json.dumps(results, indent=2))\""
+        cwd: "repositories/evm-semantics"
         timeout: 600
         expected_exit_code: 0
         output_file: "results/data/category_analysis.json"
@@ -144,23 +191,23 @@ steps:
     depends_on: ["build_kevm"]
     commands:
       # 备份原始 interpreter.py 文件
-      - command: "cp evm-semantics/kevm-pyk/kevm_pyk/interpreter.py results/backups/interpreter.py.original"
+      - command: "cp repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py results/backups/interpreter.py.original"
         cwd: "."
         timeout: 30
         expected_exit_code: 0
       # 修改 interpreter.py 以使用摘要化语义
-      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm\"/semantics = \"evm-semantics.llvm-summary\"/' evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm\"/semantics = \"evm-semantics.llvm-summary\"/' repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
         cwd: "."
         timeout: 30
         expected_exit_code: 0
       # 运行证明摘要化测试
-      - command: "poetry run python -m pytest tests/prove-summaries/ -v"
-        cwd: "evm-semantics/kevm-pyk"
+      - command: "uv --project kevm-pyk run -- python -m pytest tests/prove-summaries/ -v"
+        cwd: "repositories/evm-semantics"
         timeout: 1800
         expected_exit_code: 0
         output_file: "results/data/prove_summaries_test_results.txt"
       # 恢复原始 interpreter.py 文件
-      - command: "cp results/backups/interpreter.py.original evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+      - command: "cp results/backups/interpreter.py.original repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
         cwd: "."
         timeout: 30
         expected_exit_code: 0
@@ -174,34 +221,34 @@ steps:
     depends_on: ["build_kevm"]
     commands:
       # 备份原始 interpreter.py 文件
-      - command: "cp evm-semantics/kevm-pyk/kevm_pyk/interpreter.py results/backups/interpreter.py.performance"
+      - command: "cp repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py results/backups/interpreter.py.performance"
         cwd: "."
         timeout: 30
         expected_exit_code: 0
       # 修改为纯语义模式
-      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm-summary\"/semantics = \"evm-semantics.llvm\"/' evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm-summary\"/semantics = \"evm-semantics.llvm\"/' repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
         cwd: "."
         timeout: 30
         expected_exit_code: 0
       # 运行具体执行性能测试
-      - command: "poetry run python -m pytest tests/concrete-execution/ -v --benchmark-only"
-        cwd: "evm-semantics/kevm-pyk"
+      - command: "uv --project kevm-pyk run -- python -m pytest tests/concrete-execution/ -v --benchmark-only"
+        cwd: "repositories/evm-semantics"
         timeout: 1800
         expected_exit_code: 0
         output_file: "results/data/concrete_execution_performance.txt"
       # 修改为摘要化语义模式
-      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm\"/semantics = \"evm-semantics.llvm-summary\"/' evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm-summary\"/semantics = \"evm-semantics.llvm\"/' repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
         cwd: "."
         timeout: 30
         expected_exit_code: 0
       # 运行摘要化具体执行性能测试
-      - command: "poetry run python -m pytest tests/concrete-execution/ -v --benchmark-only"
-        cwd: "evm-semantics/kevm-pyk"
+      - command: "uv --project kevm-pyk run -- python -m pytest tests/concrete-execution/ -v --benchmark-only"
+        cwd: "repositories/evm-semantics"
         timeout: 1800
         expected_exit_code: 0
         output_file: "results/data/concrete_execution_summary_performance.txt"
       # 恢复原始文件
-      - command: "cp results/backups/interpreter.py.performance evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+      - command: "cp results/backups/interpreter.py.performance repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
         cwd: "."
         timeout: 30
         expected_exit_code: 0
@@ -227,6 +274,16 @@ parsers:
         capture: "build_error"
       - pattern: ".*"
         capture: "build_log"
+  
+  recovery_parser:
+    type: "simple"
+    patterns:
+      - pattern: ".*recovery.*success.*"
+        capture: "recovery_success"
+      - pattern: ".*ERROR.*"
+        capture: "recovery_error"
+      - pattern: ".*"
+        capture: "recovery_log"
   
   summarize_parser:
     type: "simple"
