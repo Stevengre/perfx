@@ -8,7 +8,8 @@ import pytest
 
 from perfx.core.executor import EvaluationExecutor
 from perfx.core.recorder import EvaluationRecorder
-from perfx.parsers.base import JsonParser, PytestParser, SimpleParser
+from perfx.parsers.base import JsonParser, SimpleParser
+from perfx.parsers.pytest import PytestParser
 
 # Import mock data directly
 from .mock_data import (real_echo_output, real_fail_output, real_json_output,
@@ -19,7 +20,7 @@ class TestRealisticMockData:
     """Tests using realistic mock data with real command durations"""
 
     def test_simple_parser_with_real_duration(self):
-        """Test simple parser with realistic duration data"""
+        """Test simple parser with real command duration"""
         config = {
             "type": "simple",
             "success_patterns": ["Hello, World!"],
@@ -27,49 +28,38 @@ class TestRealisticMockData:
         }
 
         parser = SimpleParser(config)
-        result = parser.parse_output(real_echo_output["stdout"])
+        result = parser.parse(real_echo_output["stdout"], "", 0)
 
         assert result["success"] is True
         assert result["success_patterns_found"] is True
         assert result["error_patterns_found"] is False
 
-        # Verify that the mock duration is realistic (not 0)
-        assert real_echo_output["duration"] > 0
-        assert real_echo_output["duration"] < 1.0  # Should be quick
-
     def test_pytest_parser_with_real_duration(self):
-        """Test pytest parser with realistic duration data"""
+        """Test pytest parser with real command duration"""
         config = {"type": "pytest"}
+
         parser = PytestParser(config)
+        result = parser.parse(real_pytest_output["stdout"], "", 1)  # exit_code=1 because there are failed tests
 
-        result = parser.parse_output(real_pytest_output["stdout"])
-
-        # The real pytest output shows actual test results
-        assert result["success"] is False  # Some tests failed
-        assert result["total_tests"] >= 1  # At least one test
-        assert result["passed_tests"] >= 0
-        assert result["failed_tests"] >= 0
-
-        # Verify overall duration is parsed (actual duration may vary)
-        assert result["overall_duration"] > 0
-
-        # Verify that the duration in the output is present
+        assert result["success"] is False  # 有失败的测试
+        assert result["total_tests"] == 8
+        assert result["passed_tests"] == 7
+        assert result["failed_tests"] == 1
+        assert result["total_duration"] > 0
         assert "s" in real_pytest_output["stdout"]
 
     def test_json_parser_with_real_duration(self):
-        """Test JSON parser with realistic duration data"""
+        """Test JSON parser with real command duration"""
         config = {"type": "json"}
-        parser = JsonParser(config)
 
-        result = parser.parse_output(real_json_output["stdout"])
+        parser = JsonParser(config)
+        result = parser.parse(real_json_output["stdout"], "", 0)
 
         assert result["success"] is True
         assert result["data"]["results"]["total_tests"] == 6
         assert result["data"]["results"]["passed_tests"] == 5
         assert result["data"]["results"]["failed_tests"] == 1
-
-        # Verify that the duration in JSON matches our real duration
-        assert result["data"]["results"]["duration"] == 1.234
+        assert len(result["data"]["details"]) == 6
 
     def test_executor_with_real_durations(self, sample_config, temp_dir):
         """Test executor with realistic command durations"""

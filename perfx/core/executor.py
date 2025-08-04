@@ -9,6 +9,7 @@ import subprocess
 import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+import json
 
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
@@ -215,8 +216,18 @@ class EvaluationExecutor:
 
         step_success = True
         step_results = []
+        cleanup_commands = []
 
+        # Separate normal commands from cleanup commands
+        normal_commands = []
         for i, command_config in enumerate(commands):
+            if command_config.get("cleanup", False):
+                cleanup_commands.append((i, command_config))
+            else:
+                normal_commands.append((i, command_config))
+
+        # Run normal commands
+        for i, command_config in normal_commands:
             # Check if the command should be run
             if not self._should_run_command(command_config):
                 console.print(f"[yellow]Skipping command '{command_config.get('command', 'unknown')}' due to condition[/yellow]")
@@ -231,6 +242,22 @@ class EvaluationExecutor:
                 # Check if we should continue on command failure
                 if not command_config.get("continue_on_failure", False):
                     break
+
+        # Run cleanup commands in reverse order (LIFO)
+        if cleanup_commands:
+            console.print(f"[yellow]Running {len(cleanup_commands)} cleanup commands...[/yellow]")
+            for i, command_config in reversed(cleanup_commands):
+                # Check if the command should be run
+                if not self._should_run_command(command_config):
+                    console.print(f"[yellow]Skipping cleanup command '{command_config.get('command', 'unknown')}' due to condition[/yellow]")
+                    continue
+
+                cleanup_success = self._run_command(command_config, step_name, i)
+                step_results.append(cleanup_success)
+                
+                # Note: Cleanup command failures don't affect step success
+                if not cleanup_success:
+                    console.print(f"[red]Warning: Cleanup command failed, but continuing...[/red]")
 
         # Parse step results if parser is configured
         parser_name = step.get("parser")
@@ -354,6 +381,75 @@ class EvaluationExecutor:
             success=success,
             duration=duration,
         )
+
+        # Process outputs if configured
+        outputs = command_config.get("outputs", [])
+        if outputs:
+            for output_config in outputs:
+                try:
+                    input_type = output_config.get("input", "stdout")
+                    output_path = output_config.get("output")
+                    parser_type = output_config.get("parser")
+                    
+                    if not output_path:
+                        continue
+                    
+                    # Determine input content
+                    if input_type == "stdout":
+                        content = result.stdout
+                    elif input_type == "stderr":
+                        content = result.stderr
+                    elif input_type == "combined":
+                        content = f"STDOUT:\n{result.stdout}\n\nSTDERR:\n{result.stderr}"
+                    else:
+                        console.print(f"[yellow]Warning: Unknown input type '{input_type}'[/yellow]")
+                        continue
+                    
+                    # Create output path
+                    # Remove 'results/' prefix from output_path if it exists
+                    if output_path.startswith('results/'):
+                        output_path = output_path[8:]  # Remove 'results/' prefix
+                    
+                    output_file_path = Path(self.output_dir) / output_path
+                    output_file_path.parent.mkdir(parents=True, exist_ok=True)
+                    
+                    # Apply parser if specified
+                    if parser_type:
+                        try:
+                            from perfx.parsers import ParserFactory
+                            factory = ParserFactory()
+                            
+                            parser_config = {"type": parser_type}
+                            parser = factory.create_parser(parser_config)
+                            
+                            # Parse the content
+                            if input_type == "stdout":
+                                parsed_result = parser.parse(result.stdout, result.stderr, result.returncode)
+                            elif input_type == "stderr":
+                                parsed_result = parser.parse("", result.stderr, result.returncode)
+                            else:  # combined
+                                parsed_result = parser.parse(result.stdout, result.stderr, result.returncode)
+                            
+                            # Save parsed result as JSON
+                            with open(output_file_path, 'w', encoding='utf-8') as f:
+                                json.dump(parsed_result, f, indent=2, ensure_ascii=False)
+                            
+                            console.print(f"[dim]Parsed {input_type} saved to: {output_file_path}[/dim]")
+                            
+                        except Exception as e:
+                            console.print(f"[yellow]Warning: Parser '{parser_type}' failed: {e}[/yellow]")
+                            # Fall back to saving raw content
+                            with open(output_file_path, 'w', encoding='utf-8') as f:
+                                f.write(content)
+                            console.print(f"[dim]Raw {input_type} saved to: {output_file_path}[/dim]")
+                    else:
+                        # Save raw content
+                        with open(output_file_path, 'w', encoding='utf-8') as f:
+                            f.write(content)
+                        console.print(f"[dim]Raw {input_type} saved to: {output_file_path}[/dim]")
+                        
+                except Exception as e:
+                    console.print(f"[yellow]Warning: Failed to process output: {e}[/yellow]")
 
         # Display results
         if success:

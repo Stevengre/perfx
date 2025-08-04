@@ -19,9 +19,10 @@ class BaseParser(ABC):
         """Parse step results and return structured data"""
         pass
 
-    def parse_output(self, output: str) -> Dict[str, Any]:
+    @abstractmethod
+    def parse(self, stdout: str, stderr: str, exit_code: int) -> Dict[str, Any]:
         """Parse command output and return structured data"""
-        return {}
+        pass
 
 
 class SimpleParser(BaseParser):
@@ -36,20 +37,33 @@ class SimpleParser(BaseParser):
             "failed_commands": len(step_results) - sum(step_results),
         }
 
-    def parse_output(self, output: str) -> Dict[str, Any]:
+    def parse(self, stdout: str, stderr: str, exit_code: int) -> Dict[str, Any]:
         """Parse output using configured patterns"""
         success_patterns = self.config.get("success_patterns", [])
         error_patterns = self.config.get("error_patterns", [])
 
+        # Search in both stdout and stderr
         success_found = any(
-            re.search(pattern, output, re.IGNORECASE) for pattern in success_patterns
+            re.search(pattern, stdout, re.IGNORECASE) for pattern in success_patterns
+        ) or any(
+            re.search(pattern, stderr, re.IGNORECASE) for pattern in success_patterns
         )
         error_found = any(
-            re.search(pattern, output, re.IGNORECASE) for pattern in error_patterns
+            re.search(pattern, stdout, re.IGNORECASE) for pattern in error_patterns
+        ) or any(
+            re.search(pattern, stderr, re.IGNORECASE) for pattern in error_patterns
         )
 
+        # If no patterns are configured, only check exit_code
+        if not success_patterns and not error_patterns:
+            return {
+                "success": exit_code == 0,
+                "success_patterns_found": False,
+                "error_patterns_found": False,
+            }
+
         return {
-            "success": success_found and not error_found,
+            "success": success_found and not error_found and exit_code == 0,
             "success_patterns_found": success_found,
             "error_patterns_found": error_found,
         }
@@ -67,11 +81,11 @@ class PytestParser(BaseParser):
             "failed_commands": len(step_results) - sum(step_results),
         }
 
-    def parse_output(self, output: str) -> Dict[str, Any]:
+    def parse(self, stdout: str, stderr: str, exit_code: int) -> Dict[str, Any]:
         """Parse pytest output with duration information"""
         import re
 
-        lines = output.split("\n")
+        lines = stdout.split("\n")
 
         # Extract test results
         test_results = []
@@ -225,13 +239,14 @@ class PytestParser(BaseParser):
                 test_result["duration"] = test_durations[test_name]
 
         return {
+            "success": failed_tests == 0 and exit_code == 0,
             "total_tests": total_tests,
             "passed_tests": passed_tests,
             "failed_tests": failed_tests,
             "skipped_tests": skipped_tests,
-            "success": failed_tests == 0,
-            "test_results": test_results,
+            "error_tests": 0,  # Not separately tracked in this simple parser
             "overall_duration": overall_duration,
+            "test_durations": test_durations,
         }
 
 
@@ -247,15 +262,22 @@ class JsonParser(BaseParser):
             "failed_commands": len(step_results) - sum(step_results),
         }
 
-    def parse_output(self, output: str) -> Dict[str, Any]:
+    def parse(self, stdout: str, stderr: str, exit_code: int) -> Dict[str, Any]:
         """Parse JSON output"""
         import json
 
         try:
-            data = json.loads(output)
-            return {"success": True, "data": data}
+            data = json.loads(stdout)
+            return {
+                "success": exit_code == 0,
+                "data": data,
+            }
         except json.JSONDecodeError:
-            return {"success": False, "error": "Invalid JSON format"}
+            return {
+                "success": False,
+                "error": "Invalid JSON",
+                "data": None,
+            }
 
 
 class ParserFactory:
@@ -267,6 +289,13 @@ class ParserFactory:
             "pytest": PytestParser,
             "json": JsonParser,
         }
+        
+        # Try to register the enhanced pytest parser if available
+        try:
+            from .pytest import PytestParser as EnhancedPytestParser
+            self.parser_types["pytest"] = EnhancedPytestParser
+        except ImportError:
+            pass  # Fall back to basic pytest parser
 
     def create_parser(self, config: Dict[str, Any]) -> BaseParser:
         """Create a parser instance based on configuration"""

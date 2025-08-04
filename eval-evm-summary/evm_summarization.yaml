@@ -18,7 +18,7 @@ conditions:
 global:
   working_directory: "."
   output_directory: "results"
-  timeout: 7200  # 2 hours
+  timeout: 18000  # 5 hours
   parallel: false
   verbose: true
   
@@ -168,69 +168,233 @@ steps:
         timeout: 1800  # 30 minutes
         expected_exit_code: 0
 
-  # 步骤 5: 证明摘要化测试
+  # 步骤 4: 证明摘要化语义正确性
   - name: "prove_summaries"
     description: "摘要化语义正确性验证"
     enabled: true
     depends_on: ["build_kevm"]
     commands:
-      # 备份原始 interpreter.py 文件
-      - command: "cp repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py results/backups/interpreter.py.original"
-        cwd: "."
-        timeout: 30
+      - command: "uv run -- pytest src/tests/integration/test_prove.py::test_prove_summaries --verbose --durations=0 --dist=worksteal --numprocesses=8"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 7200
         expected_exit_code: 0
-      # 修改 interpreter.py 以使用摘要化语义
-      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm\"/semantics = \"evm-semantics.llvm-summary\"/' repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
-        cwd: "."
-        timeout: 30
-        expected_exit_code: 0
-      # 运行证明摘要化测试
-      - command: "uv --project kevm-pyk run -- python -m pytest tests/prove-summaries/ -v"
-        cwd: "repositories/evm-semantics"
-        timeout: 1800
-        expected_exit_code: 0
-        output_file: "results/data/prove_summaries_test_results.txt"
-      # 恢复原始 interpreter.py 文件
-      - command: "cp results/backups/interpreter.py.original repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
-        cwd: "."
-        timeout: 30
-        expected_exit_code: 0
-
-  # 步骤 6: 性能比较
-  - name: "performance_comparison"
-    description: "具体执行性能比较"
+        outputs:
+          - input: stdout
+            output: "results/data/prove_summaries_results.txt"
+          - input: stdout
+            parser: pytest
+            output: "results/data/prove_summaries_results.json"
+          - input: stderr
+            output: "results/data/prove_summaries_errors.txt"
+  
+  # 步骤 5: Pure Concrete Execution 性能测试
+  - name: "pure_concrete_performance"
+    description: "Pure Concrete Execution 性能测试"
     enabled: true
     depends_on: ["build_kevm"]
     commands:
-      # 备份原始 interpreter.py 文件
-      - command: "cp repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py results/backups/interpreter.py.performance"
+      # 修改为纯语义模式 (llvm-pure)
+      - command: "sed -i.bak \"s/kdist.get('evm-semantics.llvm')/kdist.get('evm-semantics.llvm-pure')/g\" repositories/evm-semantics/kevm-pyk/src/kevm_pyk/interpreter.py"
         cwd: "."
         timeout: 30
         expected_exit_code: 0
-      # 修改为纯语义模式
-      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm-summary\"/semantics = \"evm-semantics.llvm\"/' repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+      # 运行 pure concrete execution 性能测试
+      - command: "uv run -- pytest src/tests/integration/test_conformance.py --durations=0 --verbose"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 7200
+        expected_exit_code: 0
+        continue_on_failure: true
+        outputs:
+          - input: stdout
+            output: "results/data/pure_concrete_performance.txt"
+          - input: stdout
+            parser: pytest
+            output: "results/data/pure_concrete_performance.json"
+          - input: stderr
+            output: "results/data/pure_concrete_performance_errors.txt"
+      # 清理：恢复到原始状态
+      - command: "mv repositories/evm-semantics/kevm-pyk/src/kevm_pyk/interpreter.py.bak repositories/evm-semantics/kevm-pyk/src/kevm_pyk/interpreter.py"
         cwd: "."
         timeout: 30
         expected_exit_code: 0
-      # 运行具体执行性能测试
-      - command: "uv --project kevm-pyk run -- python -m pytest tests/concrete-execution/ -v --benchmark-only"
+        cleanup: true
+
+  # 步骤 6: Summary Concrete Execution 性能测试
+  - name: "summary_concrete_performance"
+    description: "Summary Concrete Execution 性能测试"
+    enabled: true
+    depends_on: ["build_kevm"]
+    commands:
+      # 修改为摘要化语义模式 (llvm-summary)
+      - command: "sed -i.bak \"s/kdist.get('evm-semantics.llvm')/kdist.get('evm-semantics.llvm-summary')/g\" repositories/evm-semantics/kevm-pyk/src/kevm_pyk/interpreter.py"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+      # 运行 summary concrete execution 性能测试
+      - command: "uv run -- pytest src/tests/integration/test_conformance.py --durations=0 --verbose"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 7200
+        expected_exit_code: 0
+        continue_on_failure: true
+        outputs:
+          - input: stdout
+            output: "results/data/summary_concrete_performance.txt"
+          - input: stdout
+            parser: pytest
+            output: "results/data/summary_concrete_performance.json"
+          - input: stderr
+            output: "results/data/summary_concrete_performance_errors.txt"
+      # 清理：恢复到原始状态
+      - command: "mv repositories/evm-semantics/kevm-pyk/src/kevm_pyk/interpreter.py.bak repositories/evm-semantics/kevm-pyk/src/kevm_pyk/interpreter.py"
+        cwd: "."
+        timeout: 30
+        expected_exit_code: 0
+        cleanup: true
+
+  # 步骤 7: Pure Symbolic Execution 性能测试
+  - name: "pure_symbolic_performance"
+    description: "Pure Symbolic Execution 性能测试"
+    enabled: true
+    depends_on: ["build_kevm"]
+    commands:
+      # 清理：恢复原始文件并删除备份文件
+      - command: "git checkout -- tests/specs && git clean -f -d tests/specs/"
         cwd: "repositories/evm-semantics"
-        timeout: 1800
+        timeout: 30
         expected_exit_code: 0
-        output_file: "results/data/concrete_execution_performance.txt"
-      # 修改为摘要化语义模式
-      - command: "sed -i.bak 's/semantics = \"evm-semantics.llvm-summary\"/semantics = \"evm-semantics.llvm\"/' repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+      # 替换 EDSL 为 EDSL-PURE
+      - command: "find repositories/evm-semantics/tests/specs -type f -exec sed -i.bak 's/EDSL/EDSL-PURE/g' {} \\;"
         cwd: "."
         timeout: 30
         expected_exit_code: 0
-      # 运行摘要化具体执行性能测试
-      - command: "uv --project kevm-pyk run -- python -m pytest tests/concrete-execution/ -v --benchmark-only"
+      # 运行 test-prove-rules (booster 模式)
+      - command: "uv run -- pytest src/tests/integration --verbose --durations=0 --dist=worksteal --maxfail=10 --numprocesses=4 -k test_prove_rules --tb=short --timeout=7200"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 18000
+        expected_exit_code: [0, 1, 2]
+        continue_on_failure: true
+        outputs:
+          - input: stdout
+            output: "results/data/pure_symbolic_prove_rules_booster.txt"
+          - input: stdout
+            parser: pytest
+            output: "results/data/pure_symbolic_prove_rules_booster.json"
+          - input: stderr
+            output: "results/data/pure_symbolic_prove_rules_booster_errors.txt"
+      # 运行 test-prove-rules (booster-dev 模式)
+      - command: "uv run -- pytest src/tests/integration --verbose --durations=0 --dist=worksteal --maxfail=10 --numprocesses=4 -k test_prove_rules --tb=short --use-booster-dev --timeout=7200"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 18000
+        expected_exit_code: [0, 1, 2]
+        continue_on_failure: true
+        outputs:
+          - input: stdout
+            output: "results/data/pure_symbolic_prove_rules_booster_dev.txt"
+          - input: stdout
+            parser: pytest
+            output: "results/data/pure_symbolic_prove_rules_booster_dev.json"
+          - input: stderr
+            output: "results/data/pure_symbolic_prove_rules_booster_dev_errors.txt"
+      # 运行 test-prove-summaries
+      - command: "uv run -- pytest src/tests/integration --verbose --durations=0 --dist=worksteal --maxfail=10 --numprocesses=4 -k test_prove_summaries --tb=short --timeout=7200"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 18000
+        expected_exit_code: [0, 1, 2]
+        continue_on_failure: true
+        outputs:
+          - input: stdout
+            output: "results/data/pure_symbolic_prove_summaries.txt"
+          - input: stdout
+            parser: pytest
+            output: "results/data/pure_symbolic_prove_summaries.json"
+          - input: stderr
+            output: "results/data/pure_symbolic_prove_summaries_errors.txt"
+      # 运行 test-prove-dss
+      - command: "uv run -- pytest src/tests/integration --verbose --durations=0 --dist=worksteal --maxfail=10 --numprocesses=4 -k test_prove_dss --tb=short --timeout=7200"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 18000
+        expected_exit_code: [0, 1, 2]
+        continue_on_failure: true
+        outputs:
+          - input: stdout
+            output: "results/data/pure_symbolic_prove_dss.txt"
+          - input: stdout
+            parser: pytest
+            output: "results/data/pure_symbolic_prove_dss.json"
+          - input: stderr
+            output: "results/data/pure_symbolic_prove_dss_errors.txt"
+
+
+  # 步骤 8: Summary Symbolic Execution 性能测试
+  - name: "summary_symbolic_performance"
+    description: "Summary Symbolic Execution 性能测试"
+    enabled: true
+    depends_on: ["build_kevm"]
+    commands:
+      # 清理：恢复原始文件并删除备份文件
+      - command: "git checkout -- tests/specs && git clean -f -d tests/specs/"
         cwd: "repositories/evm-semantics"
-        timeout: 1800
+        timeout: 30
         expected_exit_code: 0
-        output_file: "results/data/concrete_execution_summary_performance.txt"
-      # 恢复原始文件
-      - command: "cp results/backups/interpreter.py.performance repositories/evm-semantics/kevm-pyk/kevm_pyk/interpreter.py"
+      # 替换 EDSL 为 EDSL-SUMMARY
+      - command: "find repositories/evm-semantics/tests/specs -type f -exec sed -i.bak 's/EDSL/EDSL-SUMMARY/g' {} \\;"
         cwd: "."
         timeout: 30
-        expected_exit_code: 0 
+        expected_exit_code: 0
+      # 运行 test-prove-rules (booster 模式)
+      - command: "uv run -- pytest src/tests/integration --verbose --durations=0 --dist=worksteal --maxfail=10 --numprocesses=4 -k test_prove_rules --tb=short --timeout=7200"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 18000
+        expected_exit_code: [0, 1, 2]
+        continue_on_failure: true
+        outputs:
+          - input: stdout
+            output: "results/data/summary_symbolic_prove_rules_booster.txt"
+          - input: stdout
+            parser: pytest
+            output: "results/data/summary_symbolic_prove_rules_booster.json"
+          - input: stderr
+            output: "results/data/summary_symbolic_prove_rules_booster_errors.txt"
+      # 运行 test-prove-rules (booster-dev 模式)
+      - command: "uv run -- pytest src/tests/integration --verbose --durations=0 --dist=worksteal --maxfail=10 --numprocesses=4 -k test_prove_rules --tb=short --use-booster-dev --timeout=7200"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 18000
+        expected_exit_code: [0, 1, 2]
+        continue_on_failure: true
+        outputs:
+          - input: stdout
+            output: "results/data/summary_symbolic_prove_rules_booster_dev.txt"
+          - input: stdout
+            parser: pytest
+            output: "results/data/summary_symbolic_prove_rules_booster_dev.json"
+          - input: stderr
+            output: "results/data/summary_symbolic_prove_rules_booster_dev_errors.txt"
+      # 运行 test-prove-summaries
+      - command: "uv run -- pytest src/tests/integration --verbose --durations=0 --dist=worksteal --maxfail=10 --numprocesses=4 -k test_prove_summaries --tb=short --timeout=7200"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 18000
+        expected_exit_code: [0, 1, 2]
+        continue_on_failure: true
+        outputs:
+          - input: stdout
+            output: "results/data/summary_symbolic_prove_summaries.txt"
+          - input: stdout
+            parser: pytest
+            output: "results/data/summary_symbolic_prove_summaries.json"
+          - input: stderr
+            output: "results/data/summary_symbolic_prove_summaries_errors.txt"
+      # 运行 test-prove-dss
+      - command: "uv run -- pytest src/tests/integration --verbose --durations=0 --dist=worksteal --maxfail=10 --numprocesses=4 -k test_prove_dss --tb=short --timeout=7200"
+        cwd: "repositories/evm-semantics/kevm-pyk"
+        timeout: 18000
+        expected_exit_code: [0, 1, 2]
+        continue_on_failure: true
+        outputs:
+          - input: stdout
+            output: "results/data/summary_symbolic_prove_dss.txt"
+          - input: stdout
+            parser: pytest
+            output: "results/data/summary_symbolic_prove_dss.json"
+          - input: stderr
+            output: "results/data/summary_symbolic_prove_dss_errors.txt"
+ 
