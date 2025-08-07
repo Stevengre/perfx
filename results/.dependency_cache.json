@@ -1,0 +1,74 @@
+{
+  "setup_environment": {},
+  "build_kevm": {
+    "repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics": {
+      "path": "repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics",
+      "type": "directory",
+      "last_modified": 1753979650.744912,
+      "size": null,
+      "hash": "35e5efa91f27b9c9c56bc29affa0b7c5",
+      "pattern": null
+    }
+  },
+  "summarize_evaluation": {
+    "repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics": {
+      "path": "repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics",
+      "type": "directory",
+      "last_modified": 1753981271.9756129,
+      "size": null,
+      "hash": "25c66526ae5cbb3741485c7755c18d6c",
+      "pattern": null
+    }
+  },
+  "prove_summaries": {},
+  "test_outputs": {},
+  "test_pytest_parser": {},
+  "test_path_fix": {},
+  "test_cleanup_order": {},
+  "test_semantics_switch": {},
+  "test_step": {},
+  "test_step2": {},
+  "platform_specific_test": {},
+  "conditional_test": {},
+  "error_recovery_test": {},
+  "build": {},
+  "test": {},
+  "env_step": {},
+  "test_multiple_sed_operations": {},
+  "test_improved_backup_strategy": {},
+  "test_simplified_backup_strategy": {},
+  "test_first_step_with_backup": {},
+  "test_last_step_with_cleanup": {},
+  "step1": {},
+  "step2": {},
+  "test_rm_mv_restore": {},
+  "test_direct_mv_restore": {},
+  "pure_concrete_performance": {},
+  "summary_concrete_performance": {},
+  "pure_symbolic_performance": {},
+  "summary_symbolic_performance": {},
+  "data_analysis_and_visualization": {},
+  "test_partial_failure": {},
+  "process_step3_data": {
+    "results/data/summarize_evaluation_results.json": {
+      "path": "results/data/summarize_evaluation_results.json",
+      "type": "file",
+      "last_modified": 1754310483.024041,
+      "size": 20902,
+      "hash": "b02bf221aad053fa8ef16ab17a3d689d",
+      "pattern": null
+    }
+  },
+  "generate_step3_table": {
+    "results/processed/step3_processed.json": {
+      "path": "results/processed/step3_processed.json",
+      "type": "file",
+      "last_modified": 1754310483.525315,
+      "size": 33113,
+      "hash": "6dbb77505cd5708ebf2ccc673df40f8a",
+      "pattern": null
+    }
+  },
+  "data_preprocessing": {},
+  "visualization_generation": {}
+}

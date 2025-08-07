@@ -1,0 +1,440 @@
+{
+  "success": true,
+  "exit_code": 0,
+  "test_results": [
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[INVALID-SUMMARY]",
+      "status": "PASSED",
+      "duration": 391.61,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SAR-SUMMARY]",
+      "status": "PASSED",
+      "duration": 402.89,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[PREVRANDAO-SUMMARY]",
+      "status": "PASSED",
+      "duration": 408.99,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[ADDRESS-SUMMARY]",
+      "status": "PASSED",
+      "duration": 409.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[LT-SUMMARY]",
+      "status": "PASSED",
+      "duration": 76.4,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[CALLDATALOAD-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.06,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[MULMOD-SUMMARY]",
+      "status": "PASSED",
+      "duration": 77.25,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[MSIZE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 84.28,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SWAP-SUMMARY]",
+      "status": "PASSED",
+      "duration": 85.04,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[EVMOR-SUMMARY]",
+      "status": "PASSED",
+      "duration": 75.74,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[POP-SUMMARY]",
+      "status": "PASSED",
+      "duration": 82.44,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[MSTORE8-SUMMARY]",
+      "status": "PASSED",
+      "duration": 84.24,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[AND-SUMMARY]",
+      "status": "PASSED",
+      "duration": 75.85,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SELFBALANCE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 82.88,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[RETURN-SUMMARY]",
+      "status": "PASSED",
+      "duration": 97.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[TIMESTAMP-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.04,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[UNDEFINED-SUMMARY]",
+      "status": "PASSED",
+      "duration": 64.39,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[JUMPDEST-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.08,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[GASLIMIT-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.51,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[MCOPY-SUMMARY]",
+      "status": "PASSED",
+      "duration": 82.29,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[TSTORE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 75.62,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[MSTORE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 74.92,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[DUP-SUMMARY]",
+      "status": "PASSED",
+      "duration": 84.73,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[ORIGIN-SUMMARY]",
+      "status": "PASSED",
+      "duration": 82.87,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[GAS-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.13,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[COINBASE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.53,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[PUSHZERO-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.15,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[BALANCE-NORMAL-SUMMARY]",
+      "status": "PASSED",
+      "duration": 131.08,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SHR-SUMMARY]",
+      "status": "PASSED",
+      "duration": 76.59,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[TLOAD-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.42,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[ISZERO-SUMMARY]",
+      "status": "PASSED",
+      "duration": 82.1,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[CALLDATACOPY-SUMMARY]",
+      "status": "PASSED",
+      "duration": 75.99,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[GASPRICE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 82.77,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[ADDMOD-SUMMARY]",
+      "status": "PASSED",
+      "duration": 75.12,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[DIFFICULTY-SUMMARY]",
+      "status": "PASSED",
+      "duration": 82.52,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SLT-SUMMARY]",
+      "status": "PASSED",
+      "duration": 77.81,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SSTORE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 114.44,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SGT-SUMMARY]",
+      "status": "PASSED",
+      "duration": 79.76,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[CODESIZE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 85.9,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SLOAD-SUMMARY]",
+      "status": "PASSED",
+      "duration": 124.51,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[MOD-SUMMARY]",
+      "status": "PASSED",
+      "duration": 80.08,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[MLOAD-SUMMARY]",
+      "status": "PASSED",
+      "duration": 85.63,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[ADD-SUMMARY]",
+      "status": "PASSED",
+      "duration": 75.8,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[NUMBER-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.98,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SUB-SUMMARY]",
+      "status": "PASSED",
+      "duration": 75.83,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SIGNEXTEND-SUMMARY]",
+      "status": "PASSED",
+      "duration": 76.45,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[CALLER-SUMMARY]",
+      "status": "PASSED",
+      "duration": 84.76,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[PUSH-SUMMARY]",
+      "status": "PASSED",
+      "duration": 85.27,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[EQ-SUMMARY]",
+      "status": "PASSED",
+      "duration": 76.84,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[GT-SUMMARY]",
+      "status": "PASSED",
+      "duration": 75.89,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SHL-SUMMARY]",
+      "status": "PASSED",
+      "duration": 76.28,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[BALANCE-OWISE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 130.88,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[RETURNDATACOPY-SUMMARY]",
+      "status": "PASSED",
+      "duration": 165.84,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[DIV-SUMMARY]",
+      "status": "PASSED",
+      "duration": 76.93,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[CHAINID-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.61,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[LOG-SUMMARY]",
+      "status": "PASSED",
+      "duration": 79.28,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[STOP-SUMMARY]",
+      "status": "PASSED",
+      "duration": 105.45,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[CALLDATASIZE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 82.66,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SDIV-SUMMARY]",
+      "status": "PASSED",
+      "duration": 86.76,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SHA3-SUMMARY]",
+      "status": "PASSED",
+      "duration": 76.46,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[PC-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.62,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[SMOD-SUMMARY]",
+      "status": "PASSED",
+      "duration": 85.26,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[REVERT-SUMMARY]",
+      "status": "PASSED",
+      "duration": 96.96,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[XOR-SUMMARY]",
+      "status": "PASSED",
+      "duration": 75.15,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[BYTE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 83.29,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[EXP-SUMMARY]",
+      "status": "PASSED",
+      "duration": 114.31,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[NOT-SUMMARY]",
+      "status": "PASSED",
+      "duration": 81.76,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[CODECOPY-SUMMARY]",
+      "status": "PASSED",
+      "duration": 74.45,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[RETURNDATASIZE-SUMMARY]",
+      "status": "PASSED",
+      "duration": 71.43,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_summaries[BLOCKHASH-SUMMARY]",
+      "status": "PASSED",
+      "duration": 78.24,
+      "error_message": null
+    }
+  ],
+  "summary_stats": {
+    "passed": 70,
+    "failed": 0,
+    "skipped": 0,
+    "total_duration": 7262.09
+  },
+  "total_tests": 70,
+  "passed_tests": 70,
+  "failed_tests": 0,
+  "skipped_tests": 0,
+  "error_tests": 0,
+  "total_duration": 7262.09,
+  "raw_stdout": "============================= test session starts ==============================\nplatform darwin -- Python 3.10.17, pytest-8.4.1, pluggy-1.6.0 -- /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/.venv/bin/python\ncachedir: .pytest_cache\nhypothesis profile 'default'\nrootdir: /Users/steven/Desktop/projs/perfx\nconfigfile: pyproject.toml\nplugins: xdist-3.8.0, timeout-2.4.0, cov-6.2.1, mock-3.14.1, hypothesis-6.135.32, kframework-7.1.280\ntimeout: 7200.0s\ntimeout method: signal\ntimeout func_only: False\ncreated: 4/4 workers\n4 workers [70 items]\n\nscheduling tests via WorkStealingScheduling\n\nsrc/tests/integration/test_prove.py::test_prove_summaries[ADDRESS-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[INVALID-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[PREVRANDAO-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SAR-SUMMARY] \n[gw1] [  1%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[INVALID-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[LT-SUMMARY] \n[gw3] [  2%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SAR-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[CALLDATALOAD-SUMMARY] \n[gw2] [  4%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[PREVRANDAO-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[MULMOD-SUMMARY] \n[gw0] [  5%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[ADDRESS-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[MSIZE-SUMMARY] \n[gw1] [  7%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[LT-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SWAP-SUMMARY] \n[gw3] [  8%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[CALLDATALOAD-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[POP-SUMMARY] \n[gw2] [ 10%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[MULMOD-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[EVMOR-SUMMARY] \n[gw0] [ 11%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[MSIZE-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[MSTORE8-SUMMARY] \n[gw1] [ 12%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SWAP-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[RETURN-SUMMARY] \n[gw2] [ 14%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[EVMOR-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SELFBALANCE-SUMMARY] \n[gw3] [ 15%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[POP-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[AND-SUMMARY] \n[gw0] [ 17%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[MSTORE8-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[TIMESTAMP-SUMMARY] \n[gw3] [ 18%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[AND-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[JUMPDEST-SUMMARY] \n[gw2] [ 20%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SELFBALANCE-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[GASLIMIT-SUMMARY] \n[gw1] [ 21%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[RETURN-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[UNDEFINED-SUMMARY] \n[gw0] [ 22%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[TIMESTAMP-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[MCOPY-SUMMARY] \n[gw1] [ 24%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[UNDEFINED-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[TSTORE-SUMMARY] \n[gw3] [ 25%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[JUMPDEST-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[MSTORE-SUMMARY] \n[gw2] [ 27%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[GASLIMIT-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[DUP-SUMMARY] \n[gw0] [ 28%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[MCOPY-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[ORIGIN-SUMMARY] \n[gw1] [ 30%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[TSTORE-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[GAS-SUMMARY] \n[gw3] [ 31%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[MSTORE-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[BALANCE-NORMAL-SUMMARY] \n[gw2] [ 32%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[DUP-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[COINBASE-SUMMARY] \n[gw0] [ 34%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[ORIGIN-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[PUSHZERO-SUMMARY] \n[gw1] [ 35%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[GAS-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SHR-SUMMARY] \n[gw2] [ 37%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[COINBASE-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[TLOAD-SUMMARY] \n[gw0] [ 38%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[PUSHZERO-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[ISZERO-SUMMARY] \n[gw3] [ 40%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[BALANCE-NORMAL-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[CALLDATACOPY-SUMMARY] \n[gw1] [ 41%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SHR-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[GASPRICE-SUMMARY] \n[gw2] [ 42%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[TLOAD-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[ADDMOD-SUMMARY] \n[gw0] [ 44%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[ISZERO-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[DIFFICULTY-SUMMARY] \n[gw3] [ 45%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[CALLDATACOPY-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SLT-SUMMARY] \n[gw1] [ 47%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[GASPRICE-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SSTORE-SUMMARY] \n[gw2] [ 48%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[ADDMOD-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SLOAD-SUMMARY] \n[gw0] [ 50%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[DIFFICULTY-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SGT-SUMMARY] \n[gw3] [ 51%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SLT-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[CODESIZE-SUMMARY] \n[gw1] [ 52%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SSTORE-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[MOD-SUMMARY] \n[gw0] [ 54%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SGT-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[MLOAD-SUMMARY] \n[gw3] [ 55%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[CODESIZE-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[NUMBER-SUMMARY] \n[gw2] [ 57%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SLOAD-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[ADD-SUMMARY] \n[gw1] [ 58%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[MOD-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SUB-SUMMARY] \n[gw0] [ 60%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[MLOAD-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SIGNEXTEND-SUMMARY] \n[gw2] [ 61%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[ADD-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[CALLER-SUMMARY] \n[gw3] [ 62%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[NUMBER-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[PUSH-SUMMARY] \n[gw1] [ 64%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SUB-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[EQ-SUMMARY] \n[gw0] [ 65%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SIGNEXTEND-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[RETURNDATACOPY-SUMMARY] \n[gw2] [ 67%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[CALLER-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[BALANCE-OWISE-SUMMARY] \n[gw3] [ 68%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[PUSH-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[GT-SUMMARY] \n[gw1] [ 70%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[EQ-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SHL-SUMMARY] \n[gw3] [ 71%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[GT-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[DIV-SUMMARY] \n[gw1] [ 72%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SHL-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[CHAINID-SUMMARY] \n[gw2] [ 74%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[BALANCE-OWISE-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[STOP-SUMMARY] \n[gw0] [ 75%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[RETURNDATACOPY-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[LOG-SUMMARY] \n[gw3] [ 77%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[DIV-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[CALLDATASIZE-SUMMARY] \n[gw1] [ 78%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[CHAINID-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SDIV-SUMMARY] \n[gw0] [ 80%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[LOG-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SHA3-SUMMARY] \n[gw2] [ 81%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[STOP-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[SMOD-SUMMARY] \n[gw3] [ 82%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[CALLDATASIZE-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[PC-SUMMARY] \n[gw1] [ 84%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SDIV-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[REVERT-SUMMARY] \n[gw0] [ 85%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SHA3-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[EXP-SUMMARY] \n[gw3] [ 87%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[PC-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[XOR-SUMMARY] \n[gw2] [ 88%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[SMOD-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[BYTE-SUMMARY] \n[gw1] [ 90%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[REVERT-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[NOT-SUMMARY] \n[gw3] [ 91%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[XOR-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[CODECOPY-SUMMARY] \n[gw2] [ 92%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[BYTE-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[BLOCKHASH-SUMMARY] \n[gw0] [ 94%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[EXP-SUMMARY] \nsrc/tests/integration/test_prove.py::test_prove_summaries[RETURNDATASIZE-SUMMARY] \n[gw1] [ 95%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[NOT-SUMMARY] \n[gw3] [ 97%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[CODECOPY-SUMMARY] \n[gw0] [ 98%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[RETURNDATASIZE-SUMMARY] \n[gw2] [100%] PASSED src/tests/integration/test_prove.py::test_prove_summaries[BLOCKHASH-SUMMARY] \n\n============================== slowest durations ===============================\n409.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ADDRESS-SUMMARY]\n408.99s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PREVRANDAO-SUMMARY]\n402.89s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SAR-SUMMARY]\n391.61s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[INVALID-SUMMARY]\n165.84s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[RETURNDATACOPY-SUMMARY]\n131.08s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BALANCE-NORMAL-SUMMARY]\n130.88s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BALANCE-OWISE-SUMMARY]\n124.51s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SLOAD-SUMMARY]\n114.44s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SSTORE-SUMMARY]\n114.31s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[EXP-SUMMARY]\n105.45s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[STOP-SUMMARY]\n97.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[RETURN-SUMMARY]\n96.96s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[REVERT-SUMMARY]\n86.76s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SDIV-SUMMARY]\n85.90s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CODESIZE-SUMMARY]\n85.63s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MLOAD-SUMMARY]\n85.27s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PUSH-SUMMARY]\n85.26s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SMOD-SUMMARY]\n85.04s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SWAP-SUMMARY]\n84.76s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLER-SUMMARY]\n84.73s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[DUP-SUMMARY]\n84.28s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MSIZE-SUMMARY]\n84.24s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MSTORE8-SUMMARY]\n83.98s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[NUMBER-SUMMARY]\n83.62s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PC-SUMMARY]\n83.61s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CHAINID-SUMMARY]\n83.53s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[COINBASE-SUMMARY]\n83.51s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GASLIMIT-SUMMARY]\n83.42s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[TLOAD-SUMMARY]\n83.29s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BYTE-SUMMARY]\n83.15s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PUSHZERO-SUMMARY]\n83.13s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GAS-SUMMARY]\n83.08s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[JUMPDEST-SUMMARY]\n83.06s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLDATALOAD-SUMMARY]\n83.04s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[TIMESTAMP-SUMMARY]\n82.88s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SELFBALANCE-SUMMARY]\n82.87s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ORIGIN-SUMMARY]\n82.77s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GASPRICE-SUMMARY]\n82.66s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLDATASIZE-SUMMARY]\n82.52s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[DIFFICULTY-SUMMARY]\n82.44s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[POP-SUMMARY]\n82.29s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MCOPY-SUMMARY]\n82.10s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ISZERO-SUMMARY]\n81.76s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[NOT-SUMMARY]\n80.08s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MOD-SUMMARY]\n79.76s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SGT-SUMMARY]\n79.28s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[LOG-SUMMARY]\n78.24s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BLOCKHASH-SUMMARY]\n77.81s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SLT-SUMMARY]\n77.25s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MULMOD-SUMMARY]\n76.93s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[DIV-SUMMARY]\n76.84s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[EQ-SUMMARY]\n76.59s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SHR-SUMMARY]\n76.46s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SHA3-SUMMARY]\n76.45s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SIGNEXTEND-SUMMARY]\n76.40s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[LT-SUMMARY]\n76.28s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SHL-SUMMARY]\n75.99s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLDATACOPY-SUMMARY]\n75.89s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GT-SUMMARY]\n75.85s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[AND-SUMMARY]\n75.83s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SUB-SUMMARY]\n75.80s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ADD-SUMMARY]\n75.74s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[EVMOR-SUMMARY]\n75.62s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[TSTORE-SUMMARY]\n75.15s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[XOR-SUMMARY]\n75.12s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ADDMOD-SUMMARY]\n74.92s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MSTORE-SUMMARY]\n74.45s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CODECOPY-SUMMARY]\n71.43s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[RETURNDATASIZE-SUMMARY]\n64.39s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[UNDEFINED-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ADDRESS-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[INVALID-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SAR-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PREVRANDAO-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SIGNEXTEND-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[NUMBER-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[RETURNDATASIZE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[STOP-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[EVMOR-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[AND-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[RETURN-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ADD-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MOD-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SLOAD-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SGT-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PC-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[REVERT-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GASLIMIT-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CODECOPY-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLDATALOAD-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[UNDEFINED-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SHA3-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLDATASIZE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SMOD-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[DUP-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[JUMPDEST-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GAS-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SHL-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[DIV-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[LT-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MULMOD-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CHAINID-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MSIZE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SUB-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PUSHZERO-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[POP-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GT-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BALANCE-OWISE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MSTORE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[LOG-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[TSTORE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MSTORE8-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SWAP-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MCOPY-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ADDMOD-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ORIGIN-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[TIMESTAMP-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GASPRICE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SDIV-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PUSH-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[COINBASE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[RETURNDATACOPY-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[DIFFICULTY-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BYTE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SELFBALANCE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MLOAD-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SHR-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[NOT-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BALANCE-NORMAL-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[XOR-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLDATACOPY-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[TLOAD-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CODESIZE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SLT-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SSTORE-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BLOCKHASH-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[EXP-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLER-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ISZERO-SUMMARY]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[EQ-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[NOT-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SWAP-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[EXP-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BALANCE-OWISE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CODECOPY-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLDATASIZE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SLOAD-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[XOR-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GT-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PUSHZERO-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MSIZE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MULMOD-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SHR-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GASLIMIT-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[STOP-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SSTORE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CHAINID-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[TLOAD-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[RETURNDATASIZE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SELFBALANCE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[DIFFICULTY-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BYTE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[POP-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[DIV-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MSTORE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[LOG-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MOD-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[AND-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SAR-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[EVMOR-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MLOAD-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[EQ-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SUB-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[LT-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ADDRESS-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[TIMESTAMP-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ADDMOD-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[COINBASE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PUSH-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLDATALOAD-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CODESIZE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[RETURNDATACOPY-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PREVRANDAO-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLDATACOPY-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MSTORE8-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[TSTORE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[NUMBER-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GASPRICE-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[RETURN-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ORIGIN-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[GAS-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SIGNEXTEND-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[DUP-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[JUMPDEST-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SHL-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[MCOPY-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SDIV-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ISZERO-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BALANCE-NORMAL-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[REVERT-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SGT-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[BLOCKHASH-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SLT-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SMOD-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[SHA3-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[PC-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[INVALID-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[UNDEFINED-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[ADD-SUMMARY]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_summaries[CALLER-SUMMARY]\n======================= 70 passed in 1825.09s (0:30:25) ========================\n",
+  "raw_stderr": "warning: `VIRTUAL_ENV=/Users/steven/Desktop/projs/perfx/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\n"
+}

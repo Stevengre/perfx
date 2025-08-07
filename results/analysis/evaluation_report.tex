@@ -1,0 +1,194 @@
+\documentclass[article]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+% Page setup
+\geometry{a4paper, margin=2.5cm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=red
+}
+
+% Title
+\title{EVM Semantics Evaluation Results}
+\author{perfx}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Tables}
+
+\subsection{Opcode Summarization Results}\label{tab:step3_opcode_list}
+
+\input{tables/step3_opcode_list.tex}
+
+\newpage
+
+\subsection{Statistics of Opcode Summarization}\label{tab:step3_category_statistics}
+
+\input{tables/step3_category_statistics.tex}
+
+\newpage
+
+\section{Charts}
+
+\subsection{Concrete Execution Performance Comparison}\label{fig:concrete_performance_comparison}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/concrete_performance_comparison.pdf}
+\caption{Concrete Execution Performance Comparison}
+\label{fig:concrete_performance_comparison}
+\end{figure}
+
+\newpage
+
+\subsection{Concrete Execution Performance Distribution}\label{fig:concrete_performance_distribution}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/concrete_performance_distribution.pdf}
+\caption{Concrete Execution Performance Distribution}
+\label{fig:concrete_performance_distribution}
+\end{figure}
+
+\newpage
+
+\subsection{Performance Comparison: Original vs Summarized Semantics}\label{fig:concrete_performance_scatter}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/concrete_performance_scatter.pdf}
+\caption{Performance Comparison: Original vs Summarized Semantics}
+\label{fig:concrete_performance_scatter}
+\end{figure}
+
+\newpage
+
+\subsection{Top 20 Test Cases by Performance Improvement}\label{fig:concrete_test_case_improvement}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/concrete_test_case_improvement.pdf}
+\caption{Top 20 Test Cases by Performance Improvement}
+\label{fig:concrete_test_case_improvement}
+\end{figure}
+
+\newpage
+
+\subsection{Symbolic Execution Performance Comparison: Original vs Summarized Semantics}\label{fig:symbolic_performance_scatter}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/symbolic_performance_scatter.pdf}
+\caption{Symbolic Execution Performance Comparison: Original vs Summarized Semantics}
+\label{fig:symbolic_performance_scatter}
+\end{figure}
+
+\newpage
+
+\subsection{Top Symbolic Test Cases by Performance Improvement}\label{fig:symbolic_test_case_improvement}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/symbolic_test_case_improvement.pdf}
+\caption{Top Symbolic Test Cases by Performance Improvement}
+\label{fig:symbolic_test_case_improvement}
+\end{figure}
+
+\newpage
+
+\subsection{Symbolic Execution Performance Comparison (Booster): Original vs Summarized Semantics}\label{fig:symbolic_booster_performance_scatter}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/symbolic_booster_performance_scatter.pdf}
+\caption{Symbolic Execution Performance Comparison (Booster): Original vs Summarized Semantics}
+\label{fig:symbolic_booster_performance_scatter}
+\end{figure}
+
+\newpage
+
+\subsection{Top Symbolic Test Cases by Performance Improvement (Booster)}\label{fig:symbolic_booster_test_case_improvement}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/symbolic_booster_test_case_improvement.pdf}
+\caption{Top Symbolic Test Cases by Performance Improvement (Booster)}
+\label{fig:symbolic_booster_test_case_improvement}
+\end{figure}
+
+\newpage
+
+\subsection{Symbolic Execution Performance Comparison (Summaries): Original vs Summarized Semantics}\label{fig:symbolic_summaries_performance_scatter}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/symbolic_summaries_performance_scatter.pdf}
+\caption{Symbolic Execution Performance Comparison (Summaries): Original vs Summarized Semantics}
+\label{fig:symbolic_summaries_performance_scatter}
+\end{figure}
+
+\newpage
+
+\subsection{Top Symbolic Test Cases by Performance Improvement (Summaries)}\label{fig:symbolic_summaries_test_case_improvement}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/symbolic_summaries_test_case_improvement.pdf}
+\caption{Top Symbolic Test Cases by Performance Improvement (Summaries)}
+\label{fig:symbolic_summaries_test_case_improvement}
+\end{figure}
+
+\newpage
+
+\subsection{Symbolic Execution Performance Comparison (DSS): Original vs Summarized Semantics}\label{fig:symbolic_dss_performance_scatter}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/symbolic_dss_performance_scatter.pdf}
+\caption{Symbolic Execution Performance Comparison (DSS): Original vs Summarized Semantics}
+\label{fig:symbolic_dss_performance_scatter}
+\end{figure}
+
+\newpage
+
+\subsection{Top Symbolic Test Cases by Performance Improvement (DSS)}\label{fig:symbolic_dss_test_case_improvement}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{charts/symbolic_dss_test_case_improvement.pdf}
+\caption{Top Symbolic Test Cases by Performance Improvement (DSS)}
+\label{fig:symbolic_dss_test_case_improvement}
+\end{figure}
+
+\newpage
+
+\end{document}

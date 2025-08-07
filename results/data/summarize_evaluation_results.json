@@ -1,0 +1,995 @@
+{
+  "metadata": {
+    "timestamp": "2025-08-01 01:01:11",
+    "timeout_seconds": 1800,
+    "max_workers": 4,
+    "skipped_opcodes": [
+      "BASEFEE",
+      "CALL",
+      "CALLCODE",
+      "CALLVALUE",
+      "CREATE",
+      "CREATE2",
+      "DELEGATECALL",
+      "EXTCODECOPY",
+      "EXTCODEHASH",
+      "EXTCODESIZE",
+      "JUMP",
+      "JUMPI",
+      "MUL",
+      "SELFDESTRUCT",
+      "STATICCALL",
+      "EXP",
+      "SAR",
+      "SHA3"
+    ]
+  },
+  "summary": {
+    "total": 84,
+    "successful": 66,
+    "failed": 0,
+    "skipped": 18
+  },
+  "results": [
+    {
+      "opcode": "SUB",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 60.40443706512451,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "DIV",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 60.449118852615356,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "ADD",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 60.67798709869385,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "STOP",
+      "category": "FLOW_CONTROL",
+      "success": true,
+      "time": 68.18526577949524,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "MOD",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 52.801440954208374,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SMOD",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 56.948333978652954,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SDIV",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 57.73101806640625,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "ADDMOD",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 51.20442795753479,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "MULMOD",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 57.11430811882019,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SIGNEXTEND",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 57.458779096603394,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "LT",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 57.41953492164612,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "GT",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 57.77805995941162,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SLT",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 67.74465799331665,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "EQ",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 66.38357090950012,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SGT",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 68.1822030544281,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "ISZERO",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 68.66997814178467,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "AND",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 66.41733026504517,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "EVMOR",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 66.36390709877014,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "XOR",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 66.25621294975281,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "NOT",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 68.43327283859253,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SHL",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 67.6430242061615,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "BYTE",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 71.47490787506104,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SHR",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": true,
+      "time": 67.31122469902039,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "ADDRESS",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 70.59554505348206,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "ORIGIN",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 72.86169981956482,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "CALLER",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 73.03505873680115,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "CALLDATALOAD",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 72.47253203392029,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "CALLDATASIZE",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 70.71282529830933,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "CALLDATACOPY",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 72.02126598358154,
+      "rewriting_steps": [
+        14,
+        6
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "CODESIZE",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 70.79660129547119,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "CODECOPY",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 72.29375219345093,
+      "rewriting_steps": [
+        14,
+        6
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "GASPRICE",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 71.21099305152893,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "BALANCE",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 220.92597007751465,
+      "rewriting_steps": [
+        8,
+        15,
+        13,
+        8,
+        15,
+        13
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "RETURNDATASIZE",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 71.62471389770508,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "COINBASE",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 72.21509194374084,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "BLOCKHASH",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 76.09004807472229,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "TIMESTAMP",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 72.07936310768127,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "RETURNDATACOPY",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 110.4727292060852,
+      "rewriting_steps": [
+        14,
+        15,
+        6,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "NUMBER",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 73.46233582496643,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "PREVRANDAO",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 73.84562492370605,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "DIFFICULTY",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 73.3231430053711,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "GASLIMIT",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 73.4877769947052,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "POP",
+      "category": "STACK_OPERATIONS",
+      "success": true,
+      "time": 67.63756799697876,
+      "rewriting_steps": [
+        11,
+        6
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "CHAINID",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 73.34440207481384,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SELFBALANCE",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": true,
+      "time": 73.81775379180908,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "MLOAD",
+      "category": "MEMORY_OPERATIONS",
+      "success": true,
+      "time": 80.7861499786377,
+      "rewriting_steps": [
+        15,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "MSTORE",
+      "category": "MEMORY_OPERATIONS",
+      "success": true,
+      "time": 74.68135285377502,
+      "rewriting_steps": [
+        14,
+        6
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "MSTORE8",
+      "category": "MEMORY_OPERATIONS",
+      "success": true,
+      "time": 79.02600979804993,
+      "rewriting_steps": [
+        14,
+        6
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SLOAD",
+      "category": "STORAGE_OPERATIONS",
+      "success": true,
+      "time": 101.71026706695557,
+      "rewriting_steps": [
+        7,
+        15,
+        12
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SSTORE",
+      "category": "STORAGE_OPERATIONS",
+      "success": true,
+      "time": 94.00806617736816,
+      "rewriting_steps": [
+        6,
+        14,
+        11
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "PC",
+      "category": "FLOW_CONTROL",
+      "success": true,
+      "time": 76.6018500328064,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "MSIZE",
+      "category": "MEMORY_OPERATIONS",
+      "success": true,
+      "time": 77.78435683250427,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "GAS",
+      "category": "SYSTEM_AND_CALLS",
+      "success": true,
+      "time": 76.62252378463745,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "JUMPDEST",
+      "category": "FLOW_CONTROL",
+      "success": true,
+      "time": 70.25488424301147,
+      "rewriting_steps": [
+        11,
+        6
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "TLOAD",
+      "category": "TRANSIENT_STORAGE_OPERATIONS",
+      "success": true,
+      "time": 76.70968580245972,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "TSTORE",
+      "category": "TRANSIENT_STORAGE_OPERATIONS",
+      "success": true,
+      "time": 69.09507203102112,
+      "rewriting_steps": [
+        11,
+        6
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "MCOPY",
+      "category": "MEMORY_OPERATIONS",
+      "success": true,
+      "time": 79.40779089927673,
+      "rewriting_steps": [
+        14,
+        6
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "PUSHZERO",
+      "category": "STACK_OPERATIONS",
+      "success": true,
+      "time": 76.93544602394104,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "PUSH",
+      "category": "STACK_OPERATIONS",
+      "success": true,
+      "time": 80.99635982513428,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "DUP",
+      "category": "STACK_OPERATIONS",
+      "success": true,
+      "time": 80.52739310264587,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SWAP",
+      "category": "STACK_OPERATIONS",
+      "success": true,
+      "time": 80.99794101715088,
+      "rewriting_steps": [
+        12,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "LOG",
+      "category": "LOGGING",
+      "success": true,
+      "time": 83.69446206092834,
+      "rewriting_steps": [
+        14,
+        6
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "INVALID",
+      "category": "FLOW_CONTROL",
+      "success": true,
+      "time": 41.8488290309906,
+      "rewriting_steps": [
+        6
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "RETURN",
+      "category": "FLOW_CONTROL",
+      "success": true,
+      "time": 87.97428917884827,
+      "rewriting_steps": [
+        15,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "REVERT",
+      "category": "FLOW_CONTROL",
+      "success": true,
+      "time": 88.21297812461853,
+      "rewriting_steps": [
+        15,
+        7
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "UNDEFINED",
+      "category": "FLOW_CONTROL",
+      "success": true,
+      "time": 36.023783922195435,
+      "rewriting_steps": [
+        6
+      ],
+      "error": null,
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "BASEFEE",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "FAILED"
+    },
+    {
+      "opcode": "CALL",
+      "category": "SYSTEM_AND_CALLS",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "UNCHECKED"
+    },
+    {
+      "opcode": "CALLCODE",
+      "category": "SYSTEM_AND_CALLS",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "UNCHECKED"
+    },
+    {
+      "opcode": "CALLVALUE",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "FAILED"
+    },
+    {
+      "opcode": "CREATE",
+      "category": "SYSTEM_AND_CALLS",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "TODO"
+    },
+    {
+      "opcode": "CREATE2",
+      "category": "SYSTEM_AND_CALLS",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "UNCHECKED"
+    },
+    {
+      "opcode": "DELEGATECALL",
+      "category": "SYSTEM_AND_CALLS",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "UNCHECKED"
+    },
+    {
+      "opcode": "EXTCODECOPY",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "FAILED"
+    },
+    {
+      "opcode": "EXTCODEHASH",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "FAILED"
+    },
+    {
+      "opcode": "EXTCODESIZE",
+      "category": "BLOCK_AND_TRANSACTION",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "FAILED"
+    },
+    {
+      "opcode": "JUMP",
+      "category": "FLOW_CONTROL",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "FAILED"
+    },
+    {
+      "opcode": "JUMPI",
+      "category": "FLOW_CONTROL",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "FAILED"
+    },
+    {
+      "opcode": "MUL",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "FAILED"
+    },
+    {
+      "opcode": "SELFDESTRUCT",
+      "category": "SYSTEM_AND_CALLS",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "UNCHECKED"
+    },
+    {
+      "opcode": "STATICCALL",
+      "category": "SYSTEM_AND_CALLS",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "UNCHECKED"
+    },
+    {
+      "opcode": "EXP",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SAR",
+      "category": "ARITHMETIC_AND_BITWISE",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "PASSED"
+    },
+    {
+      "opcode": "SHA3",
+      "category": "HASHING",
+      "success": false,
+      "time": null,
+      "rewriting_steps": null,
+      "error": "SKIPPED",
+      "summary_status": "PASSED"
+    }
+  ]
+}

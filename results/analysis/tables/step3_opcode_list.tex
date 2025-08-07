@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering
+\caption{Opcode Summarization Results}
+\label{tab:step3_opcode_list}
+\begin{tabularx}{\textwidth}{XXX}
+\toprule
+Category & Successful Opcodes & Failed Opcodes \\
+\midrule
+Arith. \& Bit. & SUB, DIV, ADD, MOD, SMOD, SDIV, ADDMOD, MULMOD, SIGNEXTEND, AND, EVMOR, XOR, NOT, SHL, BYTE, SHR & MUL, EXP, SAR \\
+Comparison & LT, GT, SLT, EQ, SGT, ISZERO &  \\
+Flow Control & STOP, PC, JUMPDEST, INVALID, RETURN, REVERT, UNDEFINED & JUMP, JUMPI \\
+Stack & POP, PUSHZERO, PUSH1-32, DUP1-16, SWAP1-16 &  \\
+Memory & MLOAD, MSTORE, MSTORE8, MSIZE, MCOPY &  \\
+Storage & SLOAD, SSTORE &  \\
+Trans. Storage & TLOAD, TSTORE &  \\
+Environment & COINBASE, BLOCKHASH, TIMESTAMP, NUMBER, PREVRANDAO, DIFFICULTY, GASLIMIT, CHAINID & BASEFEE \\
+Context & ADDRESS, ORIGIN, CALLER, CALLDATALOAD, CALLDATASIZE, CALLDATACOPY, CODESIZE, CODECOPY, GASPRICE, BALANCE, RETURNDATASIZE, RETURNDATACOPY, SELFBALANCE, GAS & CALLVALUE, EXTCODECOPY, EXTCODEHASH, EXTCODESIZE \\
+System & LOG0-4 & SHA3 \\
+Contract &  & CALL, CALLCODE, CREATE, CREATE2, DELEGATECALL, SELFDESTRUCT, STATICCALL \\
+\bottomrule
+\end{tabularx}
+\end{table}

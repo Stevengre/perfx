@@ -1,0 +1,872 @@
+{
+  "success": false,
+  "exit_code": 1,
+  "test_results": [
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flapper-yank-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0le0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/end-subuu-pass-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-b-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/end-pack-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-1-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticloop00-a0lt10-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-cash-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/balanceOf-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-tick-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-b-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticarray00-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/functional-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-a-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-same-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-d-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-cage-pass-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-c-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-summarize-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-file-addr-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/totalSupply-spec.k]",
+      "status": "PASSED",
+      "duration": 534.78,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-2-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/allowance-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-b-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-success-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-a-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-c-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-2-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-2-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-1-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-1-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-1-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/balanceOf-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-overflow-spec.k]",
+      "status": "PASSED",
+      "duration": 534.86,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-nooverflow-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg01-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/keccak00-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sigs-valid-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-siginvalid-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/encode-keccak00-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-nooverflow-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/encodepacked-keccak01-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar00-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/bytes00-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sigs-valid-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig1-invalid-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/functional-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/totalSupply-spec.k]",
+      "status": "PASSED",
+      "duration": 9.38,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/approve-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-1-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-2-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/allowance-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-2-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-foundry-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[examples/solidity-code-spec.md]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[examples/storage-spec.md]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[examples/erc20-spec.md]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[examples/erc721-spec.md]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-tau-pass-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/dai-adduu-fail-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-kick-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/vow-fess-fail-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/pot-join-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-peek-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/dai-symbol-pass-spec.k]",
+      "status": "PASSED",
+      "duration": 544.89,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-ttl-pass-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/cat-exhaustiveness-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-addu48u48-fail-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-bids-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/vow-flog-fail-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/flapper-yank-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/end-cash-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-tick-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/functional-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-same-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-cage-pass-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-summarize-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/cat-file-addr-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-overflow-spec.k]",
+      "status": "PASSED",
+      "duration": 11.45,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig1-invalid-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-sigvalid-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg00-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig0-invalid-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig0-invalid-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-file-pass-rough-spec.k]",
+      "status": "PASSED",
+      "duration": 1.52,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd/dstoken-approve-fail-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-countertest-testincrement-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_failandsuccess-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-testaccesses-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_bytes4-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_false-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-teststoreload-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_bytes4-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemit-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitdonotcheckdata-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow_fail-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowchangestostorage-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_returnvalue-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-safetest-testwithdrawfuzz-uint96-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectregularcall-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowcallstoaddress-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-owneruponlytest-testincrementasowner-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-file-pass-rough-spec.k]",
+      "status": "PASSED",
+      "duration": 550.87,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dstoken-approve-fail-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-fess-fail-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/pot-join-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-peek-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectstaticcall-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wdiv_rounding-uint256-uint256-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar03-spec.k]",
+      "status": "PASSED",
+      "duration": 22.16,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0gt0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/dynamicarray00-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/address00-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-ttl-pass-spec.k]",
+      "status": "PASSED",
+      "duration": 47.92,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-exhaustiveness-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-addu48u48-fail-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-bids-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-flog-fail-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-c-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-failure-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-a-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.03,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-1-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-pack-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar01-spec.k]",
+      "status": "FAILED",
+      "duration": 34.07,
+      "error_message": "FAILED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar01-spec.k] - assert 0 == 1\n+  where 0 = len([])"
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-a-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-2-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-b-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-kick-pass-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-subuu-pass-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wmul_weakly_increasing_positive-uint256-uint256-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_message-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-spec.k]",
+      "status": "PASSED",
+      "duration": 60.71,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-symbol-pass-spec.k]",
+      "status": "PASSED",
+      "duration": 33.62,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_max1_broken-uint256-uint256-0-spec.k]",
+      "status": "PASSED",
+      "duration": 200.03,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitcheckemitter-0-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-tau-pass-spec.k]",
+      "status": "PASSED",
+      "duration": 207.91,
+      "error_message": null
+    },
+    {
+      "test_id": "src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-adduu-fail-rough-spec.k]",
+      "status": "SKIPPED",
+      "duration": 0.0,
+      "error_message": null
+    }
+  ],
+  "summary_stats": {
+    "passed": 13,
+    "failed": 1,
+    "skipped": 128,
+    "total_duration": 2794.2000000000003
+  },
+  "total_tests": 142,
+  "passed_tests": 13,
+  "failed_tests": 1,
+  "skipped_tests": 128,
+  "error_tests": 0,
+  "total_duration": 2794.2000000000003,
+  "raw_stdout": "============================= test session starts ==============================\nplatform darwin -- Python 3.10.17, pytest-8.4.1, pluggy-1.6.0 -- /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/.venv/bin/python\ncachedir: .pytest_cache\nhypothesis profile 'default'\nrootdir: /Users/steven/Desktop/projs/perfx\nconfigfile: pyproject.toml\nplugins: xdist-3.8.0, timeout-2.4.0, cov-6.2.1, mock-3.14.1, hypothesis-6.135.32, kframework-7.1.280\ntimeout: 7200.0s\ntimeout method: signal\ntimeout func_only: False\ncreated: 4/4 workers\n4 workers [142 items]\n\nscheduling tests via WorkStealingScheduling\n\nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0le0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-b-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/end-subuu-pass-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flapper-yank-pass-rough-spec.k] \n[gw3] [  0%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flapper-yank-pass-rough-spec.k] \n[gw0] [  1%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0le0-spec.k] \n[gw2] [  2%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/end-subuu-pass-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/end-pack-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticloop00-a0lt10-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-cash-pass-rough-spec.k] \n[gw1] [  2%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-b-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-1-spec.k] \n[gw2] [  3%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/end-pack-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-spec.k] \n[gw1] [  4%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-1-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/balanceOf-spec.k] \n[gw0] [  4%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticloop00-a0lt10-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticarray00-spec.k] \n[gw3] [  5%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-cash-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-tick-pass-rough-spec.k] \n[gw2] [  6%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-spec.k] \n[gw1] [  7%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/balanceOf-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-b-spec.k] \n[gw3] [  7%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-tick-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/functional-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/dai-symbol-pass-spec.k] \n[gw1] [  8%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-b-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-a-spec.k] \n[gw0] [  9%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticarray00-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-overflow-spec.k] \n[gw3] [  9%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/functional-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-same-pass-rough-spec.k] \n[gw1] [ 10%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-a-spec.k] \n[gw3] [ 11%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-same-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-d-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-cage-pass-spec.k] \n[gw1] [ 11%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-d-spec.k] \n[gw3] [ 12%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-cage-pass-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-c-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-summarize-spec.k] \n[gw1] [ 13%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-c-spec.k] \n[gw3] [ 14%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-summarize-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/totalSupply-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-file-addr-pass-rough-spec.k] \n[gw3] [ 14%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-file-addr-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-file-pass-rough-spec.k] \n[gw1] [ 15%] PASSED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/totalSupply-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-2-spec.k] \n[gw1] [ 16%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-2-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/allowance-spec.k] \n[gw1] [ 16%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/allowance-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-b-spec.k] \n[gw1] [ 17%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-b-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-success-spec.k] \n[gw1] [ 18%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-success-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-a-spec.k] \n[gw1] [ 19%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-a-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-c-spec.k] \n[gw1] [ 19%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-c-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-2-spec.k] \n[gw1] [ 20%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-2-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-2-spec.k] \n[gw1] [ 21%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-2-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-1-spec.k] \n[gw1] [ 21%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-1-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-1-spec.k] \n[gw1] [ 22%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-1-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-1-spec.k] \n[gw1] [ 23%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-1-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/balanceOf-spec.k] \n[gw1] [ 23%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/balanceOf-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/totalSupply-spec.k] \n[gw0] [ 24%] PASSED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-overflow-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-nooverflow-spec.k] \n[gw0] [ 25%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-nooverflow-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg01-spec.k] \n[gw0] [ 26%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg01-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/keccak00-spec.k] \n[gw0] [ 26%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/keccak00-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sigs-valid-spec.k] \n[gw0] [ 27%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sigs-valid-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-siginvalid-spec.k] \n[gw0] [ 28%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-siginvalid-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/encode-keccak00-spec.k] \n[gw0] [ 28%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/encode-keccak00-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-nooverflow-spec.k] \n[gw0] [ 29%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-nooverflow-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/encodepacked-keccak01-spec.k] \n[gw0] [ 30%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/encodepacked-keccak01-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar00-spec.k] \n[gw0] [ 30%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar00-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/bytes00-spec.k] \n[gw0] [ 31%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/bytes00-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sigs-valid-spec.k] \n[gw0] [ 32%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sigs-valid-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig1-invalid-spec.k] \n[gw0] [ 33%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig1-invalid-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/functional-spec.k] \n[gw0] [ 33%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/functional-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-overflow-spec.k] \n[gw1] [ 34%] PASSED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/totalSupply-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/approve-spec.k] \n[gw1] [ 35%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/approve-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-1-spec.k] \n[gw1] [ 35%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-1-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-2-spec.k] \n[gw1] [ 36%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-2-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/allowance-spec.k] \n[gw1] [ 37%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/allowance-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-2-spec.k] \n[gw1] [ 38%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-2-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-foundry-spec.k] \n[gw1] [ 38%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-foundry-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-spec.k] \n[gw1] [ 39%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[examples/solidity-code-spec.md] \n[gw1] [ 40%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[examples/solidity-code-spec.md] \nsrc/tests/integration/test_prove.py::test_prove_rules[examples/storage-spec.md] \n[gw1] [ 40%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[examples/storage-spec.md] \nsrc/tests/integration/test_prove.py::test_prove_rules[examples/erc20-spec.md] \n[gw1] [ 41%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[examples/erc20-spec.md] \nsrc/tests/integration/test_prove.py::test_prove_rules[examples/erc721-spec.md] \n[gw1] [ 42%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[examples/erc721-spec.md] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-tau-pass-spec.k] \n[gw1] [ 42%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-tau-pass-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/dai-adduu-fail-rough-spec.k] \n[gw1] [ 43%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/dai-adduu-fail-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-kick-pass-rough-spec.k] \n[gw1] [ 44%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-kick-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/vow-fess-fail-rough-spec.k] \n[gw1] [ 45%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/vow-fess-fail-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/pot-join-pass-rough-spec.k] \n[gw1] [ 45%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/pot-join-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-peek-pass-rough-spec.k] \n[gw1] [ 46%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-peek-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-tau-pass-spec.k] \n[gw2] [ 47%] PASSED src/tests/integration/test_prove.py::test_prove_rules[mcd/dai-symbol-pass-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-ttl-pass-spec.k] \n[gw2] [ 47%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-ttl-pass-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k] \n[gw2] [ 48%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/cat-exhaustiveness-spec.k] \n[gw2] [ 49%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/cat-exhaustiveness-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-addu48u48-fail-rough-spec.k] \n[gw2] [ 50%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-addu48u48-fail-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-bids-pass-rough-spec.k] \n[gw2] [ 50%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-bids-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/vow-flog-fail-rough-spec.k] \n[gw2] [ 51%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/vow-flog-fail-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/flapper-yank-pass-rough-spec.k] \n[gw2] [ 52%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/flapper-yank-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/end-cash-pass-rough-spec.k] \n[gw2] [ 52%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/end-cash-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-tick-pass-rough-spec.k] \n[gw2] [ 53%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-tick-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/functional-spec.k] \n[gw2] [ 54%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/functional-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-same-pass-rough-spec.k] \n[gw2] [ 54%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-same-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-cage-pass-spec.k] \n[gw2] [ 55%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-cage-pass-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-summarize-spec.k] \n[gw2] [ 56%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-summarize-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/cat-file-addr-pass-rough-spec.k] \n[gw2] [ 57%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/cat-file-addr-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-file-pass-rough-spec.k] \n[gw0] [ 57%] PASSED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-overflow-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig1-invalid-spec.k] \n[gw0] [ 58%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig1-invalid-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-sigvalid-spec.k] \n[gw0] [ 59%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-sigvalid-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg00-spec.k] \n[gw0] [ 59%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg00-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig0-invalid-spec.k] \n[gw0] [ 60%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig0-invalid-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig0-invalid-spec.k] \n[gw0] [ 61%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig0-invalid-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar03-spec.k] \n[gw2] [ 61%] PASSED src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-file-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd/dstoken-approve-fail-rough-spec.k] \n[gw2] [ 62%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd/dstoken-approve-fail-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-countertest-testincrement-0-spec.k] \n[gw2] [ 63%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-countertest-testincrement-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_failandsuccess-0-spec.k] \n[gw2] [ 64%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_failandsuccess-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-testaccesses-0-spec.k] \n[gw2] [ 64%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-testaccesses-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_bytes4-0-spec.k] \n[gw2] [ 65%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_bytes4-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_false-0-spec.k] \n[gw2] [ 66%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_false-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-teststoreload-0-spec.k] \n[gw2] [ 66%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-teststoreload-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_bytes4-0-spec.k] \n[gw2] [ 67%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_bytes4-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow-0-spec.k] \n[gw2] [ 68%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemit-0-spec.k] \n[gw2] [ 69%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemit-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitdonotcheckdata-0-spec.k] \n[gw2] [ 69%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitdonotcheckdata-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow_fail-0-spec.k] \n[gw2] [ 70%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow_fail-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowchangestostorage-0-spec.k] \n[gw2] [ 71%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowchangestostorage-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_returnvalue-0-spec.k] \n[gw2] [ 71%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_returnvalue-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-safetest-testwithdrawfuzz-uint96-0-spec.k] \n[gw2] [ 72%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-safetest-testwithdrawfuzz-uint96-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectregularcall-0-spec.k] \n[gw2] [ 73%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectregularcall-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowcallstoaddress-0-spec.k] \n[gw2] [ 73%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowcallstoaddress-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-owneruponlytest-testincrementasowner-0-spec.k] \n[gw2] [ 74%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-owneruponlytest-testincrementasowner-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_max1_broken-uint256-uint256-0-spec.k] \n[gw3] [ 75%] PASSED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-file-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dstoken-approve-fail-rough-spec.k] \n[gw3] [ 76%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dstoken-approve-fail-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-fess-fail-rough-spec.k] \n[gw3] [ 76%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-fess-fail-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/pot-join-pass-rough-spec.k] \n[gw3] [ 77%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/pot-join-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-peek-pass-rough-spec.k] \n[gw3] [ 78%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-peek-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectstaticcall-0-spec.k] \n[gw3] [ 78%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectstaticcall-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wdiv_rounding-uint256-uint256-0-spec.k] \n[gw3] [ 79%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wdiv_rounding-uint256-uint256-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-ttl-pass-spec.k] \n[gw0] [ 80%] PASSED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar03-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0gt0-spec.k] \n[gw0] [ 80%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0gt0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/dynamicarray00-spec.k] \n[gw0] [ 81%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/dynamicarray00-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/address00-spec.k] \n[gw0] [ 82%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/address00-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar01-spec.k] \n[gw3] [ 83%] PASSED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-ttl-pass-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k] \n[gw3] [ 83%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-exhaustiveness-spec.k] \n[gw3] [ 84%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-exhaustiveness-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-addu48u48-fail-rough-spec.k] \n[gw3] [ 85%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-addu48u48-fail-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-bids-pass-rough-spec.k] \n[gw3] [ 85%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-bids-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-flog-fail-rough-spec.k] \n[gw3] [ 86%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-flog-fail-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-c-spec.k] \n[gw3] [ 87%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-c-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-failure-spec.k] \n[gw3] [ 88%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-failure-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-a-spec.k] \n[gw3] [ 88%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-a-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-1-spec.k] \n[gw3] [ 89%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-1-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-pack-pass-rough-spec.k] \n[gw3] [ 90%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-pack-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-spec.k] \n[gw0] [ 90%] FAILED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar01-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-a-spec.k] \n[gw0] [ 91%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-a-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-2-spec.k] \n[gw0] [ 92%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-2-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-b-spec.k] \n[gw0] [ 92%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-b-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-kick-pass-rough-spec.k] \n[gw0] [ 93%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-kick-pass-rough-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-subuu-pass-spec.k] \n[gw0] [ 94%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-subuu-pass-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wmul_weakly_increasing_positive-uint256-uint256-0-spec.k] \n[gw0] [ 95%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wmul_weakly_increasing_positive-uint256-uint256-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_message-0-spec.k] \n[gw0] [ 95%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_message-0-spec.k] \n[gw3] [ 96%] PASSED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-symbol-pass-spec.k] \n[gw3] [ 97%] PASSED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-symbol-pass-spec.k] \n[gw2] [ 97%] PASSED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_max1_broken-uint256-uint256-0-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitcheckemitter-0-spec.k] \n[gw2] [ 98%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitcheckemitter-0-spec.k] \n[gw1] [ 99%] PASSED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-tau-pass-spec.k] \nsrc/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-adduu-fail-rough-spec.k] \n[gw1] [100%] SKIPPED src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-adduu-fail-rough-spec.k] \n\n=================================== FAILURES ===================================\n_______________ test_prove_rules[benchmarks/storagevar01-spec.k] _______________\n[gw0] darwin -- Python 3.10.17 /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/.venv/bin/python\nsrc/tests/integration/test_prove.py:336: in test_prove_rules\n    _test_prove(\nsrc/tests/integration/test_prove.py:238: in _test_prove\n    exec_prove(options=options)\nsrc/kevm_pyk/__main__.py:395: in exec_prove\n    results: list[tuple[bool, list[str] | None]] = process_pool.map(_init_and_run_proof, curr_claim_list)\nsrc/kevm_pyk/__main__.py:152: in map\n    return [f(x) for x in xs]\nsrc/kevm_pyk/__main__.py:152: in <listcomp>\n    return [f(x) for x in xs]\nsrc/kevm_pyk/__main__.py:305: in _init_and_run_proof\n    with legacy_explore(\n/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py:135: in __enter__\n    return next(self.gen)\nsrc/kevm_pyk/utils.py:362: in legacy_explore\n    with cterm_symbolic(\n/opt/homebrew/Cellar/python@3.10/3.10.17/Frameworks/Python.framework/Versions/3.10/lib/python3.10/contextlib.py:135: in __enter__\n    return next(self.gen)\n.venv/lib/python3.10/site-packages/pyk/cterm/symbolic.py:315: in cterm_symbolic\n    with kore_server(\n.venv/lib/python3.10/site-packages/pyk/kore/rpc.py:1394: in kore_server\n    return BoosterServer(booster_args)\n.venv/lib/python3.10/site-packages/pyk/kore/rpc.py:1316: in __init__\n    super().__init__(args)\n.venv/lib/python3.10/site-packages/pyk/kore/rpc.py:1121: in __init__\n    self.start()\n.venv/lib/python3.10/site-packages/pyk/kore/rpc.py:1153: in start\n    host, port = self._get_host_and_port(pid)\n.venv/lib/python3.10/site-packages/pyk/kore/rpc.py:1255: in _get_host_and_port\n    assert len(conns) == 1\nE   assert 0 == 1\nE    +  where 0 = len([])\n------------------------------ Captured log call -------------------------------\nINFO     kevm_pyk.__main__:__main__.py:263 Extracting claims from file: /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/tests/specs/benchmarks/storagevar01-spec.k\nINFO     pyk.ktool.claim_loader:claim_loader.py:57 Loading spec file: /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/tests/specs/benchmarks/storagevar01-spec.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/tests/specs/benchmarks/storagevar01-spec.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/tests/specs/benchmarks/verification.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/lemmas/lemmas.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/evm.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/data.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/evm-types.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/word.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/json-rpc.md\nINFO     pyk.kast.utils:utils.py:71 Reading /nix/store/ily5zyyvibyawnigpk0hzz063y2844n0-k-7.1.273-40d1aa8505043451a08a7436ed076e7d85311756/include/kframework/builtin/json.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/serialization.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/plugin/plugin/krypto.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/network.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/gas.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/schedule.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/requests.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/buf.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/lemmas/bitwise-simplification.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/lemmas/bytes-simplification.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/lemmas/evm-int-simplification.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/lemmas/int-simplification.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/lemmas/slot-updates.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/edsl.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/hashed-locations.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/abi.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/optimizations.md\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/lemmas/summarization-simplification.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/summaries.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/add-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/addmod-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/address-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/and-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/balance-normal-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/balance-owise-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/blockhash-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/byte-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/calldatacopy-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/calldataload-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/calldatasize-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/caller-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/chainid-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/codecopy-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/codesize-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/coinbase-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/difficulty-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/div-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/dup-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/eq-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/evmor-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/exp-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/gas-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/gaslimit-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/gasprice-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/gt-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/invalid-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/iszero-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/jumpdest-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/log-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/lt-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/mcopy-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/mload-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/mod-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/msize-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/mstore-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/mstore8-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/mulmod-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/not-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/number-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/origin-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/pc-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/pop-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/prevrandao-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/push-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/pushzero-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/return-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/returndatacopy-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/returndatasize-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/revert-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/sar-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/sdiv-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/selfbalance-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/sgt-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/sha3-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/shl-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/shr-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/signextend-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/sload-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/slt-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/smod-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/sstore-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/stop-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/sub-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/swap-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/timestamp-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/tload-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/tstore-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/undefined-summary.k\nINFO     pyk.kast.utils:utils.py:71 Reading /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/kevm-pyk/src/kevm_pyk/kproj/evm-semantics/summaries/xor-summary.k\nINFO     pyk.ktool.claim_loader:claim_loader.py:60 Calculated digest: 4e989381b5c651c97f5ae165359b6f1fe0ef625542185e0b653325480c9d7d8b\nINFO     pyk.ktool.claim_loader:claim_loader.py:66 Loading claim file: /Users/steven/Desktop/projs/perfx/repositories/evm-semantics/tests/specs/benchmarks/storagevar01-spec.json\nINFO     kevm_pyk.__main__:__main__.py:393 Discharging proof obligations: ('b4fae680a985e52aede50117526a09463e916ffa47db380616a7c19916217863',)\nINFO     kevm_pyk.__main__:__main__.py:288 Claim reinitialized because it is out of date: b4fae680a985e52aede50117526a09463e916ffa47db380616a7c19916217863\nINFO     kevm_pyk.__main__:__main__.py:205 Updated claim b4fae680a985e52aede50117526a09463e916ffa47db380616a7c19916217863 in digest file: /private/var/folders/tv/w56gdfyn7lj8s3t4r_5cp7540000gn/T/pytest-of-steven/pytest-16/popen-gw0/test_prove_rules_benchmarks_st8/kprove/digest\nINFO     pyk.kast.outer:outer.py:1647 Loading JSON definition: /private/var/folders/tv/w56gdfyn7lj8s3t4r_5cp7540000gn/T/pytest-of-steven/pytest-16/popen-gw0/kompiled0/benchmarks-verification-VERIFICATION/compiled.json\nINFO     pyk.kast.outer:outer.py:1649 Converting JSON definition to Kast: /private/var/folders/tv/w56gdfyn7lj8s3t4r_5cp7540000gn/T/pytest-of-steven/pytest-16/popen-gw0/kompiled0/benchmarks-verification-VERIFICATION/compiled.json\nINFO     pyk.utils:utils.py:683 Making directory: /private/var/folders/tv/w56gdfyn7lj8s3t4r_5cp7540000gn/T/pytest-of-steven/pytest-16/popen-gw0/test_prove_rules_benchmarks_st8/kprove/b4fae680a985e52aede50117526a09463e916ffa47db380616a7c19916217863/kcfg\nINFO     pyk.utils:utils.py:683 Making directory: /private/var/folders/tv/w56gdfyn7lj8s3t4r_5cp7540000gn/T/pytest-of-steven/pytest-16/popen-gw0/test_prove_rules_benchmarks_st8/kprove/b4fae680a985e52aede50117526a09463e916ffa47db380616a7c19916217863/kcfg/nodes\nINFO     pyk.kore.rpc:rpc.py:1150 Starting KoreServer: booster-dev /private/var/folders/tv/w56gdfyn7lj8s3t4r_5cp7540000gn/T/pytest-of-steven/pytest-16/popen-gw0/kompiled0/benchmarks-verification-VERIFICATION/definition.kore --module VERIFICATION --server-port 0 --smt-timeout 300 --smt-retry-limit 10 --llvm-backend-library /private/var/folders/tv/w56gdfyn7lj8s3t4r_5cp7540000gn/T/pytest-of-steven/pytest-16/popen-gw0/kompiled0/benchmarks-verification-VERIFICATION/llvm-library/interpreter.dylib\n============================== slowest durations ===============================\n550.87s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-file-pass-rough-spec.k]\n544.89s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dai-symbol-pass-spec.k]\n534.86s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-overflow-spec.k]\n534.78s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/totalSupply-spec.k]\n207.91s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-tau-pass-spec.k]\n200.03s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_max1_broken-uint256-uint256-0-spec.k]\n60.71s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-spec.k]\n47.92s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-ttl-pass-spec.k]\n34.07s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar01-spec.k]\n33.62s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-symbol-pass-spec.k]\n22.16s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar03-spec.k]\n11.45s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-overflow-spec.k]\n9.38s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/totalSupply-spec.k]\n1.52s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-file-pass-rough-spec.k]\n0.09s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-a-spec.k]\n0.05s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-a-spec.k]\n0.03s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-a-spec.k]\n0.01s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-b-spec.k]\n0.01s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dstoken-approve-fail-rough-spec.k]\n0.01s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-ttl-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-b-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-b-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-teststoreload-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_returnvalue-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-nooverflow-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-kick-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow_fail-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/balanceOf-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/functional-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowcallstoaddress-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-2-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar03-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0le0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_failandsuccess-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-b-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-2-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/end-subuu-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-safetest-testwithdrawfuzz-uint96-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flapper-yank-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemit-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig0-invalid-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-addu48u48-fail-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dstoken-approve-fail-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-c-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-1-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-ttl-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-file-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-a-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/allowance-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-1-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-2-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-owneruponlytest-testincrementasowner-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-b-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-teststoreload-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/cat-file-addr-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-peek-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/encodepacked-keccak01-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-testaccesses-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_max1_broken-uint256-uint256-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/erc721-spec.md]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0gt0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/address00-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/vow-fess-fail-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-symbol-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_bytes4-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_false-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitdonotcheckdata-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig1-invalid-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_bytes4-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-cage-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-summarize-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/bytes00-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/vow-flog-fail-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-flog-fail-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sigs-valid-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar00-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/cat-exhaustiveness-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-same-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg01-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dstoken-approve-fail-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-nooverflow-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-overflow-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-2-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig1-invalid-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-pack-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-same-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/keccak00-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-success-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wdiv_rounding-uint256-uint256-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-symbol-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/end-cash-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-countertest-testincrement-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dai-adduu-fail-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectregularcall-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/totalSupply-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-1-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-bids-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-bids-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-subuu-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flapper-yank-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/approve-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-kick-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar01-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowchangestostorage-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig0-invalid-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dai-symbol-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_message-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sigs-valid-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-1-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-2-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticarray00-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-2-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-summarize-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-tau-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/allowance-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-fess-fail-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-siginvalid-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/pot-join-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-peek-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-foundry-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/solidity-code-spec.md]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-sigvalid-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-c-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-1-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-tick-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-exhaustiveness-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-failure-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wmul_weakly_increasing_positive-uint256-uint256-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/storage-spec.md]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/functional-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitcheckemitter-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/dynamicarray00-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg00-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-2-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-tau-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/pot-join-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig0-invalid-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/encode-keccak00-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-addu48u48-fail-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/balanceOf-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/functional-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/erc20-spec.md]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectstaticcall-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-file-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/totalSupply-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar03-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-file-addr-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-tick-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-c-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_message-0-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-cage-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-overflow-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/totalSupply-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-1-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-overflow-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticloop00-a0lt10-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/end-pack-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-b-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-a-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-same-pass-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-cash-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-summarize-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-adduu-fail-rough-spec.k]\n0.00s setup    repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-d-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar01-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-safetest-testwithdrawfuzz-uint96-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/allowance-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-same-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_false-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dstoken-approve-fail-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dai-symbol-pass-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-overflow-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig0-invalid-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/totalSupply-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-addu48u48-fail-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-ttl-pass-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-cage-pass-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitcheckemitter-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-b-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowcallstoaddress-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-ttl-pass-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-file-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-nooverflow-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-2-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectregularcall-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-file-addr-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/keccak00-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-file-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemit-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/pot-join-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg01-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-addu48u48-fail-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sigs-valid-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-2-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-1-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/balanceOf-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-safetest-testwithdrawfuzz-uint96-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-teststoreload-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-1-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-owneruponlytest-testincrementasowner-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-a-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_returnvalue-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/erc20-spec.md]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-peek-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_failandsuccess-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/vow-fess-fail-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/encodepacked-keccak01-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-ttl-pass-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/end-cash-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-adduu-fail-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/cat-exhaustiveness-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-d-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-b-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/vow-flog-fail-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-addu48u48-fail-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-2-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_bytes4-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-kick-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitdonotcheckdata-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/cat-file-addr-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-testaccesses-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/address00-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-a-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow_fail-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-c-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-cage-pass-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-kick-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_bytes4-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-c-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-flog-fail-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dstoken-approve-fail-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_max1_broken-uint256-uint256-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-bids-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-owneruponlytest-testincrementasowner-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-foundry-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-summarize-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-subuu-pass-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_returnvalue-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/balanceOf-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/solidity-code-spec.md]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-bids-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0gt0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-addu48u48-fail-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig0-invalid-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/encodepacked-keccak01-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-tau-pass-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-fess-fail-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dstoken-approve-fail-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-peek-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_bytes4-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/approve-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flapper-yank-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-subuu-pass-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg01-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-countertest-testincrement-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-c-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/pot-join-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-tau-pass-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemit-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-a-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-success-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/end-subuu-pass-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wdiv_rounding-uint256-uint256-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig1-invalid-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-2-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/functional-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flipper-tau-pass-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dai-adduu-fail-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/erc721-spec.md]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar00-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar02-nooverflow-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_failandsuccess-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-nooverflow-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_bytes4-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flapper-yank-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-test_expectrevert_message-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/allowance-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sigs-valid-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/cat-file-addr-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-same-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-1-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-bids-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectregularcall-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-a-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-success-1-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/allowance-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-d-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-tick-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/functional-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/pot-join-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flapper-yank-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sigs-valid-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/cat-exhaustiveness-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-1-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flipper-bids-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-2-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig0-invalid-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-exhaustiveness-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-flog-fail-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/erc20-spec.md]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig1-invalid-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-kick-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-2-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-success-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/vow-fess-fail-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wmul_weakly_increasing_positive-uint256-uint256-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-storetest-testaccesses-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-pack-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-b-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/erc721-spec.md]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitdonotcheckdata-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/keccak00-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-countertest-testincrement-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-1-c-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/storage-spec.md]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar00-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/vow-flog-fail-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-2-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/functional-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-failure-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowchangestostorage-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/address00-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectstaticcall-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/bytes00-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-a-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/end-cash-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0le0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-cage-pass-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-siginvalid-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop02-sig1-invalid-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowcallstoaddress-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-peek-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-2-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-siginvalid-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0gt0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-foundry-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-kick-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectreverttest-testfail_expectrevert_false-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/encode-keccak00-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-1-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testallow_fail-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-1-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/pot-join-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/overflow00-nooverflow-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-summarize-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/dynamicarray00-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/approve-failure-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-c-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sigs-valid-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-expectcalltest-testexpectstaticcall-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/solidity-code-spec.md]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/approve-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/sum-to-n-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-peek-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wmul_weakly_increasing_positive-uint256-uint256-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/bytes00-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-failure-1-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-sigvalid-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-emitcontracttest-testexpectemitcheckemitter-0-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg00-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/allowance-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dai-adduu-fail-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/vow-fess-fail-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-diff-tic-not-0-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-2-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-arithmetictest-test_wdiv_rounding-uint256-uint256-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecoverloop00-sig1-invalid-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/functional-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-2-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/flopper-tick-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/dynamicarray00-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/encode-keccak00-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/ecrecover00-sigvalid-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-b-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-exhaustiveness-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[examples/storage-spec.md]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/structarg00-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[kontrol/test-allowchangestest-testfailallowchangestostorage-0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transfer-failure-1-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/cat-file-addr-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/functional-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-success-1-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/hkg/transferFrom-success-2-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticarray00-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-tick-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-pack-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-c-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/end-pack-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/balanceOf-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-cage-pass-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-cash-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/dsvalue-read-pass-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/requires01-a0le0-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transferFrom-failure-2-b-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-1-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/end-subuu-pass-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dsvalue-read-pass-summarize-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-dent-guy-same-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flapper-yank-pass-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/dai-adduu-fail-rough-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticloop00-a0lt10-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticarray00-spec.k]\n0.00s call     repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-a-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/functional-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-2-b-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-failure-1-a-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/transfer-success-1-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/end-cash-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[benchmarks/staticloop00-a0lt10-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd-structured/flopper-tick-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[mcd/end-pack-pass-rough-spec.k]\n0.00s teardown repositories/evm-semantics/kevm-pyk/src/tests/integration/test_prove.py::test_prove_rules[erc20/ds/balanceOf-spec.k]\n=========================== short test summary info ============================\nFAILED src/tests/integration/test_prove.py::test_prove_rules[benchmarks/storagevar01-spec.k] - assert 0 == 1\n +  where 0 = len([])\n============ 1 failed, 13 passed, 128 skipped in 753.68s (0:12:33) =============\n",
+  "raw_stderr": "warning: `VIRTUAL_ENV=/Users/steven/Desktop/projs/perfx/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead\n"
+}

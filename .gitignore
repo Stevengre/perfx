@@ -210,12 +210,40 @@ __marimo__/
 # Perfx Project Specific Ignores
 # =============================================================================
 
+# LaTeX auxiliary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+*.xdv
+*.log
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+*.lof
+*.lot
+*.idx
+*.ind
+*.ilg
+*.glo
+*.gls
+*.glg
+*.acn
+*.acr
+*.alg
+*.ist
+*.loa
+*.mtc*
+
 # Test results and outputs
-results/
-evaluation_results/
 repositories/
 *.log
-*.json
 *.html
 *.csv
 *.txt

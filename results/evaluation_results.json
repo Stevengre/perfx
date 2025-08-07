@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-08-07T21:31:59.623541",
+  "steps": {},
+  "commands": [],
+  "metadata": {
+    "visualization_visualization_results": {
+      "success": true,
+      "tables": {
+        "generated": [
+          "step3_opcode_list",
+          "step3_category_statistics"
+        ],
+        "errors": []
+      },
+      "charts": {
+        "generated": [
+          "concrete_performance_comparison",
+          "concrete_performance_distribution",
+          "concrete_performance_scatter",
+          "concrete_test_case_improvement",
+          "symbolic_performance_scatter",
+          "symbolic_test_case_improvement",
+          "symbolic_booster_performance_scatter",
+          "symbolic_booster_test_case_improvement",
+          "symbolic_summaries_performance_scatter",
+          "symbolic_summaries_test_case_improvement",
+          "symbolic_dss_performance_scatter",
+          "symbolic_dss_test_case_improvement"
+        ],
+        "errors": []
+      },
+      "latex_document": {
+        "success": true,
+        "message": "LaTeX document generated successfully"
+      },
+      "total_files": 14
+    }
+  }
+}
