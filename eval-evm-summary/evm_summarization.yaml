@@ -397,4 +397,382 @@ steps:
             output: "results/data/summary_symbolic_prove_dss.json"
           - input: stderr
             output: "results/data/summary_symbolic_prove_dss_errors.txt"
+
+  # 步骤 9: 数据预处理
+  - name: "data_preprocessing"
+    description: "预处理评估数据，生成标准化的JSON格式"
+    commands:
+      - command: "python eval-evm-summary/process_step3_data.py --input results/data/summarize_evaluation_results.json --output results/processed/step3_processed.json --prove results/data/prove_summaries_results.json"
+        description: "处理第三步数据，生成分类统计"
+
+  # 步骤 10: 可视化配置
+  - name: "visualization"
+    description: "通过声明式配置生成图表和表格"
+    enabled: true
+    depends_on: ["data_preprocessing"]
+    
+    # 可视化配置 - 声明式定义需要生成的图表和表格
+    visualization_config:
+      data_directory: "results/processed"
+      output_directory: "results/analysis"
+      
+      # LaTeX文档生成配置
+      generate_latex_document: true
+      document_title: "EVM Semantics Evaluation Results"
+      document_author: "perfx"
+      document_class: "article"
+      
+            # LaTeX表格配置
+      tables:
+        - name: "step3_opcode_list"
+          title: "Opcode Summarization Results"
+          input_file: "step3_processed.json"
+          output_file: "tables/step3_opcode_list.tex"
+          type: "opcode_list_table"
+          data_path: "categories"
+          use_tabularx: true  # 使用tabularx，因为这个表格有长文本需要换行
+          ignore_categories: ["Total"]  # 忽略Total分类，不在第一个表格中显示
+          columns:
+            - field: "category"
+              header: "Category"
+              format: "text"
+            - field: "success_opcodes"
+              header: "Successful Opcodes"
+              format: "text"
+            - field: "failed_opcodes"
+              header: "Failed Opcodes"
+              format: "text"
+        
+        - name: "step3_category_statistics"
+          title: "Statistics of Opcode Summarization"
+          input_file: "step3_processed.json"
+          output_file: "tables/step3_category_statistics.tex"
+          type: "category_statistics_table"
+          data_path: "categories"
+          use_tabularx: false  # 不使用tabularx，因为这个表格主要是数字，不需要换行
+          columns:
+            - field: "category"
+              header: "Category"
+              format: "text"
+            - field: "total_count"
+              header: "#"
+              format: "integer"
+            - field: "success_rate"
+              header: 'G. Succ.'
+              format: "percentage"
+            - field: "verification_success_rate"
+              header: 'V. Succ.'
+              format: "percentage"
+            - field: "avg_time"
+              header: "G. Time (s)"
+              format: "float_1"
+            - field: "avg_verification_time"
+              header: "V. Time (s)"
+              format: "float_1"
+            - field: "avg_steps"
+              header: "Steps"
+              format: "float_1"
+            - field: "avg_reduction"
+              header: '$\Delta$ Steps'
+              format: "percentage"
+        
+
+      
+      # 图表配置
+      charts:
+
+        - name: "concrete_performance_comparison"
+          title: "Concrete Execution Performance Comparison"
+          type: "performance_comparison"
+          input_files:
+            - "../data/pure_concrete_performance.json"
+            - "../data/summary_concrete_performance.json"
+          output_file: "charts/concrete_performance_comparison.pdf"
+          # 数据提取配置
+          data_config:
+            # 测试结果列表的路径
+            test_results_path: "test_results"
+            # 测试ID字段名
+            test_id_field: "test_id"
+            # 持续时间字段名
+            duration_field: "duration"
+            # 状态字段名
+            status_field: "status"
+            # 错误信息字段名（可选）
+            error_field: "error_message"
+          # 过滤配置
+          filters:
+            # 要包含的状态（只处理这些状态的测试）
+            include_statuses: ["PASSED", "FAILED"]
+            # 要排除的状态（跳过这些状态的测试）
+            exclude_statuses: ["SKIPPED"]
+            # 是否只包含成功的测试
+            only_successful: false
+            # 是否忽略有错误信息的测试
+            ignore_errors: false
+          # 图表配置
+          chart_config:
+            # 第一个数据集的标签
+            dataset1_label: "Pure"
+            # 第二个数据集的标签
+            dataset2_label: "Summary"
+        
+        # 性能分布图表（加速因子和性能提升分布）
+        - name: "concrete_performance_distribution"
+          title: "Concrete Execution Performance Distribution"
+          type: "performance_distribution"
+          input_files:
+            - "../data/pure_concrete_performance.json"
+            - "../data/summary_concrete_performance.json"
+          output_file: "charts/concrete_performance_distribution.pdf"
+          data_config:
+            test_results_path: "test_results"
+            test_id_field: "test_id"
+            duration_field: "duration"
+            status_field: "status"
+            error_field: "error_message"
+          filters:
+            include_statuses: ["PASSED", "FAILED"]
+            exclude_statuses: ["SKIPPED"]
+            only_successful: false
+            ignore_errors: false
+          chart_config:
+            dataset1_label: "Pure"
+            dataset2_label: "Summary"
+        
+        # 性能散点图（Pure vs Summary执行时间）
+        - name: "concrete_performance_scatter"
+          title: "Performance Comparison: Original vs Summarized Semantics"
+          type: "performance_scatter"
+          input_files:
+            - "../data/pure_concrete_performance.json"
+            - "../data/summary_concrete_performance.json"
+          output_file: "charts/concrete_performance_scatter.pdf"
+          data_config:
+            test_results_path: "test_results"
+            test_id_field: "test_id"
+            duration_field: "duration"
+            status_field: "status"
+            error_field: "error_message"
+          filters:
+            include_statuses: ["PASSED", "FAILED"]
+            exclude_statuses: ["SKIPPED"]
+            only_successful: false
+            ignore_errors: false
+          chart_config:
+            dataset1_label: "Original"
+            dataset2_label: "Summarized"
+        
+        # 测试用例性能改进图表（前20个改进最大的测试用例）
+        - name: "concrete_test_case_improvement"
+          title: "Top 20 Test Cases by Performance Improvement"
+          type: "test_case_improvement"
+          input_files:
+            - "../data/pure_concrete_performance.json"
+            - "../data/summary_concrete_performance.json"
+          output_file: "charts/concrete_test_case_improvement.pdf"
+          data_config:
+            test_results_path: "test_results"
+            test_id_field: "test_id"
+            duration_field: "duration"
+            status_field: "status"
+            error_field: "error_message"
+          filters:
+            include_statuses: ["PASSED", "FAILED"]
+            exclude_statuses: ["SKIPPED"]
+            only_successful: false
+            ignore_errors: false
+          chart_config:
+            dataset1_label: "Pure"
+            dataset2_label: "Summary"
+            top_n: 20
+        
+        # Symbolic性能散点图（booster_dev）
+        - name: "symbolic_performance_scatter"
+          title: "Symbolic Execution Performance Comparison: Original vs Summarized Semantics"
+          type: "performance_scatter"
+          input_files:
+            - "../data/pure_symbolic_prove_rules_booster_dev.json"
+            - "../data/summary_symbolic_prove_rules_booster_dev.json"
+          output_file: "charts/symbolic_performance_scatter.pdf"
+          data_config:
+            test_results_path: "test_results"
+            test_id_field: "test_id"
+            duration_field: "duration"
+            status_field: "status"
+            error_field: "error_message"
+          filters:
+            include_statuses: ["PASSED", "FAILED"]
+            exclude_statuses: ["SKIPPED"]
+            only_successful: false
+            ignore_errors: false
+          chart_config:
+            dataset1_label: "Pure"
+            dataset2_label: "Summary"
+
+        # Symbolic测试用例改进图（booster_dev）
+        - name: "symbolic_test_case_improvement"
+          title: "Top Symbolic Test Cases by Performance Improvement"
+          type: "test_case_improvement"
+          input_files:
+            - "../data/pure_symbolic_prove_rules_booster_dev.json"
+            - "../data/summary_symbolic_prove_rules_booster_dev.json"
+          output_file: "charts/symbolic_test_case_improvement.pdf"
+          data_config:
+            test_results_path: "test_results"
+            test_id_field: "test_id"
+            duration_field: "duration"
+            status_field: "status"
+            error_field: "error_message"
+          filters:
+            include_statuses: ["PASSED", "FAILED"]
+            exclude_statuses: ["SKIPPED"]
+            only_successful: false
+            ignore_errors: false
+          chart_config:
+            dataset1_label: "Pure"
+            dataset2_label: "Summary"
+            top_n: 14
+
+        # Symbolic性能散点图（booster）
+        - name: "symbolic_booster_performance_scatter"
+          title: "Symbolic Execution Performance Comparison (Booster): Original vs Summarized Semantics"
+          type: "performance_scatter"
+          input_files:
+            - "../data/pure_symbolic_prove_rules_booster.json"
+            - "../data/summary_symbolic_prove_rules_booster.json"
+          output_file: "charts/symbolic_booster_performance_scatter.pdf"
+          data_config:
+            test_results_path: "test_results"
+            test_id_field: "test_id"
+            duration_field: "duration"
+            status_field: "status"
+            error_field: "error_message"
+          filters:
+            include_statuses: ["PASSED", "FAILED"]
+            exclude_statuses: ["SKIPPED"]
+            only_successful: false
+            ignore_errors: false
+          chart_config:
+            dataset1_label: "Pure"
+            dataset2_label: "Summary"
+
+        # Symbolic测试用例改进图（booster）
+        - name: "symbolic_booster_test_case_improvement"
+          title: "Top Symbolic Test Cases by Performance Improvement (Booster)"
+          type: "test_case_improvement"
+          input_files:
+            - "../data/pure_symbolic_prove_rules_booster.json"
+            - "../data/summary_symbolic_prove_rules_booster.json"
+          output_file: "charts/symbolic_booster_test_case_improvement.pdf"
+          data_config:
+            test_results_path: "test_results"
+            test_id_field: "test_id"
+            duration_field: "duration"
+            status_field: "status"
+            error_field: "error_message"
+          filters:
+            include_statuses: ["PASSED", "FAILED"]
+            exclude_statuses: ["SKIPPED"]
+            only_successful: false
+            ignore_errors: false
+          chart_config:
+            dataset1_label: "Pure"
+            dataset2_label: "Summary"
+            top_n: 20
+
+        # Symbolic性能散点图（summaries）
+        - name: "symbolic_summaries_performance_scatter"
+          title: "Symbolic Execution Performance Comparison (Summaries): Original vs Summarized Semantics"
+          type: "performance_scatter"
+          input_files:
+            - "../data/pure_symbolic_prove_summaries.json"
+            - "../data/summary_symbolic_prove_summaries.json"
+          output_file: "charts/symbolic_summaries_performance_scatter.pdf"
+          data_config:
+            test_results_path: "test_results"
+            test_id_field: "test_id"
+            duration_field: "duration"
+            status_field: "status"
+            error_field: "error_message"
+          filters:
+            include_statuses: ["PASSED", "FAILED"]
+            exclude_statuses: ["SKIPPED"]
+            only_successful: false
+            ignore_errors: false
+          chart_config:
+            dataset1_label: "Pure"
+            dataset2_label: "Summary"
+
+        # Symbolic测试用例改进图（summaries）
+        - name: "symbolic_summaries_test_case_improvement"
+          title: "Top Symbolic Test Cases by Performance Improvement (Summaries)"
+          type: "test_case_improvement"
+          input_files:
+            - "../data/pure_symbolic_prove_summaries.json"
+            - "../data/summary_symbolic_prove_summaries.json"
+          output_file: "charts/symbolic_summaries_test_case_improvement.pdf"
+          data_config:
+            test_results_path: "test_results"
+            test_id_field: "test_id"
+            duration_field: "duration"
+            status_field: "status"
+            error_field: "error_message"
+          filters:
+            include_statuses: ["PASSED", "FAILED"]
+            exclude_statuses: ["SKIPPED"]
+            only_successful: false
+            ignore_errors: false
+          chart_config:
+            dataset1_label: "Pure"
+            dataset2_label: "Summary"
+            top_n: 20
+
+        # Symbolic性能散点图（dss）
+        - name: "symbolic_dss_performance_scatter"
+          title: "Symbolic Execution Performance Comparison (DSS): Original vs Summarized Semantics"
+          type: "performance_scatter"
+          input_files:
+            - "../data/pure_symbolic_prove_dss.json"
+            - "../data/summary_symbolic_prove_dss.json"
+          output_file: "charts/symbolic_dss_performance_scatter.pdf"
+          data_config:
+            test_results_path: "test_results"
+            test_id_field: "test_id"
+            duration_field: "duration"
+            status_field: "status"
+            error_field: "error_message"
+          filters:
+            include_statuses: ["PASSED", "FAILED"]
+            exclude_statuses: ["SKIPPED"]
+            only_successful: false
+            ignore_errors: false
+          chart_config:
+            dataset1_label: "Pure"
+            dataset2_label: "Summary"
+
+        # Symbolic测试用例改进图（dss）
+        - name: "symbolic_dss_test_case_improvement"
+          title: "Top Symbolic Test Cases by Performance Improvement (DSS)"
+          type: "test_case_improvement"
+          input_files:
+            - "../data/pure_symbolic_prove_dss.json"
+            - "../data/summary_symbolic_prove_dss.json"
+          output_file: "charts/symbolic_dss_test_case_improvement.pdf"
+          data_config:
+            test_results_path: "test_results"
+            test_id_field: "test_id"
+            duration_field: "duration"
+            status_field: "status"
+            error_field: "error_message"
+          filters:
+            include_statuses: ["PASSED", "FAILED"]
+            exclude_statuses: ["SKIPPED"]
+            only_successful: false
+            ignore_errors: false
+          chart_config:
+            dataset1_label: "Pure"
+            dataset2_label: "Summary"
+            top_n: 20
+        
  

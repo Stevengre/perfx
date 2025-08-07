@@ -4,39 +4,39 @@ LaTeX 表格生成器
 用于从 JSON 数据生成学术论文级别的 LaTeX 表格
 """
 
-import json
 import os
+import json
+from typing import Dict, Any, List
 from pathlib import Path
-from typing import Dict, Any, List, Optional
 from rich.console import Console
 
 console = Console()
 
-
 class LatexTableGenerator:
-    """LaTeX 表格生成器"""
+    """通用的LaTeX表格生成器，不依赖特定项目"""
     
     def __init__(self):
         self.console = Console()
     
-    def generate_opcode_summary_table(self, json_file_path: str, output_path: str) -> bool:
+    def generate_generic_table(self, json_file_path: str, output_path: str, table_config: Dict[str, Any]) -> bool:
         """
-        生成 EVM Opcode 摘要化评估结果的 LaTeX 表格
+        生成通用LaTeX表格
         
         Args:
-            json_file_path: JSON 数据文件路径
-            output_path: 输出 LaTeX 文件路径
+            json_file_path: 输入JSON文件路径
+            output_path: 输出LaTeX文件路径
+            table_config: 表格配置
             
         Returns:
             是否成功生成
         """
         try:
-            # 读取 JSON 数据
+            # 读取JSON数据
             with open(json_file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             
-            # 生成 LaTeX 内容
-            latex_content = self._generate_opcode_summary_latex(data)
+            # 生成LaTeX内容
+            latex_content = self._generate_generic_latex(data, table_config)
             
             # 保存文件
             output_dir = os.path.dirname(output_path)
@@ -49,349 +49,129 @@ class LatexTableGenerator:
             return True
             
         except Exception as e:
-            self.console.print(f"[red]✗ 生成 LaTeX 表格失败: {e}[/red]")
+            self.console.print(f"[red]✗ Failed to generate LaTeX table: {e}[/red]")
             return False
     
-    def _generate_opcode_summary_latex(self, data: Dict[str, Any]) -> str:
-        """生成 EVM Opcode 摘要化评估的 LaTeX 内容"""
+    def _generate_generic_latex(self, data: Dict[str, Any], table_config: Dict[str, Any]) -> str:
+        """生成通用的LaTeX表格内容"""
         
-        # 提取统计数据
-        stats = data.get("statistics", {})
-        overall = stats.get("overall", {})
-        by_category = stats.get("by_category", {})
-        by_summary_status = stats.get("by_summary_status", {})
-        performance = stats.get("performance_metrics", {})
+        # 提取配置
+        title = table_config.get('title', 'Generated Table')
+        data_path = table_config.get('data_path', '')
+        columns = table_config.get('columns', [])
         
-        latex_content = []
+        # 提取数据
+        if data_path:
+            table_data = self._extract_data_by_path(data, data_path)
+        else:
+            table_data = data
         
-        # 添加文档头部
-        latex_content.append(r"""\documentclass{article}
-\usepackage{booktabs}
-\usepackage{multirow}
-\usepackage{array}
-\usepackage{siunitx}
-\usepackage{graphicx}
-\usepackage{geometry}
-
-\geometry{margin=1in}
-
-\begin{document}
-
-\title{EVM Opcode Summarization Evaluation Results}
-\author{Automated Evaluation Report}
-\date{""" + data.get("metadata", {}).get("timestamp", "Generated") + r"""}
-
-\maketitle
-
-""")
+        if not table_data:
+            return f"% Error: No data found at path '{data_path}'"
         
-        # 1. 总体统计表格
-        latex_content.append(self._generate_overall_stats_table(overall))
+        if not columns:
+            return f"% Error: No columns defined for table '{table_config.get('name', 'unknown')}'"
         
-        # 2. 按分类统计表格
-        latex_content.append(self._generate_category_stats_table(by_category))
+        # 生成LaTeX表格
+        latex_lines = [
+            "\\begin{table}[htbp]",
+            "\\centering",
+            f"\\caption{{{title}}}",
+            f"\\label{{tab:{table_config.get('name', 'table')}}}",
+        ]
         
-        # 3. 按摘要状态统计表格
-        latex_content.append(self._generate_summary_status_table(by_summary_status))
+        # 表格格式
+        col_format = "|" + "|".join(["c"] * len(columns)) + "|"
+        latex_lines.append(f"\\begin{{tabular}}{{{col_format}}}")
+        latex_lines.append("\\hline")
         
-        # 4. 性能指标表格
-        latex_content.append(self._generate_performance_table(performance))
+        # 表头
+        headers = [col["header"] for col in columns]
+        latex_lines.append(" & ".join(headers) + " \\\\")
+        latex_lines.append("\\hline")
         
-        # 5. 详细结果表格（前20个）
-        results = data.get("results", [])
-        if results:
-            latex_content.append(self._generate_detailed_results_table(results[:20]))
+        # 表格数据
+        if isinstance(table_data, dict):
+            # 字典数据：每行是一个键值对
+            for key, item in table_data.items():
+                if isinstance(item, dict):
+                    row_data = []
+                    for col in columns:
+                        field = col["field"]
+                        value = item.get(field, "")
+                        formatted_value = self._format_value(value, col.get("format", "text"))
+                        row_data.append(formatted_value)
+                    latex_lines.append(" & ".join(row_data) + " \\\\")
+                else:
+                    # 简单键值对
+                    row_data = [str(key), self._format_value(item, columns[1].get("format", "text"))]
+                    latex_lines.append(" & ".join(row_data) + " \\\\")
         
-        # 文档结尾
-        latex_content.append(r"""
-\end{document}
-""")
+        elif isinstance(table_data, list):
+            # 列表数据：每行是一个对象
+            for item in table_data:
+                if isinstance(item, dict):
+                    row_data = []
+                    for col in columns:
+                        field = col["field"]
+                        value = item.get(field, "")
+                        formatted_value = self._format_value(value, col.get("format", "text"))
+                        row_data.append(formatted_value)
+                    latex_lines.append(" & ".join(row_data) + " \\\\")
         
-        return "\n".join(latex_content)
+        latex_lines.append("\\hline")
+        latex_lines.append("\\end{tabular}")
+        latex_lines.append("\\end{table}")
+        
+        return "\n".join(latex_lines)
     
-    def _generate_overall_stats_table(self, overall: Dict[str, Any]) -> str:
-        """生成总体统计表格"""
-        return f"""
-\\section{{Overall Statistics}}
-
-\\begin{{table}}[h]
-\\centering
-\\begin{{tabular}}{{lr}}
-\\toprule
-\\textbf{{Metric}} & \\textbf{{Value}} \\\\
-\\midrule
-Total Opcodes & {overall.get('total_opcodes', 0)} \\\\
-Successful & {overall.get('successful', 0)} \\\\
-Failed & {overall.get('failed', 0)} \\\\
-Skipped & {overall.get('skipped', 0)} \\\\
-Success Rate & {overall.get('success_rate', 0):.2%} \\\\
-Average Time & {overall.get('average_time', 0):.2f} s \\\\
-Timeout Count & {overall.get('timeout_count', 0)} \\\\
-Error Count & {overall.get('error_count', 0)} \\\\
-\\bottomrule
-\\end{{tabular}}
-\\caption{{Overall evaluation statistics}}
-\\label{{tab:overall-stats}}
-\\end{{table}}
-"""
+    def _extract_data_by_path(self, data: Dict[str, Any], path: str) -> Any:
+        """根据路径提取数据"""
+        if not path:
+            return data
+        
+        current = data
+        for key in path.split('.'):
+            if isinstance(current, dict) and key in current:
+                current = current[key]
+            else:
+                return None
+        return current
     
-    def _generate_category_stats_table(self, by_category: Dict[str, Any]) -> str:
-        """生成按分类统计表格"""
-        table_content = []
-        table_content.append(r"""
-\section{Statistics by Opcode Category}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{lrrrrr}
-\toprule
-\textbf{Category} & \textbf{Total} & \textbf{Success} & \textbf{Failed} & \textbf{Success Rate} & \textbf{Avg Time (s)} \\
-\midrule
-""")
+    def _format_value(self, value: Any, format_type: str) -> str:
+        """格式化值"""
+        if value is None:
+            return "N/A"
         
-        # 按成功率排序
-        sorted_categories = sorted(
-            by_category.items(),
-            key=lambda x: x[1].get('success_rate', 0),
-            reverse=True
-        )
-        
-        for category, stats in sorted_categories:
-            if stats.get('total', 0) > 0:
-                table_content.append(
-                    f"{category.replace('_', ' ').title()} & "
-                    f"{stats.get('total', 0)} & "
-                    f"{stats.get('successful', 0)} & "
-                    f"{stats.get('failed', 0)} & "
-                    f"{stats.get('success_rate', 0):.2%} & "
-                    f"{stats.get('average_time', 0):.2f} \\\\"
-                )
-        
-        table_content.append(r"""
-\bottomrule
-\end{tabular}
-\caption{Evaluation results by opcode category}
-\label{tab:category-stats}
-\end{table}
-""")
-        
-        return "\n".join(table_content)
-    
-    def _generate_summary_status_table(self, by_summary_status: Dict[str, Any]) -> str:
-        """生成按摘要状态统计表格"""
-        table_content = []
-        table_content.append(r"""
-\section{Statistics by Summary Status}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{lrrr}
-\toprule
-\textbf{Status} & \textbf{Total} & \textbf{Success} & \textbf{Success Rate} \\
-\midrule
-""")
-        
-        for status, stats in by_summary_status.items():
-            if stats.get('total', 0) > 0:
-                table_content.append(
-                    f"{status.replace('_', ' ').title()} & "
-                    f"{stats.get('total', 0)} & "
-                    f"{stats.get('successful', 0)} & "
-                    f"{stats.get('success_rate', 0):.2%} \\\\"
-                )
-        
-        table_content.append(r"""
-\bottomrule
-\end{tabular}
-\caption{Evaluation results by summary status}
-\label{tab:summary-status-stats}
-\end{table}
-""")
-        
-        return "\n".join(table_content)
-    
-    def _generate_performance_table(self, performance: Dict[str, Any]) -> str:
-        """生成性能指标表格"""
-        table_content = []
-        table_content.append(r"""
-\section{Performance Metrics}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{llrr}
-\toprule
-\textbf{Metric} & \textbf{Opcode} & \textbf{Value} & \textbf{Category} \\
-\midrule
-""")
-        
-        # 最快 opcode
-        fastest = performance.get('fastest_opcode')
-        if fastest:
-            table_content.append(
-                f"Fastest & {fastest.get('opcode', 'N/A')} & "
-                f"{fastest.get('time', 0):.3f} s & "
-                f"{fastest.get('category', 'N/A').replace('_', ' ').title()} \\\\"
-            )
-        
-        # 最慢 opcode
-        slowest = performance.get('slowest_opcode')
-        if slowest:
-            table_content.append(
-                f"Slowest & {slowest.get('opcode', 'N/A')} & "
-                f"{slowest.get('time', 0):.3f} s & "
-                f"{slowest.get('category', 'N/A').replace('_', ' ').title()} \\\\"
-            )
-        
-        # 最多重写步骤
-        most_steps = performance.get('most_rewriting_steps')
-        if most_steps:
-            table_content.append(
-                f"Most Steps & {most_steps.get('opcode', 'N/A')} & "
-                f"{most_steps.get('steps', 0)} & "
-                f"{most_steps.get('category', 'N/A').replace('_', ' ').title()} \\\\"
-            )
-        
-        # 最少重写步骤
-        least_steps = performance.get('least_rewriting_steps')
-        if least_steps:
-            table_content.append(
-                f"Least Steps & {least_steps.get('opcode', 'N/A')} & "
-                f"{least_steps.get('steps', 0)} & "
-                f"{least_steps.get('category', 'N/A').replace('_', ' ').title()} \\\\"
-            )
-        
-        table_content.append(r"""
-\bottomrule
-\end{tabular}
-\caption{Performance metrics for opcode evaluation}
-\label{tab:performance-metrics}
-\end{table}
-""")
-        
-        return "\n".join(table_content)
-    
-    def _generate_detailed_results_table(self, results: List[Dict[str, Any]]) -> str:
-        """生成详细结果表格"""
-        table_content = []
-        table_content.append(r"""
-\section{Detailed Results (First 20 Opcodes)}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{lllrrl}
-\toprule
-\textbf{Opcode} & \textbf{Category} & \textbf{Status} & \textbf{Time (s)} & \textbf{Steps} & \textbf{Summary Status} \\
-\midrule
-""")
-        
-        for result in results:
-            opcode = result.get('opcode', 'N/A')
-            category = result.get('category', 'N/A').replace('_', ' ').title()
-            success = "✓" if result.get('success', False) else "✗"
-            time_taken = f"{result.get('time', 0):.3f}" if result.get('time') else "N/A"
-            steps = sum(result.get('rewriting_steps', [])) if result.get('rewriting_steps') else 0
-            summary_status = result.get('summary_status', 'N/A')
-            
-            table_content.append(
-                f"{opcode} & {category} & {success} & {time_taken} & {steps} & {summary_status} \\\\"
-            )
-        
-        table_content.append(r"""
-\bottomrule
-\end{tabular}
-\caption{Detailed evaluation results for first 20 opcodes}
-\label{tab:detailed-results}
-\end{table}
-""")
-        
-        return "\n".join(table_content)
-    
-    def generate_custom_table(self, json_file_path: str, output_path: str, 
-                             table_config: Dict[str, Any]) -> bool:
-        """
-        生成自定义 LaTeX 表格
-        
-        Args:
-            json_file_path: JSON 数据文件路径
-            output_path: 输出 LaTeX 文件路径
-            table_config: 表格配置
-            
-        Returns:
-            是否成功生成
-        """
         try:
-            # 读取 JSON 数据
-            with open(json_file_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            
-            # 生成自定义表格
-            latex_content = self._generate_custom_latex_table(data, table_config)
-            
-            # 保存文件
-            output_dir = os.path.dirname(output_path)
-            if output_dir:
-                os.makedirs(output_dir, exist_ok=True)
-            with open(output_path, 'w', encoding='utf-8') as f:
-                f.write(latex_content)
-            
-            self.console.print(f"[green]✓ 自定义 LaTeX 表格已生成: {output_path}[/green]")
-            return True
-            
-        except Exception as e:
-            self.console.print(f"[red]✗ 生成自定义 LaTeX 表格失败: {e}[/red]")
-            return False
-    
-    def _generate_custom_latex_table(self, data: Dict[str, Any], 
-                                   config: Dict[str, Any]) -> str:
-        """生成自定义 LaTeX 表格"""
-        # 这里可以根据配置生成不同类型的表格
-        # 暂时返回一个简单的表格
-        return r"""
-\documentclass{article}
-\usepackage{booktabs}
-\usepackage{array}
-
-\begin{document}
-
-\section{Custom Table}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{lr}
-\toprule
-\textbf{Field} & \textbf{Value} \\
-\midrule
-Total & """ + str(data.get("summary", {}).get("total", 0)) + r""" \\
-Success & """ + str(data.get("summary", {}).get("successful", 0)) + r""" \\
-\bottomrule
-\end{tabular}
-\caption{Custom evaluation table}
-\label{tab:custom}
-\end{table}
-
-\end{document}
-"""
+            if format_type == "integer":
+                return str(int(value))
+            elif format_type == "float_2":
+                return f"{float(value):.2f}"
+            elif format_type == "percentage":
+                if isinstance(value, (int, float)):
+                    return f"{value:.1f}%"
+                else:
+                    return str(value)
+            elif format_type == "text":
+                return str(value)
+            else:
+                return str(value)
+        except (ValueError, TypeError):
+            return str(value)
 
 
-def generate_latex_table(json_file: str, output_file: str, 
-                        table_type: str = "opcode_summary") -> bool:
+def generate_latex_table(json_file: str, output_file: str, table_config: Dict[str, Any]) -> bool:
     """
-    便捷函数：生成 LaTeX 表格
+    生成LaTeX表格的便捷函数
     
     Args:
-        json_file: JSON 数据文件路径
-        output_file: 输出 LaTeX 文件路径
-        table_type: 表格类型 ("opcode_summary" 或 "custom")
+        json_file: 输入JSON文件路径
+        output_file: 输出LaTeX文件路径
+        table_config: 表格配置
         
     Returns:
         是否成功生成
     """
     generator = LatexTableGenerator()
-    
-    if table_type == "opcode_summary":
-        return generator.generate_opcode_summary_table(json_file, output_file)
-    elif table_type == "custom":
-        return generator.generate_custom_table(json_file, output_file, {})
-    else:
-        console.print(f"[red]✗ 未知的表格类型: {table_type}[/red]")
-        return False 
+    return generator.generate_generic_table(json_file, output_file, table_config) 
