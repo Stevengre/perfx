@@ -1,142 +1,142 @@
 # EVM Summarization Evaluation
 
-EVM 语义摘要化评估工具。
+EVM Semantics Summarization Evaluation Tool.
 
-## 📁 目录结构
+## 📁 Directory Structure
 
 ```
 eval-evm-summary/
 ├── configs/
-│   └── evm_summarization.yaml     # 主配置文件
+│   └── evm_summarization.yaml     # Main configuration file
 ├── scripts/
-│   └── setup_macos_env.py         # MacBook 环境设置脚本
-└── results/                       # 评估结果输出目录
+│   └── setup_macos_env.py         # MacBook environment setup script
+└── results/                       # Evaluation results output directory
 ```
 
 ## 🚀 快速开始
 
-### 1. 环境准备
+### 1. Environment Preparation
 
 ```bash
-# 进入评估目录
+# Enter evaluation directory
 cd eval-evm-summary
 
-# 设置 MacBook 环境（如果需要）
+# Set up MacBook environment (if needed)
 python scripts/setup_macos_env.py
 ```
 
-### 2. 执行评估
+### 2. Execute Evaluation
 
 ```bash
-# 从项目根目录执行
-cd ..  # 回到 perfx 根目录
+# Execute from project root directory
+cd ..  # Return to perfx root directory
 
-# 执行完整的 EVM summarization evaluation
+# Execute complete EVM summarization evaluation
 uv run perfx run -c eval-evm-summary/configs/evm_summarization.yaml
 
-# 只执行特定步骤
+# Execute only specific steps
 uv run perfx run -c eval-evm-summary/configs/evm_summarization.yaml --steps build_kevm
 
-# 只执行前几个步骤
+# Execute only first few steps
 uv run perfx run -c eval-evm-summary/configs/evm_summarization.yaml --steps setup_environment,build_kevm,summarize_evaluation
 
-# 详细输出
+# Verbose output
 uv run perfx run -c eval-evm-summary/configs/evm_summarization.yaml --verbose
 
-# 生成报告
+# Generate report
 uv run perfx run -c eval-evm-summary/configs/evm_summarization.yaml --generate-report
 ```
 
-### 3. 查看结果
+### 3. View Results
 
 ```bash
-# 查看评估结果
+# View evaluation results
 ls -la eval-evm-summary/results/
 
-# 查看日志
+# View logs
 cat eval-evm-summary/results/logs/setup.log
 
-# 查看摘要化结果
+# View summarization results
 cat eval-evm-summary/results/data/summarization_results.json
 ```
 
-## 📋 评估步骤
+## 📋 Evaluation Steps
 
 ### 1. setup_environment
-- 创建必要的目录结构
-- 设置 MacBook 环境变量
+- Create necessary directory structure
+- Set MacBook environment variables
 
 ### 2. build_kevm
-- 克隆 evm-semantics 仓库
-- 更新子模块
-- 安装 poetry 依赖
-- 构建 KEVM 语义
+- Clone evm-semantics repository
+- Update submodules
+- Install poetry dependencies
+- Build KEVM semantics
 
 ### 3. summarize_evaluation
-- 获取可用的 opcode 列表
-- 执行摘要化评估
-- 生成摘要化结果
+- Get available opcode list
+- Execute summarization evaluation
+- Generate summarization results
 
 ### 4. category_analysis
-- 按类别分析 opcode
-- 生成分类统计结果
+- Analyze opcodes by category
+- Generate category statistics
 
 ### 5. prove_summaries_test
-- 测试摘要化语义的正确性
+- Test correctness of summarization semantics
 
 ### 6. performance_comparison
-- 比较纯语义和摘要化语义的性能
+- Compare performance of pure and summarized semantics
 
-## 📊 输出结果
+## 📊 Output Results
 
-### 文件结构
+### File Structure
 
 ```
 results/
-├── backups/                      # 备份文件
-├── logs/                         # 日志文件
-│   └── setup.log                 # 环境设置日志
-├── data/                         # 数据文件
-│   ├── opcode_list.txt           # Opcode 列表
-│   ├── summarization_results.json # 摘要化结果
-│   ├── category_analysis.json    # 分类分析结果
-│   ├── prove_summaries_test_results.txt # 测试结果
-│   ├── concrete_execution_performance.txt # 性能测试结果
-│   └── concrete_execution_summary_performance.txt # 摘要化性能测试结果
-└── evaluation_report.html        # 评估报告
+├── backups/                      # Backup files
+├── logs/                         # Log files
+│   └── setup.log                 # Environment setup log
+├── data/                         # Data files
+│   ├── opcode_list.txt           # Opcode list
+│   ├── summarization_results.json # Summarization results
+│   ├── category_analysis.json    # Category analysis results
+│   ├── prove_summaries_test_results.txt # Test results
+│   ├── concrete_execution_performance.txt # Performance test results
+│   └── concrete_execution_summary_performance.txt # Summarized performance test results
+└── evaluation_report.html        # Evaluation report
 ```
 
-## 🔧 故障排除
+## 🔧 Troubleshooting
 
-### 常见问题
+### Common Issues
 
-1. **构建失败**
+1. **Build Failure**
    ```bash
-   # 检查环境变量
+   # Check environment variables
    echo $CC
    echo $CXX
    echo $APPLE_SILICON
    
-   # 重新设置环境
+   # Reset environment
    python eval-evm-summary/scripts/setup_macos_env.py
    ```
 
-2. **权限问题**
+2. **Permission Issues**
    ```bash
-   # 确保有执行权限
+   # Ensure execution permissions
    chmod +x eval-evm-summary/scripts/*.py
    ```
 
-### 调试模式
+### Debug Mode
 
 ```bash
-# 启用详细输出
+# Enable verbose output
 uv run perfx run -c eval-evm-summary/configs/evm_summarization.yaml --verbose
 
-# 只执行单个步骤进行调试
+# Execute only single step for debugging
 uv run perfx run -c eval-evm-summary/configs/evm_summarization.yaml --steps setup_environment --verbose
 ```
 
-## 📄 许可证
+## 📄 License
 
-本项目遵循与主项目相同的许可证。 
+This project follows the same license as the main project. 

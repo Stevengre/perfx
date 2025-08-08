@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-第三步数据处理器 - 专门处理Step 3摘要化评估数据
-输入：results/data/summarize_evaluation_results.json
-输出：results/processed/step3_processed.json (perfx可直接使用的格式)
+Step 3 Data Processor - Specifically processes Step 3 summarization evaluation data
+Input: results/data/summarize_evaluation_results.json
+Output: results/processed/step3_processed.json (format directly usable by perfx)
 """
 
 import json
@@ -11,14 +11,14 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 import sys
 
-# 添加opcode别名映射
+# Add opcode alias mapping
 opcode_aliases = {
-    # 这里可以添加opcode别名映射，目前为空
+    # Opcode alias mappings can be added here, currently empty
 }
 
 OPCODE_CATEGORIES = {
     'Arith. & Bit.': {
-        'count': 20,  # 更新计数
+        'count': 20,  # Updated count
         'opcodes': [
             'ADD', 'MUL', 'SUB', 'DIV', 'SDIV', 'MOD', 'SMOD', 'ADDMOD', 'MULMOD', 
             'EXP', 'SIGNEXTEND', 'AND', 'OR', 'XOR', 'NOT', 'BYTE', 'SHL', 
@@ -30,7 +30,7 @@ OPCODE_CATEGORIES = {
         'opcodes': ['LT', 'GT', 'SLT', 'SGT', 'EQ', 'ISZERO'],
     },
     'Flow Control': {
-        'count': 9,  # 更新计数
+        'count': 9,  # Updated count
         'opcodes': ['STOP', 'JUMP', 'JUMPI', 'PC', 'JUMPDEST', 'RETURN', 'REVERT', 'INVALID', 'UNDEFINED'],
     },
     'Stack': {
@@ -76,7 +76,7 @@ OPCODE_CATEGORIES = {
 }
 
 def load_json_file(file_path: str) -> Optional[Dict[str, Any]]:
-    """安全加载JSON文件"""
+    """Safely load JSON file"""
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             return json.load(f)
@@ -85,11 +85,11 @@ def load_json_file(file_path: str) -> Optional[Dict[str, Any]]:
         return None
 
 def _calculate_reduction(rewriting_steps: List[int]) -> float:
-    """计算reduction值"""
+    """Calculate reduction value"""
     if not rewriting_steps or len(rewriting_steps) < 2:
         return 0.0
     
-    # 简单的reduction计算：(初始步数 - 最终步数) / 初始步数
+    # Simple reduction calculation: (initial steps - final steps) / initial steps
     initial_steps = rewriting_steps[0]
     final_steps = rewriting_steps[-1]
     
@@ -97,23 +97,23 @@ def _calculate_reduction(rewriting_steps: List[int]) -> float:
         return 0.0
     
     reduction = (initial_steps - final_steps) / initial_steps
-    return max(0.0, min(1.0, reduction))  # 限制在0-1之间
+    return max(0.0, min(1.0, reduction))  # Limit between 0-1
 
 def _expand_opcode_name(opcode_name: str) -> List[str]:
-    """展开opcode名称，如DUP -> DUP1-16, SWAP -> SWAP1-16, PUSH -> PUSH1-32, LOG -> LOG0-4"""
+    """Expand opcode names, e.g., DUP -> DUP1-16, SWAP -> SWAP1-16, PUSH -> PUSH1-32, LOG -> LOG0-4"""
     if opcode_name == "DUP":
-        return ["DUP1-16"]  # 简化为范围表示
+        return ["DUP1-16"]  # Simplified as range representation
     elif opcode_name == "SWAP":
-        return ["SWAP1-16"]  # 简化为范围表示
+        return ["SWAP1-16"]  # Simplified as range representation
     elif opcode_name == "PUSH":
-        return ["PUSH1-32"]  # 简化为范围表示
+        return ["PUSH1-32"]  # Simplified as range representation
     elif opcode_name == "LOG":
-        return ["LOG0-4"]  # 简化为范围表示
+        return ["LOG0-4"]  # Simplified as range representation
     else:
-        return [opcode_name]  # 其他opcode不展开
+        return [opcode_name]  # Other opcodes are not expanded
 
 def parse_prove_summaries_data(prove_file: str) -> Dict[str, Dict[str, Any]]:
-    """解析prove_summaries_results.json文件，提取opcode验证信息"""
+    """Parse prove_summaries_results.json file, extract opcode verification information"""
     prove_data = load_json_file(prove_file)
     if not prove_data:
         return {}
@@ -121,8 +121,8 @@ def parse_prove_summaries_data(prove_file: str) -> Dict[str, Dict[str, Any]]:
     prove_results = {}
     
     for test in prove_data.get('test_results', []):
-        # 从test_id中提取opcode名称
-        # 格式: "src/tests/integration/test_prove.py::test_prove_summaries[SAR-SUMMARY]"
+        # Extract opcode name from test_id
+        # Format: "src/tests/integration/test_prove.py::test_prove_summaries[SAR-SUMMARY]"
         test_id = test.get('test_id', '')
         if '-SUMMARY]' in test_id:
             opcode = test_id.split('[')[1].split('-')[0]
@@ -138,14 +138,14 @@ def parse_prove_summaries_data(prove_file: str) -> Dict[str, Dict[str, Any]]:
     return prove_results
 
 def process_step3_data(input_file: str, output_file: str, prove_file: str = None):
-    """处理第三步数据，生成perfx兼容的JSON格式"""
+    """Process step 3 data, generate perfx-compatible JSON format"""
     
-    # 加载原始数据
+    # Load original data
     data = load_json_file(input_file)
     if data is None:
         return False
     
-    # 加载prove_summaries数据
+    # Load prove_summaries data
     prove_results = {}
     if prove_file and Path(prove_file).exists():
         prove_results = parse_prove_summaries_data(prove_file)
@@ -153,13 +153,13 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
     else:
         print(f"⚠️  Prove_summaries file not found or not specified: {prove_file}")
     
-    # 创建opcode到分类的映射
+    # Create opcode to category mapping
     opcode_to_category = {}
     for category_name, category_data in OPCODE_CATEGORIES.items():
         for opcode in category_data['opcodes']:
             opcode_to_category[opcode] = category_name
     
-    # 创建perfx兼容的数据结构
+    # Create perfx-compatible data structure
     processed_data = {
         "metadata": {
             "source": input_file,
@@ -168,10 +168,10 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
             "description": "EVM Opcode Summarization Evaluation Results",
             "processed_by": "process_step3_data.py"
         },
-        "categories": {}  # 分类统计
+        "categories": {}  # Category statistics
     }
     
-    # 初始化所有分类的统计信息
+    # Initialize statistics for all categories
     for category_name in OPCODE_CATEGORIES.keys():
         processed_data["categories"][category_name] = {
             "category": category_name,
@@ -188,7 +188,7 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
             "avg_reduction": 0.0,
             "success_opcodes": "",
             "failed_opcodes": "",
-            # 新增验证相关字段
+            # New verification-related fields
             "verification_total": 0,
             "verification_passed": 0,
             "verification_failed": 0,
@@ -196,7 +196,7 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
             "avg_verification_time": 0.0
         }
     
-    # 添加Total分类用于存储总计信息
+    # Add Total category for storing summary information
     processed_data["categories"]["Total"] = {
         "category": "Total",
         "total_count": 0,
@@ -212,7 +212,7 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
         "avg_reduction": 0.0,
         "success_opcodes": "",
         "failed_opcodes": "",
-        # 新增验证相关字段
+                    # New verification-related fields
         "verification_total": 0,
         "verification_passed": 0,
         "verification_failed": 0,
@@ -220,25 +220,25 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
         "avg_verification_time": 0.0
     }
     
-    # 处理原始数据
+    # Process original data
     results_list = data.get('results', [])
     if not results_list:
         results_list = data if isinstance(data, list) else []
     
     print(f"📋 Found {len(results_list)} opcode results")
     
-    # 从原始数据中循环处理每个opcode
+    # Loop through each opcode from original data
     for item in results_list:
         if not isinstance(item, dict) or 'opcode' not in item:
             continue
             
         opcode = item['opcode']
         
-        # 处理opcode别名
+        # Handle opcode aliases
         if opcode in opcode_aliases:
             opcode = opcode_aliases[opcode]
         
-        # 检查opcode是否在分类中
+        # Check if opcode is in any category
         if opcode not in opcode_to_category:
             print(f"❌ Error: Opcode '{item['opcode']}' (mapped to '{opcode}') not found in any category!")
             return False
@@ -246,11 +246,11 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
         category_name = opcode_to_category[opcode]
         rewriting_steps = item.get('rewriting_steps') or []
         
-        # 处理单个opcode结果
+        # Process individual opcode result
         status = 'success' if item.get('success', False) else 'failed'
         time = item.get('time')
         
-        # 解析rewriting_steps：第一个是gas路径，第二个是nogas路径
+        # Parse rewriting_steps: first is gas path, second is nogas path
         gas_steps = None
         nogas_steps = None
         
@@ -259,13 +259,13 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
             nogas_steps = rewriting_steps[1]
         elif len(rewriting_steps) == 1:
             gas_steps = rewriting_steps[0]
-            nogas_steps = rewriting_steps[0]  # 如果只有一个值，gas和nogas都使用这个值
+            nogas_steps = rewriting_steps[0]  # If there's only one value, both gas and nogas use this value
         
-        # 展开opcode名称（如DUP -> DUP1-16）
+        # Expand opcode names (e.g., DUP -> DUP1-16)
         expanded_opcodes = _expand_opcode_name(opcode)
         actual_count = len(expanded_opcodes)
         
-        # 更新分类统计
+        # Update category statistics
         category_stats = processed_data["categories"][category_name]
         category_stats["total_count"] += actual_count
         
@@ -274,18 +274,18 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
         else:
             category_stats["failed_count"] += actual_count
         
-        # 累计性能数据
+        # Accumulate performance data
         if time is not None:
             category_stats["avg_time"] += float(time)
         
-        # 累计gas和nogas步数（只有成功的opcode才计算）
+        # Accumulate gas and nogas steps (only calculate for successful opcodes)
         if status == 'success':
             if gas_steps is not None:
                 category_stats["avg_gas_steps"] += float(gas_steps)
             if nogas_steps is not None:
                 category_stats["avg_nogas_steps"] += float(nogas_steps)
             
-            # 累计总的步数（gas和nogas的平均值）
+            # Accumulate total steps (average of gas and nogas)
             if gas_steps is not None and nogas_steps is not None:
                 total_steps = (gas_steps + nogas_steps) / 2
                 category_stats["avg_steps"] += float(total_steps)
@@ -294,28 +294,28 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
             elif nogas_steps is not None:
                 category_stats["avg_steps"] += float(nogas_steps)
             
-            # 添加成功的opcode到字符串
+            # Add successful opcodes to string
             if category_stats["success_opcodes"]:
                 category_stats["success_opcodes"] += ", " + ", ".join(expanded_opcodes)
             else:
                 category_stats["success_opcodes"] = ", ".join(expanded_opcodes)
         else:
-            # 添加失败的opcode到字符串
+            # Add failed opcodes to string
             if category_stats["failed_opcodes"]:
                 category_stats["failed_opcodes"] += ", " + ", ".join(expanded_opcodes)
             else:
                 category_stats["failed_opcodes"] = ", ".join(expanded_opcodes)
     
-    # 计算每个分类的平均值和成功率
+    # Calculate averages and success rates for each category
     for category_name, category_stats in processed_data["categories"].items():
-        if category_name == "Total":  # 跳过Total分类，稍后计算
+        if category_name == "Total":  # Skip Total category, calculate later
             continue
             
         total_count = category_stats["total_count"]
         if total_count > 0:
             category_stats["success_rate"] = (category_stats["successful_count"] / total_count) * 100
             
-            # 计算平均值（基于实际处理的opcode数量）
+            # Calculate averages (based on actual processed opcode count)
             processed_opcodes = 0
             for item in results_list:
                 if not isinstance(item, dict) or 'opcode' not in item:
@@ -329,13 +329,13 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
             if processed_opcodes > 0:
                 category_stats["avg_time"] = category_stats["avg_time"] / processed_opcodes
                 
-                # 计算gas和nogas的平均步数（基于实际处理的opcode数量，不是展开后的数量）
+                # Calculate average gas and nogas steps (based on actual processed opcode count, not expanded count)
                 if processed_opcodes > 0:
                     category_stats["avg_gas_steps"] = category_stats["avg_gas_steps"] / processed_opcodes
                     category_stats["avg_nogas_steps"] = category_stats["avg_nogas_steps"] / processed_opcodes
                     category_stats["avg_steps"] = category_stats["avg_steps"] / processed_opcodes
                     
-                    # 计算reduction
+                    # Calculate reduction
                     if category_stats["avg_gas_steps"] > 0:
                         category_stats["avg_gas_reduction"] = ((category_stats["avg_gas_steps"] - 1) / category_stats["avg_gas_steps"]) * 100
                     if category_stats["avg_nogas_steps"] > 0:
@@ -343,25 +343,25 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
                     if category_stats["avg_steps"] > 0:
                         category_stats["avg_reduction"] = ((category_stats["avg_steps"] - 1) / category_stats["avg_steps"]) * 100
     
-    # 处理验证数据
+    # Process verification data
     for opcode, prove_info in prove_results.items():
         if opcode in opcode_to_category:
             category_name = opcode_to_category[opcode]
             category_stats = processed_data["categories"][category_name]
             
-            # 更新验证统计
+            # Update verification statistics
             category_stats["verification_total"] += 1
             if prove_info['success']:
                 category_stats["verification_passed"] += 1
             else:
                 category_stats["verification_failed"] += 1
             
-            # 累计验证时间
+            # Accumulate verification time
             category_stats["avg_verification_time"] += prove_info['duration']
     
-    # 计算验证统计
+    # Calculate verification statistics
     for category_name, category_stats in processed_data["categories"].items():
-        if category_name == "Total":  # 跳过Total分类，稍后计算
+        if category_name == "Total":  # Skip Total category, calculate later
             continue
             
         verification_total = category_stats["verification_total"]
@@ -369,7 +369,7 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
             category_stats["verification_success_rate"] = (category_stats["verification_passed"] / verification_total) * 100
             category_stats["avg_verification_time"] = category_stats["avg_verification_time"] / verification_total
     
-    # 计算Total分类的统计信息 - 完全按opcode计算
+    # Calculate Total category statistics - completely based on opcode calculation
     total_category = processed_data["categories"]["Total"]
     total_opcodes = 0
     total_successful = 0
@@ -378,17 +378,17 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
     total_gas_steps = 0.0
     total_nogas_steps = 0.0
     total_steps = 0.0
-    successful_opcodes_count = 0  # 成功处理的opcode数量（用于计算平均值）
+    successful_opcodes_count = 0  # Number of successfully processed opcodes (for calculating averages)
     all_success_opcodes = []
     all_failed_opcodes = []
     
-    # 验证统计
+    # Verification statistics
     total_verification = 0
     total_verification_passed = 0
     total_verification_failed = 0
     total_verification_time = 0.0
     
-    # 完全按opcode计算Total统计信息
+    # Calculate Total statistics completely based on opcode
     for item in results_list:
         if not isinstance(item, dict) or 'opcode' not in item:
             continue
@@ -397,7 +397,7 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
         if opcode in opcode_aliases:
             opcode = opcode_aliases[opcode]
         
-        # 检查opcode是否在分类中
+        # Check if opcode is in any category
         if opcode not in opcode_to_category:
             continue
         
@@ -405,24 +405,24 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
         time = item.get('time')
         rewriting_steps = item.get('rewriting_steps') or []
         
-        # 展开opcode名称（如DUP -> DUP1-16）
+        # Expand opcode names (e.g., DUP -> DUP1-16)
         expanded_opcodes = _expand_opcode_name(opcode)
         actual_count = len(expanded_opcodes)
         
-        # 累计计数（按opcode的展开数量）
+        # Accumulate counts (based on expanded opcode count)
         total_opcodes += actual_count
         if status == 'success':
             total_successful += actual_count
         else:
             total_failed += actual_count
         
-        # 累计时间（按展开数量计算）
+        # Accumulate time (calculated based on expanded count)
         if time is not None:
-            total_time += float(time) * actual_count  # 修改：时间乘以展开数量
+            total_time += float(time) * actual_count  # Modified: time multiplied by expanded count
         
-        # 累计步数（只有成功的opcode，按展开数量计算）
+        # Accumulate steps (only successful opcodes, calculated based on expanded count)
         if status == 'success':
-            successful_opcodes_count += actual_count  # 修改：成功数量也按展开数量计算
+            successful_opcodes_count += actual_count  # Modified: successful count also based on expanded count
             
             if len(rewriting_steps) >= 2:
                 gas_steps = rewriting_steps[0]
@@ -433,7 +433,7 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
             else:
                 continue
             
-            # 修改：步数也乘以展开数量
+            # Modified: steps also multiplied by expanded count
             total_gas_steps += float(gas_steps) * actual_count
             total_nogas_steps += float(nogas_steps) * actual_count
             
@@ -444,7 +444,7 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
             elif nogas_steps is not None:
                 total_steps += nogas_steps * actual_count
         
-        # 收集opcode列表
+        # Collect opcode lists
         if status == 'success':
             if all_success_opcodes:
                 all_success_opcodes.append(", ".join(expanded_opcodes))
@@ -456,7 +456,7 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
             else:
                 all_failed_opcodes = [", ".join(expanded_opcodes)]
     
-    # 填充Total分类的统计信息
+    # Fill Total category statistics
     total_category["total_count"] = total_opcodes
     total_category["successful_count"] = total_successful
     total_category["failed_count"] = total_failed
@@ -465,13 +465,13 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
         total_category["success_rate"] = (total_successful / total_opcodes) * 100
     
     if successful_opcodes_count > 0:
-        # 修改：平均值计算基于展开后的数量
+        # Modified: average calculation based on expanded count
         total_category["avg_time"] = total_time / successful_opcodes_count
         total_category["avg_gas_steps"] = total_gas_steps / successful_opcodes_count
         total_category["avg_nogas_steps"] = total_nogas_steps / successful_opcodes_count
         total_category["avg_steps"] = total_steps / successful_opcodes_count
         
-        # 计算reduction（逻辑保持不变）
+        # Calculate reduction (logic remains unchanged)
         if total_category["avg_gas_steps"] > 0:
             total_category["avg_gas_reduction"] = ((total_category["avg_gas_steps"] - 1) / total_category["avg_gas_steps"]) * 100
         if total_category["avg_nogas_steps"] > 0:
@@ -479,13 +479,13 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
         if total_category["avg_steps"] > 0:
             total_category["avg_reduction"] = ((total_category["avg_steps"] - 1) / total_category["avg_steps"]) * 100
     
-    # 合并所有opcodes
+    # Merge all opcodes
     if all_success_opcodes:
         total_category["success_opcodes"] = ", ".join(all_success_opcodes)
     if all_failed_opcodes:
         total_category["failed_opcodes"] = ", ".join(all_failed_opcodes)
     
-    # 处理验证数据
+    # Process verification data
     for opcode, prove_info in prove_results.items():
         total_verification += 1
         if prove_info['success']:
@@ -494,7 +494,7 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
             total_verification_failed += 1
         total_verification_time += prove_info['duration']
     
-    # 填充验证统计
+    # Fill verification statistics
     total_category["verification_total"] = total_verification
     total_category["verification_passed"] = total_verification_passed
     total_category["verification_failed"] = total_verification_failed
@@ -503,7 +503,7 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
         total_category["verification_success_rate"] = (total_verification_passed / total_verification) * 100
         total_category["avg_verification_time"] = total_verification_time / total_verification
     
-    # 保存处理后的数据
+    # Save processed data
     output_path = Path(output_file)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
@@ -531,29 +531,29 @@ def process_step3_data(input_file: str, output_file: str, prove_file: str = None
     return True
 
 def main():
-    parser = argparse.ArgumentParser(description="第三步数据处理器")
+    parser = argparse.ArgumentParser(description="Step 3 Data Processor")
     parser.add_argument("--input", default="results/data/summarize_evaluation_results.json", 
-                       help="输入文件路径")
+                       help="Input file path")
     parser.add_argument("--output", default="results/processed/step3_processed.json", 
-                       help="输出文件路径")
+                       help="Output file path")
     parser.add_argument("--prove", default="results/data/prove_summaries_results.json",
-                       help="prove_summaries_results.json文件路径")
+                       help="prove_summaries_results.json file path")
     
     args = parser.parse_args()
     
-    print("🔄 开始处理第三步数据...")
+    print("🔄 Starting to process Step 3 data...")
     
     if not Path(args.input).exists():
-        print(f"❌ 输入文件不存在: {args.input}")
+        print(f"❌ Input file does not exist: {args.input}")
         sys.exit(1)
     
-    # 处理主要数据
+    # Process main data
     success = process_step3_data(args.input, args.output, args.prove)
     
     if success:
-        print("🎉 第三步数据处理完成！")
+        print("🎉 Step 3 data processing completed!")
     else:
-        print("❌ 第三步数据处理失败！")
+        print("❌ Step 3 data processing failed!")
         sys.exit(1)
 
 if __name__ == "__main__":

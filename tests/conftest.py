@@ -189,5 +189,5 @@ def sample_config_file(temp_dir, sample_config):
     return config_file
 
 
-# Mock 数据现在从 tests/mock_data.py 导入
-# 可以直接使用导入的变量，无需 fixture
+# Mock data is now imported from tests/mock_data.py
+# Can directly use imported variables without fixture

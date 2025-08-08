@@ -1,6 +1,6 @@
 name: "EVM Semantics Evaluation"
 version: "1.0.0"
-description: "评估EVM语义的性能和正确性"
+description: "Evaluate the performance and correctness of EVM semantics"
 
 metadata:
   author: "Jianhong Zhao"
@@ -18,7 +18,7 @@ global:
 
 steps:
   - name: "build"
-    description: "构建KEVM语义"
+    description: "Build KEVM semantics"
     enabled: true
     commands:
       - command: "make build-llvm"
@@ -31,7 +31,7 @@ steps:
     parser: "build_parser"
     
   - name: "conformance_test"
-    description: "一致性测试"
+    description: "Conformance testing"
     enabled: true
     depends_on: ["build"]
     commands:
@@ -43,7 +43,7 @@ steps:
     output_format: "json"
     
   - name: "performance_test"
-    description: "性能测试"
+    description: "Performance testing"
     enabled: true
     depends_on: ["build"]
     commands:

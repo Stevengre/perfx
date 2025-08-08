@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-LaTeX 表格生成器
-用于从 JSON 数据生成学术论文级别的 LaTeX 表格
+LaTeX Table Generator
+Used to generate academic paper-level LaTeX tables from JSON data
 """
 
 import os
@@ -13,39 +13,39 @@ from rich.console import Console
 console = Console()
 
 class LatexTableGenerator:
-    """通用的LaTeX表格生成器，不依赖特定项目"""
+    """Generic LaTeX table generator, not dependent on specific projects"""
     
     def __init__(self):
         self.console = Console()
     
     def generate_generic_table(self, json_file_path: str, output_path: str, table_config: Dict[str, Any]) -> bool:
         """
-        生成通用LaTeX表格
+        Generate generic LaTeX table
         
         Args:
-            json_file_path: 输入JSON文件路径
-            output_path: 输出LaTeX文件路径
-            table_config: 表格配置
+            json_file_path: Input JSON file path
+            output_path: Output LaTeX file path
+            table_config: Table configuration
             
         Returns:
-            是否成功生成
+            Whether generation was successful
         """
         try:
-            # 读取JSON数据
+            # Read JSON data
             with open(json_file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             
-            # 生成LaTeX内容
+            # Generate LaTeX content
             latex_content = self._generate_generic_latex(data, table_config)
             
-            # 保存文件
+            # Save file
             output_dir = os.path.dirname(output_path)
             if output_dir:
                 os.makedirs(output_dir, exist_ok=True)
             with open(output_path, 'w', encoding='utf-8') as f:
                 f.write(latex_content)
             
-            self.console.print(f"[green]✓ LaTeX 表格已生成: {output_path}[/green]")
+            self.console.print(f"[green]✓ LaTeX table generated: {output_path}[/green]")
             return True
             
         except Exception as e:
@@ -53,14 +53,14 @@ class LatexTableGenerator:
             return False
     
     def _generate_generic_latex(self, data: Dict[str, Any], table_config: Dict[str, Any]) -> str:
-        """生成通用的LaTeX表格内容"""
+        """Generate generic LaTeX table content"""
         
-        # 提取配置
+        # Extract configuration
         title = table_config.get('title', 'Generated Table')
         data_path = table_config.get('data_path', '')
         columns = table_config.get('columns', [])
         
-        # 提取数据
+        # Extract data
         if data_path:
             table_data = self._extract_data_by_path(data, data_path)
         else:
@@ -72,7 +72,7 @@ class LatexTableGenerator:
         if not columns:
             return f"% Error: No columns defined for table '{table_config.get('name', 'unknown')}'"
         
-        # 生成LaTeX表格
+        # Generate LaTeX table
         latex_lines = [
             "\\begin{table}[htbp]",
             "\\centering",
@@ -80,19 +80,19 @@ class LatexTableGenerator:
             f"\\label{{tab:{table_config.get('name', 'table')}}}",
         ]
         
-        # 表格格式
+        # Table format
         col_format = "|" + "|".join(["c"] * len(columns)) + "|"
         latex_lines.append(f"\\begin{{tabular}}{{{col_format}}}")
         latex_lines.append("\\hline")
         
-        # 表头
+        # Table header
         headers = [col["header"] for col in columns]
         latex_lines.append(" & ".join(headers) + " \\\\")
         latex_lines.append("\\hline")
         
-        # 表格数据
+        # Table data
         if isinstance(table_data, dict):
-            # 字典数据：每行是一个键值对
+            # Dictionary data: each row is a key-value pair
             for key, item in table_data.items():
                 if isinstance(item, dict):
                     row_data = []
@@ -103,12 +103,12 @@ class LatexTableGenerator:
                         row_data.append(formatted_value)
                     latex_lines.append(" & ".join(row_data) + " \\\\")
                 else:
-                    # 简单键值对
+                    # Simple key-value pair
                     row_data = [str(key), self._format_value(item, columns[1].get("format", "text"))]
                     latex_lines.append(" & ".join(row_data) + " \\\\")
         
         elif isinstance(table_data, list):
-            # 列表数据：每行是一个对象
+            # List data: each row is an object
             for item in table_data:
                 if isinstance(item, dict):
                     row_data = []
@@ -126,7 +126,7 @@ class LatexTableGenerator:
         return "\n".join(latex_lines)
     
     def _extract_data_by_path(self, data: Dict[str, Any], path: str) -> Any:
-        """根据路径提取数据"""
+        """Extract data by path"""
         if not path:
             return data
         

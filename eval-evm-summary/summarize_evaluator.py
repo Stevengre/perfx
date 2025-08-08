@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-独立的摘要化评估脚本
-用于在 perfx 配置中调用，实现与 eval/evaluate_summarize.py 相同的功能
+Independent summarization evaluation script
+Used to be called in perfx configuration, implementing the same functionality as eval/evaluate_summarize.py
 """
 
 import sys
@@ -12,7 +12,7 @@ import traceback
 from typing import List, Dict, Any
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
-# 添加 kevm-pyk 到 Python 路径
+# Add kevm-pyk to Python path
 kevm_pyk_path = os.path.join(os.path.dirname(__file__), '..', 'repositories', 'evm-semantics', 'kevm-pyk')
 if os.path.exists(kevm_pyk_path):
     sys.path.insert(0, kevm_pyk_path)
@@ -67,14 +67,14 @@ OPCODE_CATEGORIES = {
 }
 
 def get_opcode_category(opcode: str) -> str:
-    """获取 opcode 的分类"""
+    """Get the category of an opcode"""
     for cat, op_list in OPCODE_CATEGORIES.items():
         if opcode in op_list:
             return cat
     return "UNKNOWN"
 
 def summarize_worker(opcode: str) -> Dict[str, Any]:
-    """单个 opcode 的摘要化评估工作函数"""
+    """Individual opcode summarization evaluation worker function"""
     start = time.time()
     entry = {
         "opcode": opcode,
@@ -146,25 +146,25 @@ def summarize_worker(opcode: str) -> Dict[str, Any]:
 
 def evaluate_summarize_effectiveness(timeout_sec: int = 600, max_workers: int = 4, skip_opcodes: List[str] = None) -> List[Dict[str, Any]]:
     """
-    评估所有 opcode 的摘要化有效性
+    Evaluate the summarization effectiveness of all opcodes
     
     Args:
-        timeout_sec: 每个 opcode 评估的超时时间（秒）
-        max_workers: 最大并行工作进程数
-        skip_opcodes: 要跳过的 opcode 列表
+        timeout_sec: Timeout for each opcode evaluation (seconds)
+        max_workers: Maximum number of parallel worker processes
+        skip_opcodes: List of opcodes to skip
     
     Returns:
-        包含每个 opcode 评估结果的字典列表
+        List of dictionaries containing evaluation results for each opcode
     """
     if skip_opcodes is None:
         skip_opcodes = []
     
-    # 过滤掉要跳过的 opcodes
+    # Filter out opcodes to skip
     opcodes_to_evaluate = {opcode: info for opcode, info in OPCODES.items() if opcode not in skip_opcodes}
     
     if skip_opcodes:
-        print(f"跳过 opcodes: {', '.join(skip_opcodes)}")
-        print(f"评估 {len(opcodes_to_evaluate)} 个 opcodes，总共 {len(OPCODES)} 个")
+            print(f"Skipping opcodes: {', '.join(skip_opcodes)}")
+    print(f"Evaluating {len(opcodes_to_evaluate)} opcodes out of {len(OPCODES)} total")
     
     results = []
     with ProcessPoolExecutor(max_workers=max_workers) as executor:
@@ -185,7 +185,7 @@ def evaluate_summarize_effectiveness(timeout_sec: int = 600, max_workers: int = 
                 }
             results.append(result)
     
-    # 将跳过的 opcodes 添加到结果中
+            # Add skipped opcodes to results
     for opcode in skip_opcodes:
         results.append({
             "opcode": opcode,
@@ -200,48 +200,48 @@ def evaluate_summarize_effectiveness(timeout_sec: int = 600, max_workers: int = 
     return results
 
 def main():
-    """主函数"""
+    """Main function"""
     import argparse
     
     parser = argparse.ArgumentParser(description="EVM Opcode Summarization Evaluator")
-    parser.add_argument("--timeout", type=int, default=1800, help="每个 opcode 的超时时间（秒）")
-    parser.add_argument("--workers", type=int, default=4, help="并行工作进程数")
+    parser.add_argument("--timeout", type=int, default=1800, help="Timeout for each opcode (seconds)")
+    parser.add_argument("--workers", type=int, default=4, help="Number of parallel worker processes")
     parser.add_argument("--skip-opcodes", nargs="+", default=[
         'BASEFEE', 'CALL', 'CALLCODE', 'CALLVALUE', 'CREATE', 'CREATE2',
         'DELEGATECALL', 'EXTCODECOPY', 'EXTCODEHASH', 'EXTCODESIZE',
         'JUMP', 'JUMPI', 'MUL', 'SELFDESTRUCT', 'STATICCALL', 'EXP', 'SAR', 'SHA3'
-    ], help="要跳过的 opcode 列表")
-    parser.add_argument("--output", default="results/data/summarize_evaluation_results.json", help="输出文件路径")
-    parser.add_argument("--verbose", action="store_true", help="详细输出")
+    ], help="List of opcodes to skip")
+    parser.add_argument("--output", default="results/data/summarize_evaluation_results.json", help="Output file path")
+    parser.add_argument("--verbose", action="store_true", help="Verbose output")
     
     args = parser.parse_args()
     
     if args.verbose:
-        print("开始 EVM Opcode 摘要化评估...")
-        print(f"超时时间: {args.timeout} 秒")
-        print(f"工作进程数: {args.workers}")
-        print(f"跳过的 opcodes: {', '.join(args.skip_opcodes)}")
+            print("Starting EVM Opcode Summarization Evaluation...")
+    print(f"Timeout: {args.timeout} seconds")
+    print(f"Number of worker processes: {args.workers}")
+    print(f"Skipped opcodes: {', '.join(args.skip_opcodes)}")
     
-    # 执行评估
+    # Execute evaluation
     results = evaluate_summarize_effectiveness(
         timeout_sec=args.timeout,
         max_workers=args.workers,
         skip_opcodes=args.skip_opcodes
     )
     
-    # 统计结果
+    # Count results
     successful = sum(1 for r in results if r["success"])
     failed = sum(1 for r in results if not r["success"] and r["error"] != "SKIPPED")
     skipped = sum(1 for r in results if r["error"] == "SKIPPED")
     
     if args.verbose:
-        print(f"\n评估完成:")
-        print(f"  成功: {successful}")
-        print(f"  失败: {failed}")
-        print(f"  跳过: {skipped}")
-        print(f"  总计: {len(results)}")
+            print(f"\nEvaluation completed:")
+    print(f"  Successful: {successful}")
+    print(f"  Failed: {failed}")
+    print(f"  Skipped: {skipped}")
+    print(f"  Total: {len(results)}")
     
-    # 保存结果
+    # Save results
     os.makedirs(os.path.dirname(args.output), exist_ok=True)
     with open(args.output, 'w', encoding='utf-8') as f:
         json.dump({
@@ -261,9 +261,9 @@ def main():
         }, f, indent=2, ensure_ascii=False)
     
     if args.verbose:
-        print(f"结果已保存到: {args.output}")
+        print(f"Results saved to: {args.output}")
     
-    # 返回退出码
+    # Return exit code
     return 0 if failed == 0 else 1
 
 if __name__ == "__main__":

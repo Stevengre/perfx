@@ -41,7 +41,7 @@ class TestRealisticMockData:
         parser = PytestParser(config)
         result = parser.parse(real_pytest_output["stdout"], "", 1)  # exit_code=1 because there are failed tests
 
-        assert result["success"] is False  # 有失败的测试
+        assert result["success"] is False  # There are failed tests
         assert result["total_tests"] == 8
         assert result["passed_tests"] == 7
         assert result["failed_tests"] == 1
